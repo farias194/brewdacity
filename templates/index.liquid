@@ -1,2 +1,8 @@
 <h1>Hello fuckers</h1>
 <img width="250" height="'250'" src="{{'espresso.jpg' |  asset_url }}"/>
+<ul>
+    <!-- Main menu -->
+{% for link in linklists.main-menu.links -%}
+    {{ link.title | link_to: link.url }}
+  {%- endfor %}
+</ul>
