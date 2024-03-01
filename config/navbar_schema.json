@@ -1,0 +1,26 @@
+{
+    "name": "Navigation Bar Settings",
+
+    "settings": [
+
+        {
+            "type": "color",
+            "id": "color_black",
+            "label": "Alternate Color Black",
+            "default": "#000000" // Black
+          },
+          {
+            "type": "color",
+            "id": "alternate_color_blue",
+            "label": "Alternate Color Blue",
+            "default": "#3498db" // Blue
+          },
+          {
+            "type": "color",
+            "id": "alternate_color_brown",
+            "label": "Alternate Color Brown",
+            "default": "#8B4513" // Brown
+          }
+    ]
+
+}
