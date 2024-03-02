@@ -3,17 +3,26 @@
 <h1 id="nav-title">Brewdacity</h1>
 
 </nav>
-{%schema%}
+{% schema %}
     {
         "name": "Navbar",
-        "settings": [],
+        "class": "top-navbar",
+
+        "settings": [
+            {
+                "id":"topnav",
+                "type": "text",
+                "label": "nav"
+
+            }
+        ],
         "presets": [
             {
                 "name": "Navbar",
-                "settings": []
+                "type": "text"
                 
             }
         ]
 }
-{%endschema%}
+{% endschema %}
 
