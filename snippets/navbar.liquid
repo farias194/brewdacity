@@ -1,4 +1,38 @@
 <link type="text/css" href="{{ 'navbar.css' | asset_url }}" rel="stylesheet">
+
+{%schema%}
+    {
+        "name": "Navbar",
+        "tag": "section",
+        "limit": 1,
+        "settings": [
+            {
+                "type": "text",
+                "id": "navbar",
+                "label": "Navigation Bar"
+
+            }
+        ],
+        "max_blocks": 5,
+        "blocks":[
+        {
+
+        "name": "menu_links",
+        "type": "text",
+        "settings": [
+            {
+                "type": "text",
+                "id": "menu_links",
+                "label": "menu link"
+            }
+        ]
+    
+        }
+    ]
+
+    }
+{%endschema%}
+
 <nav id ='navbar'>
 <h1 id="nav-title">Brewdacity</h1>
 
