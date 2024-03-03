@@ -1,0 +1,23 @@
+{
+  "name": "Navbar",
+  "settings": [
+    {
+      "id": "nav_title",
+      "type": "text",
+      "label": "Navigation Title",
+      "default": "My Store"
+    },
+    {
+      "id": "nav_links",
+      "type": "list",
+      "label": "Navigation Links",
+      "itemType": "text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Default",
+      "category": "Custom"
+    }
+  ]
+}
