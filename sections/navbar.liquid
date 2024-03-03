@@ -1,3 +1,5 @@
+
+
 {% schema %}
     {
       "name": "Navbar",
@@ -25,3 +27,12 @@
     }
     {% endschema %}
     
+
+<nav class="navbar">
+  <h1>{{ section.settings.nav_title }}</h1>
+  <ul class="nav-links">
+    {% for link in section.settings.nav_links %}
+      <li><a href="#">{{ link }}</a></li>
+    {% endfor %}
+  </ul>
+</nav>
