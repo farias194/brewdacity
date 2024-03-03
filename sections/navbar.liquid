@@ -1,37 +1,27 @@
-
-
-{% schema  %} 
-
-{
-  "name": "Navbar",
-  "settings": [
+{% schema %}
     {
-      "id": "nav_title",
-      "type": "text",
-      "label": "Navigation Title",
-      "default": "My Store"
-    },
-    {
-      "id": "nav_links",
-      "type": "list",
-      "label": "Navigation Links",
-      "itemType": "text"
+      "name": "Navbar",
+      "settings": [
+        {
+          "id": "nav_title",
+          "type": "text",
+          "label": "Navigation Title",
+          "default": "My Store"
+        },
+        {
+          "id": "nav_links",
+          "type": "array",
+          "label": "Navigation Links",
+          "info": "Enter the navigation links.",
+          "itemType": "text"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Default",
+          "category": "Custom"
+        }
+      ]
     }
-  ],
-  "presets": [
-    {
-      "name": "Default",
-      "category": "Custom"
-    }
-  ]
-}
- {% endschema %}
-
-<nav class="navbar">
-  <h1>{{ section.settings.nav_title }}</h1>
-  <ul class="nav-links">
-    {% for link in section.settings.nav_links %}
-      <li><a href="#">{{ link }}</a></li>
-    {% endfor %}
-  </ul>
-</nav>
+    {% endschema %}
+    
