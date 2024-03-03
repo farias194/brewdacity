@@ -1,6 +1,32 @@
 
 <!-- sections/navbar.liquid -->    
-{% include 'navbar.schema'  %}
+
+{% schema  %} 
+
+{
+  "name": "Navbar",
+  "settings": [
+    {
+      "id": "nav_title",
+      "type": "text",
+      "label": "Navigation Title",
+      "default": "My Store"
+    },
+    {
+      "id": "nav_links",
+      "type": "list",
+      "label": "Navigation Links",
+      "itemType": "text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Default",
+      "category": "Custom"
+    }
+  ]
+}
+ {% endschema %}
 
 <nav class="navbar">
   <h1>{{ section.settings.nav_title }}</h1>
