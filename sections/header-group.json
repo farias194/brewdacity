@@ -1,0 +1,19 @@
+{
+    "type": "header",
+    "name": "Navigation Bar",
+    "sections": {
+        "logo section": {
+            "type":"logo section",
+            "settings": {}
+        },
+        "nav links":{
+            "type":"nav links",
+            "settings": {}
+        }
+
+    },
+    "order":[
+        "logo section",
+        "nav links"
+    ]
+}
