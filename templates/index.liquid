@@ -1,4 +1,11 @@
-<h1>Come Enjoy a cup of coffee </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{content_for_header}}
+  {{'style.css'| asset_url | stylesheet_tag}}
+</head>
+<body>
+  <h1>Come Enjoy a cup of coffee </h1>
 <img width="250" height="'250'" src="{{'espresso.jpg' |  asset_url }}"/>
 <ul>
     <!-- Main menu -->
@@ -6,4 +13,6 @@
     {{ link.title | link_to: link.url }}
   {%- endfor %}
 </ul>
-{%section 'hero'%}
+
+</body>
+</html>
