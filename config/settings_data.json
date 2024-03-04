@@ -58,6 +58,32 @@
         "settings": {
           "nav_title": "Brewdacity"
         }
+      },
+      "hero": {
+        "type": "hero",
+        "blocks": {
+          "text_block_RFe8g3": {
+            "type": "text_block",
+            "settings": {
+              "hero_text": "Come have a Brewtastic time!",
+              "subline": "you know u wanna"
+            }
+          },
+          "text_block_AGH6hw": {
+            "type": "text_block",
+            "settings": {
+              "hero_text": "Come have a Brewtastic time!",
+              "subline": "you know u wanna"
+            }
+          }
+        },
+        "block_order": [
+          "text_block_RFe8g3",
+          "text_block_AGH6hw"
+        ],
+        "settings": {
+          "hero_section": "shopify:\/\/shop_images\/phonemockup.webp"
+        }
       }
     },
     "content_for_index": [
