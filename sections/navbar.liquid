@@ -20,16 +20,43 @@
           "name": "Default",
           "category": "Custom"
         }
-      ]
+      ],
+      "blocks":[
+        {
+
+      "name": "NavLink",
+      "type": "nav_link",
+    "settings":[{
+
+    "id": "navlink",
+    "type": "text",
+    "label": "Nav Link",
+    "default": "link"
+    },
+    {
+        "id":"link_url",
+        "type": "url",
+        "label": "Link URL",
+        "default": "/"
+    }
+]   
+      
+      }
+    ]
     }
     {% endschema %}
     
 
 <nav class="navbar">
   <h1>{{ section.settings.nav_title }}</h1>
+
   <ul class="nav-links">
-    {% for link in section.settings.nav_links %}
-      <li><a href="#">{{ link }}</a></li>
-    {% endfor %}
-  </ul>
+    {%for block in section.blocks%}
+        {%if block.type =='nav_link'%}
+           <li> <a href="{{block.settings.link_url}}">{{block.settings.navlink}}</a></li>
+
+        {% endif %}
+        {% endfor %}
+        </ul>
+
 </nav>
