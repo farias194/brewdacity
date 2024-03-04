@@ -34,11 +34,27 @@
 
 {% endschema %}
 
+<style>
+
+.hero-section{
+    display: flex;
+    flex-direction: row;
+    
+}
+.hero-text{
+    display: flex;
+    flex-direction: column;
+}
+
+</style>
+
+
 <div class="hero-section">
 
 {%if section.settings.hero_section %}
     <img width="500" height="500" src="{{section.settings.hero_section | img_url: 'master'}}" alt="Hero Image">
     {%endif%}
+
 
     {% if section.blocks.size > 0 %}
         {%for block in section.blocks %}
