@@ -31,13 +31,29 @@
               "navlink": "home",
               "link_url": "\/"
             }
+          },
+          "nav_link_JpCDai": {
+            "type": "nav_link",
+            "settings": {
+              "navlink": "link",
+              "link_url": "\/"
+            }
+          },
+          "nav_link_xUahEV": {
+            "type": "nav_link",
+            "settings": {
+              "navlink": "link",
+              "link_url": "\/"
+            }
           }
         },
         "block_order": [
           "nav_link_aCtCwL",
           "nav_link_c9jfqE",
           "nav_link_gkMWiK",
-          "nav_link_LGdMq3"
+          "nav_link_LGdMq3",
+          "nav_link_JpCDai",
+          "nav_link_xUahEV"
         ],
         "settings": {
           "nav_title": "Brewdacity"
