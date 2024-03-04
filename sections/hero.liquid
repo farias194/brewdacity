@@ -4,7 +4,7 @@
 "tag": "section",
 "settings": [
     {
-        "id":"hero-section",
+        "id":"hero_section",
         "type": "image_picker",
         "label": "Hero Image"
     }
@@ -16,7 +16,7 @@
         "settings": [
             {
                 "type": "text",
-                "id": "hero-text",
+                "id": "hero_text",
                 "label": "Hero Text",
                 "default": "Come have a Brewtastic time!"
             },
@@ -33,3 +33,22 @@
 }
 
 {% endschema %}
+
+<div class="hero-section">
+
+{%if section.settings.hero_section %}
+    <img width="500" height="500" src="{{section.settings.hero_section | img_url: 'master'}}" alt="Hero Image">
+    {%endif%}
+
+    {% if section.blocks.size > 0 %}
+        {%for block in section.blocks %}
+            {%if block.type =='text_block'%}
+                <div class = "hero_text"> 
+                    <h2>{{block.settings.hero-text}}</h2>
+                    <p>{{block.settings.subline}}</p>
+                
+                </div>
+            {%endif%}
+        {% endfor %}
+    {%endif%}
+</div>
