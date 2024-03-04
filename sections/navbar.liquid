@@ -56,8 +56,8 @@
           padding: 1rem
           display: flex;
           width: 100%;
+         flex-wrap: wrap
           flex-direction: row;
-
         }
         
       .nav_title{
@@ -65,7 +65,7 @@
       }
         .nav-links {
           list-style: none;
-          width: auto;
+          width: 75%;
           display: flex;
           flex-direction: row;
           margin: 0;
@@ -79,8 +79,9 @@
       </style>
 
 <nav class="navbar">
-  <h1 class="nav_title">{{ section.settings.nav_title }}</h1>
-
+    <div class="nav_title">
+  <h1 >{{ section.settings.nav_title }}</h1>
+</div>
   <ul class="nav-links">
     {%for block in section.blocks%}
         {%if block.type =='nav_link'%}
