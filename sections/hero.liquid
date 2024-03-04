@@ -1,0 +1,35 @@
+{% schema  %}
+{
+"name": "Hero-Image",
+"tag": "section",
+"settings": [
+    {
+        "id":"hero-section",
+        "type": "image_picker",
+        "label": "Hero Image"
+    }
+],
+"blocks":[
+    {
+        "type": "text_block",
+        "name": "Hero Text",
+        "settings": [
+            {
+                "type": "text",
+                "id": "hero-text",
+                "label": "Hero Text",
+                "default": "Come have a Brewtastic time!"
+            },
+            {
+                "type":"text",
+                "id":"subline",
+                "label": "Subline",
+                "default": "you know u wanna"
+
+            }
+        ]
+    }
+]
+}
+
+{% endschema %}
