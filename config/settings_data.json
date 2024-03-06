@@ -4,10 +4,17 @@
       "navbar": {
         "type": "navbar",
         "blocks": {
-          "nav_link_aCtCwL": {
+          "nav_link_QU7cWf": {
             "type": "nav_link",
             "settings": {
               "navlink": "link",
+              "link_url": "\/"
+            }
+          },
+          "nav_link_aCtCwL": {
+            "type": "nav_link",
+            "settings": {
+              "navlink": "cards",
               "link_url": "\/"
             }
           },
@@ -48,6 +55,7 @@
           }
         },
         "block_order": [
+          "nav_link_QU7cWf",
           "nav_link_aCtCwL",
           "nav_link_c9jfqE",
           "nav_link_gkMWiK",
