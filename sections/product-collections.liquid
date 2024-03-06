@@ -1,0 +1,57 @@
+
+{%schema%}
+{
+    "name": "Product Collection",
+    "settings": [
+        {
+            "type":"text",
+            "id": "collection_title",
+            "label": "Collection Title",
+            "default": "Collection Name" 
+        },
+        {
+            "type": "font_picker",
+            "id": "text_font",
+            "label": "Text Font",
+            "default": "Helvetica, sans-serif"
+
+        }
+
+    ],
+    "blocks": [
+        {
+            "type": "product-details",
+            "name": "Product Details",
+            "settings": [
+                {
+                    "type": "checkbox",
+                    "id": "show_price",
+                    "label": "Show Price",
+                    "default": "true"
+
+                },
+                {
+                    "type": "checkbox",
+                    "id": "show_description",
+                    "label": "Show Description",
+                    "default": "true"
+                }
+            ]
+
+        }
+    ]
+
+}
+
+{%endschema%}
+
+
+
+
+<section class="productCollection">
+    <h2>{{section.settings.collection_title}}</h2> 
+    
+
+
+
+</section>
