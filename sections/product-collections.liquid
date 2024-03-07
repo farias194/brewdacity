@@ -21,9 +21,9 @@
     "blocks":[
         {
 
-        "name": "Product-Collection",
+        "name": "Collection Name",
         "type": "text",
-        "id":"product_name",
+        "id":"collection_name",
 
         "settings": [{
             "id": "collection_name",
@@ -46,10 +46,13 @@
 
 
 <section class="product-collection">
-<h1>{{section.settings.collection_title}}
-    {for block in block}
-</h1>
+<h1>{{section.settings.collection_title}}</h1>
+<div class="collections">
+    {% for block in section.blocks%}
+<h3>{{block.settings.collection_name}}</h3>
+    {%endfor%}
 
+</div>
 
 
 </section>
