@@ -49,11 +49,11 @@
 
 
 <section class="product-collection">
-    <h2>{{section.settings.collection_title}}</h2> 
-    {%for block in section.blocks%}
-ß
-    <p>{{block.settings.show_price}}</p>
-    <p>{{block.settings.show_description}}</p>
+
+  {% for block in section.blocks %}
+    {%section 'product-details' %}
+
+
     {%endfor%}
 
 
