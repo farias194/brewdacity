@@ -17,8 +17,8 @@
 
         }
 
-    ]
-  /* "blocks": [
+    ],
+   "blocks": [
         {
             "type": "text",
             "name": "Product Details",
@@ -41,7 +41,7 @@
         }
   ]
 
-    */
+    
 }
 {%endschema%}
 
@@ -50,13 +50,8 @@
 
 <section class="product-collection">
     <h2>{{section.settings.collection_title}}</h2> 
-    <div class="product-list">
-        
-        {%  section 'product-details' %} 
-
-
-
-    </div>
+    <p>{{block.settings.show_price}}</p>
+    <p>{{block.settings.show_description}}</p>
 
 
 
