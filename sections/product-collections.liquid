@@ -25,11 +25,14 @@
         "type": "text",
         "id":"product_name",
 
-        "settings": [
-
-        {
-
+        "settings": [{
+            "id": "collection_name",
+            "type": "text",
+            "default": "Collection Name",
+            "label": "Collection_Name"
         }
+        
+       
         ]
         
         }
@@ -43,13 +46,9 @@
 
 
 <section class="product-collection">
-
-  {% for block in section.blocks %}
-
-    {%%} '../sections/product-details' %}
-
-
-    {%endfor%}
+<h1>{{section.settings.collection_title}}
+    {for block in block}
+</h1>
 
 
 
