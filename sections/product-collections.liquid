@@ -17,119 +17,24 @@
 
         }
 
-    ],
-   "blocks": [
-        {
-            "type": "text",
-            "name": "Product Details",
-            "settings": [
-                {
-                    "type": "checkbox",
-                    "id": "show_price",
-                    "label": "Show Price",
-                    "default": "true"
-
-                },
-                {
-                    "type": "checkbox",
-                    "id": "show_description",
-                    "label": "Show Description",
-                    "default": "true"
-                }
-            ]
-
-        }
-  ]
+    ]
 
     
 }
 {%endschema%}
 
-{%schema%}
-    {
-        "name": "Product-Details",
-        "settings": [
-            
-        {
-            "type": "text",
-            "id": "title",
-            "label": "Product Name",
-            "default": "Insert Product details here"
-    
-    
-        }
-    
-    ],
-    "blocks":[
-        {
-        "type": "text",
-        "name": "Product Title",
-        "settings": [
-            {
-                "type": "text",
-                "id":"product_title",
-                "label": "Title",
-                "default":"Title"
-            }
-           
-    
-        ]
-    
-    },
-    
-    {
-        "type": "image",
-        "name": "Product Image",
-        "settings": [
-            {
-                "type":"image_picker",
-                "id": "product_image",
-                "label": "Product Image"
-    }
-            ]
-    }
-    ,
-    {
-        "type": "price",
-        "name": "Product Price",
-        "settings": [
-            {
-                "type": "text",
-                "id": "price",
-                "label": "Price",
-                "default": "$10.00"
-            }
-        ]
-    }
-    ]
-    
-    }
-        {%endschema%}
-    
-   
-    
+
 
 
 <section class="product-collection">
 
   {% for block in section.blocks %}
 
-    {%section 'product-details' %}
+    {%render '../sections/product-details' %}
 
 
     {%endfor%}
 
 
-    
-    <div class="product-details">
-        <h3>{{ block.settings.product_title }}</h3>
-        <!--{%if block.settings.image%}
-            <img height="500" width="500" src= "{{ block.settings.product_image | image_url: 'master' }}"  >
-           {%endif%}-->
-         
-        
-          {%if block.settings.price%}
-            <p>{{ block.settings.price }}</p>
-          {% endif %}
-        </div>
+
 </section>
