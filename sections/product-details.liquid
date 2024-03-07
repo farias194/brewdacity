@@ -64,11 +64,9 @@
 {% if block.settings.image %}
     <img height="500" width="500" src= "{{block.settings.image | img_url: 'master' }}" alt ="{{block.settings.title}}" >
    {%endif%}
-   {% if block.settings.show_description %}
-    <p>{{ block.settings.description | escape }}</p>
-  {% endif %}
+ 
 
-  {% if block.settings.show_price %}
+  {% if block.settings.price %}
     <p>{{ block.settings.price }}</p>
   {% endif %}
 </div>
