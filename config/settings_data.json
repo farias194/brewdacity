@@ -92,6 +92,38 @@
         "settings": {
           "hero_section": "shopify:\/\/shop_images\/phonemockup.webp"
         }
+      },
+      "product-collections": {
+        "type": "product-collections",
+        "blocks": {
+          "text_xJyjTX": {
+            "type": "text",
+            "settings": {
+              "subcollection_name": "Chello collection Name"
+            }
+          },
+          "text_GH7EGL": {
+            "type": "text",
+            "settings": {
+              "subcollection_name": "Chello collection Name"
+            }
+          }
+        },
+        "block_order": [
+          "text_xJyjTX",
+          "text_GH7EGL"
+        ],
+        "settings": {
+          "collection_title": "this is a collection Name"
+        }
+      },
+      "product-details": {
+        "type": "product-details",
+        "settings": {
+          "title": "mew card",
+          "product_image": "shopify:\/\/shop_images\/Screenshot_2024-03-07_at_18-35-55_Brewdacity_on_Instagram_Available_Pokemon_Inventory_pt.2_Please_reach_out_for_pricing_pokemon_pocketmonsters_poke_pokemongame_tradingcards_cardgames.png",
+          "price": "$10.00"
+        }
       }
     },
     "content_for_index": [
