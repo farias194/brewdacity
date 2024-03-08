@@ -56,7 +56,7 @@
 <div class="collections">
     <h3>{{block.settings.subcollection_name}}</h3>
  {% for block in section.blocks%}
-{% section 'product-details' %}
+{% render '../sections/product-details' %}
 {%endfor%}
 
 </div>
