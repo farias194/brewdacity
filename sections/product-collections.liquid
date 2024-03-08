@@ -16,29 +16,28 @@
         {
           "name": "Default",
           "category": "Custom"
-        }]
+        }],
         
-   /* "blocks":[
+    "blocks":[
         {
             "type": "text",
 
         "name": "Individual Product Name",
-        "id":"individual_name",
 
 
-        "settings": [{
-
-            "id": "subcollection_name",
+        "settings": [
+            {
             "type": "text",
-            "default": "Chello collection Name",
-            "label": "sub_Name"
+            "id": "subcollection_name",
+            "label": "Sub Name",
+            "default": "Chello collection Name"
         }
         
        
         ]
         
         }
-    ]*/
+    ]
 
     
 }
@@ -54,13 +53,13 @@
 
 <section class="product-collection">
 <h1>{{section.settings.collection_title}}</h1>
-<!--<div class="collections">
+<div class="collections">
+    <h3>{{block.settings.subcollection_name}}</h3>
  {% for block in section.blocks%}
 {% section 'product-details' %}
 {%endfor%}
 
 </div>
 
--->
 
 </section>
