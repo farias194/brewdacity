@@ -66,6 +66,13 @@
 <style>
     .product-collection{
         font-size: 2rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+    }
+    .product-details img{
+        width: 100%;
     }
 </style>
 
@@ -74,14 +81,14 @@
 <section class="product-collection">
 <h1>{{section.settings.collection_title}}</h1>
 <div class="collections">
-    <h3>{{block.settings.product_title}}</h3>
+    <h3>{{block.settings.title}}</h3>
  {% for block in section.blocks%}
 {%endfor%}
 
 </div>
 
 <div class="product-details">
-    <h3>{{ block.settings.product_title }}</h3>
+    <h3>{{ block.settings.title }}</h3>
     {%if block.settings.image%}
         <img height="500" width="500" src= "{{ block.settings.product_image | image_url: 'master' }}" alt="image" >
        {%endif%}
