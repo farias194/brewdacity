@@ -40,12 +40,13 @@
 
 <section class="product-collection">
 <h1>{{section.settings.collection_title}}</h1>
-<!--<div class="collections">
+<div class="collections">
  {% for block in section.blocks%}
-<h3>{{block.settings.subcollection_name}}</h3>
-    {%endfor%}
+{{% section 'product-details' %}}    
+{%endfor%}
 
-</div>-->
+</div>
+
 
 
 </section>
