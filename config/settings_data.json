@@ -70,13 +70,6 @@
       "hero": {
         "type": "hero",
         "blocks": {
-          "text_block_RFe8g3": {
-            "type": "text_block",
-            "settings": {
-              "hero_text": "Come have a Brewtastic time!",
-              "subline": "you know u wanna"
-            }
-          },
           "text_block_AGH6hw": {
             "type": "text_block",
             "settings": {
@@ -86,7 +79,6 @@
           }
         },
         "block_order": [
-          "text_block_RFe8g3",
           "text_block_AGH6hw"
         ],
         "settings": {
@@ -99,19 +91,14 @@
           "text_xJyjTX": {
             "type": "text",
             "settings": {
-              "subcollection_name": "Chello collection Name"
-            }
-          },
-          "text_GH7EGL": {
-            "type": "text",
-            "settings": {
-              "subcollection_name": "Chello collection Name"
+              "title": "Insert Product details here",
+              "product_image": "shopify:\/\/shop_images\/Screenshot_2024-03-07_at_18-36-00_Brewdacity_on_Instagram_Available_Pokemon_Inventory_pt.2_Please_reach_out_for_pricing_pokemon_pocketmonsters_poke_pokemongame_tradingcards_cardgames.png",
+              "price": "$10.00"
             }
           }
         },
         "block_order": [
-          "text_xJyjTX",
-          "text_GH7EGL"
+          "text_xJyjTX"
         ],
         "settings": {
           "collection_title": "this is a collection Name"
