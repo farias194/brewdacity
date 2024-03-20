@@ -80,7 +80,7 @@
     {% for block in section.blocks %}
     <h3>{{ block.settings.title }}</h3>
     {%if block.settings.product_image%}
-        <img height="500" width="500" src="{{ |image_url: 'master' }}" alt ="product image">
+        <img src="{{block.settings.product_image | image_url: 'master' }}" alt ="product image">
        {%endif%}
 
       {%if block.settings.price%}
