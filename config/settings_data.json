@@ -95,10 +95,19 @@
               "product_image": "shopify:\/\/shop_images\/Screenshot_2024-03-07_at_18-36-00_Brewdacity_on_Instagram_Available_Pokemon_Inventory_pt.2_Please_reach_out_for_pricing_pokemon_pocketmonsters_poke_pokemongame_tradingcards_cardgames.png",
               "price": "$10.00"
             }
+          },
+          "text_jHY7a9": {
+            "type": "text",
+            "settings": {
+              "title": "Insert Product details here",
+              "product_image": "shopify:\/\/shop_images\/Screenshot_2024-03-07_at_18-34-48_Brewdacity_on_Instagram_Available_Pokemon_Inventory_pt.3_Please_reach_out_for_pricing_pokemon_pocketmonsters_poke_pokemongame_tradingcards_cardgames.png",
+              "price": "$10.00"
+            }
           }
         },
         "block_order": [
-          "text_xJyjTX"
+          "text_xJyjTX",
+          "text_jHY7a9"
         ],
         "settings": {
           "collection_title": "this is a collection Name"
