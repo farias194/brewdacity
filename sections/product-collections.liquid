@@ -75,7 +75,10 @@
         flex-direction: row;
         flex-wrap: wrap;
     }
- 
+    .product{
+        display: flex;
+        flex-direction: column;
+    }
 </style>
 
 
@@ -85,6 +88,7 @@
 
 
 <div class="product-details">
+    <div class ="product">
     {% for block in section.blocks %}
     <h3>{{ block.settings.title }}</h3>
     {%if block.settings.product_image%}
@@ -95,6 +99,7 @@
         <p>{{ block.settings.price }}</p>
       {% endif %}
       {%endfor%}
+      </div>
     </div>
     
 
