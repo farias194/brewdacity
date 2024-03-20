@@ -64,7 +64,7 @@
         font-size: 2rem;
         width: 100%;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
 
     }
     .product-details img{
@@ -88,7 +88,6 @@
 
 
 <div class="product-details">
-    <div class ="product">
     {% for block in section.blocks %}
     <h3>{{ block.settings.title }}</h3>
     {%if block.settings.product_image%}
@@ -100,7 +99,6 @@
       {% endif %}
       {%endfor%}
       </div>
-    </div>
     
 
 </section>
