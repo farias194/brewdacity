@@ -90,7 +90,7 @@
 <div class="product-details">
     {% for block in section.blocks %}
     <h3>{{ block.settings.title }}</h3>
-    {%if block.settings.product_image%}
+    {%if block.settings.image%}
         <img height="300" width="300" src="{{block.settings.image | image_url: 'master' }}" alt ="product image">
        {%endif%}
 
