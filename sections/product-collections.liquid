@@ -80,6 +80,9 @@
         display: flex;
         flex-direction: column;
     }
+    .product-title{
+        font-size: 1rem;
+    }
 </style>
 
 
@@ -91,7 +94,7 @@
 <div class="product-details">
     {% for block in section.blocks %}
         <div class="product">
-    <h3>{{ block.settings.title }}</h3>
+    <h3 class="prodict-title">{{ block.settings.title }}</h3>
     {%if block.settings.product_image%}
         <img height="300" width="300" src="{{block.settings.product_image | img_url: 'master' }}" alt ="product image">
        {%endif%}
