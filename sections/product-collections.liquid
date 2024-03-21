@@ -96,7 +96,7 @@
 <div class="product-details">
     {% for block in section.blocks %}
         <div class="product">
-    <h4 class="prodict-title">{{ block.settings.title }}</h4>
+    <h4 class="product-title">{{ block.settings.title }}</h4>
     {%if block.settings.product_image%}
         <img height="300" width="300" src="{{block.settings.product_image | img_url: 'master' }}" alt ="product image">
        {%endif%}
