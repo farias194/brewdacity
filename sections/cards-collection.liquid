@@ -26,8 +26,11 @@
 <div class ='products-grid'>
 {% for product in section.settings.collection.products %}
 <div class='card-product'>
-
-<h2>{{product.title}}</h2>
+    <a href="{{ product.url }}">
+        <img width = '500' height='500' src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+        <h2>{{ product.title }}</h2>
+        <p>{{ product.price | money }}</p>
+      </a>
 </div>
 {%endfor%}
 </div>
