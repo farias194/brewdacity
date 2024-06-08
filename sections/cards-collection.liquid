@@ -20,19 +20,22 @@
 
 {% endschema %}
 
-<div class="card-collection">
-
-<h1>{{ section.settings.collection.title }}</h1>
-<div class ='products-grid'>
-{% for product in section.settings.collection.products %}
-<div class='card-product'>
-    <a href="{{ product.url }}">
-        <img width = '500' height='500' src="{{ product.featured_image | image_url: 'medium' }}" alt="{{ product.title }}">
-        <h2>{{ product.title }}</h2>
-        <p>{{ product.price | money }}</p>
-      </a>
-</div>
-{%endfor%}
-</div>
-
-</div>
+{% if section.settings['card-collection'] %}
+    {% assign collection = collections[section.settings['card-collection']] %}
+    {% if collection.products.size > 0 %}
+      <div class="card-collection">
+        <h1>{{ collection.title }}</h1>
+        <div class="products-grid">
+          {% for product in collection.products | limit: section.settings.product_limit %}
+            <div class="card-product">
+              <a href="{{ product.url }}">
+                <img width="500" height="500" src="{{ product.featured_image | image_url: 'medium' }}" alt="{{ product.title }}">
+                <h2>{{ product.title }}</h2>
+                <p>{{ product.price | money }}</p>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  {% endif %}
