@@ -15,13 +15,20 @@
             "type": "nav_link",
             "settings": {
               "navlink": "cards",
-              "link_url": "\/"
+              "link_url": "shopify:\/\/collections\/pokemon-cards"
             }
           },
           "nav_link_c9jfqE": {
             "type": "nav_link",
             "settings": {
               "navlink": "coffee",
+              "link_url": "\/"
+            }
+          },
+          "nav_link_9RYcVe": {
+            "type": "nav_link",
+            "settings": {
+              "navlink": "link",
               "link_url": "\/"
             }
           },
@@ -38,30 +45,15 @@
               "navlink": "home",
               "link_url": "\/"
             }
-          },
-          "nav_link_JpCDai": {
-            "type": "nav_link",
-            "settings": {
-              "navlink": "link",
-              "link_url": "\/"
-            }
-          },
-          "nav_link_xUahEV": {
-            "type": "nav_link",
-            "settings": {
-              "navlink": "link",
-              "link_url": "\/"
-            }
           }
         },
         "block_order": [
           "nav_link_QU7cWf",
           "nav_link_aCtCwL",
           "nav_link_c9jfqE",
+          "nav_link_9RYcVe",
           "nav_link_gkMWiK",
-          "nav_link_LGdMq3",
-          "nav_link_JpCDai",
-          "nav_link_xUahEV"
+          "nav_link_LGdMq3"
         ],
         "settings": {
           "nav_title": "Brewdacity"
