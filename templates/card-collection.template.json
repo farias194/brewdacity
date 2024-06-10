@@ -1,8 +1,10 @@
- 
 {
   "sections": {
-    "main": {
-      "type": "cards-collection"
+    "cards-collection": {
+      "type": "cards-collection",
+      "settings": {
+        "title": "Featured Card Collection"
+      }
     }
   },
   "order": [
