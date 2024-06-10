@@ -1,8 +1,22 @@
 
 
 {% schema %}
+{
+  "name": "Cards Collection",
+  "settings": [
     {
-      "name": "Cards Collection",
-      "settings": []
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Our Card Collection"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Select Collection",
+      "default": "frontpage"
     }
-  {% endschema %}
+  ]
+}
+{% endschema %}
+<div>h1</div>
