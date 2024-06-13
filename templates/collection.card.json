@@ -1,7 +1,7 @@
 {
   "sections": {
     "main": {
-      "type": "card collection",
+      "type": "cards-collection",
       "settings": {
       }
     }
