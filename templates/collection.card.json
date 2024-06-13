@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "main": {
+      "type": "card collection",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
