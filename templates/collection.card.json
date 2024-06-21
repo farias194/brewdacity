@@ -3,6 +3,9 @@
     "main": {
       "type": "cards-collection",
       "settings": {
+        "products-per-page": 16,
+        "columns_mobile": 2,
+        "columns_desktop": 4,
       }
     }
   },
