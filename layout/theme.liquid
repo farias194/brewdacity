@@ -5,7 +5,6 @@
     </head>
     <body>
         {% render 'header' %}
-        {%section 'navbar'%}
         
 {{content_for_layout}}
 {{ 'theme.js' | asset_url | script_tag }}
