@@ -1,0 +1,36 @@
+{% if paginate.pages > 1 %}
+    <nav class="pagination" role="navigation" aria-label="{{ 'pagination.label' | t }}">
+      <span class="pagination__text">{{ 'pagination.page' | t }} {{ paginate.current_page }} {{ 'pagination.of' | t }} {{ paginate.pages }}</span>
+  
+      {% if paginate.previous %}
+        <a href="{{ paginate.previous.url }}" class="pagination__item pagination__item--prev" aria-label="{{ 'pagination.previous' | t }}">
+          <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-arrow-left" viewBox="0 0 10 10"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.47 8.53L3.94 5l3.53-3.53L6.06 0l-5 5 5 5z" fill="currentColor"/></svg>
+        </a>
+      {% else %}
+        <span class="pagination__item pagination__item--prev" aria-hidden="true">
+          <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-arrow-left" viewBox="0 0 10 10"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.47 8.53L3.94 5l3.53-3.53L6.06 0l-5 5 5 5z" fill="currentColor"/></svg>
+        </span>
+      {% endif %}
+  
+      <ul class="pagination__list list-unstyled" role="list">
+        {% for part in paginate.parts %}
+          {% if part.is_link %}
+            <li><a href="{{ part.url }}" class="pagination__item pagination__item--number">{{ part.title }}</a></li>
+          {% else %}
+            <li><span class="pagination__item pagination__item--number pagination__item--current">{{ part.title }}</span></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+  
+      {% if paginate.next %}
+        <a href="{{ paginate.next.url }}" class="pagination__item pagination__item--next" aria-label="{{ 'pagination.next' | t }}">
+          <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-arrow-right" viewBox="0 0 10 10"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.53 8.53L6.06 5 2.53 1.47 3.94 0l5 5-5 5z" fill="currentColor"/></svg>
+        </a>
+      {% else %}
+        <span class="pagination__item pagination__item--next" aria-hidden="true">
+          <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-arrow-right" viewBox="0 0 10 10"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.53 8.53L6.06 5 2.53 1.47 3.94 0l5 5-5 5z" fill="currentColor"/></svg>
+        </span>
+      {% endif %}
+    </nav>
+  {% endif %}
+  
