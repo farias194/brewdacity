@@ -1,7 +1,19 @@
-
 <div>hi</div>
 <div>hello</div>
 
+<div class="product-grid-container">
+  {% paginate collection.products by section.settings.products_per_page %}
+    <ul class="product-grid grid--{{ section.settings.columns_mobile }}-col-mobile grid--{{ section.settings.columns_desktop }}-col-desktop">
+      {% for product in collection.products %}
+        <li class="grid__item">
+          {% render 'product-card', product: product %}
+        </li>
+      {% endfor %}
+    </ul>
+
+    {% render 'pagination', paginate: paginate %}
+  {% endpaginate %}
+</div>
 
 {% schema %}
     {
