@@ -4,6 +4,7 @@
 
 <div class="collection-template">
   {% paginate collection.products by products_per_page %}
+
     <div class="product-grid" style="grid-template-columns: repeat({{ columns_desktop }}, 1fr);">
       {% for product in collection.products %}
         <div class="product-grid__item">
@@ -49,3 +50,23 @@
   ]
 }
 {% endschema %}
+
+<style>
+  .product-grid {
+    display: grid;
+    gap: 20px;
+  }
+  
+  @media (max-width: 749px) {
+    .product-grid {
+      grid-template-columns: repeat({{ columns_mobile }}, 1fr);
+    }
+  }
+
+  @media (min-width: 750px) {
+    .product-grid {
+      grid-template-columns: repeat({{ columns_desktop }}, 1fr);
+    }
+  }
+
+</style>
