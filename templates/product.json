@@ -26,12 +26,16 @@
           "type": "buy-button",
           "settings": {
           }
+        },
+        "image":{
+          "type": "image_picker"
         }
       },
       "block_order": [
         "title",
         "price",
-        "buy-button"
+        "buy-button",
+        "image"
       ],
       "settings": {
       }
