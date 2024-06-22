@@ -1,8 +1,9 @@
 {
   "sections": {
     "main": {
-      "type": "cards-collection",
+      "type": "main-product",
       "settings": {
+        
       }
     }
   },
