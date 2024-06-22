@@ -1,59 +1,6 @@
-<div>hi</div>
-
-{% schema  %} 
-{
-    
-    "name": "main-product",
-    "tag": "section",
-    "class": "section",
-    "blocks": [
-        {
-            "name": "title",
-            "type": "text",
-            "settings": [
-                
-                {
-                    "type": "text",
-                     "id":"title_text",
-                     "label": "Title Text",
-                     "default": "Product Title"   
-
-
-                }
-            ]
-           
-            },
-            {
-                "name": "price",
-                "type":"price"
-
-            },
-                {"name": "buy-button",
-                "type":"buy-button"
-
-            }
-
-
-        
-    ],
-  
-     "settings": [
-
-            {
-                "type": "range",
-                "id": "columns",
-                "label": "columns",
-                "min": 1,
-                "max": 16,
-                "step": 4,
-                "default": 4
-
-
-            }
-
-        
-]
-
-}
-
- {% endschema %}
+{% schema %}
+  {
+    "name": "Section name",
+    "settings": []
+  }
+{% endschema %}
