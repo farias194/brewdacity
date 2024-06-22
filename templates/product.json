@@ -2,12 +2,26 @@
   "sections": {
     "main": {
       "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "text": "My Product Title"
+          }
+        },
+        "price": {
+          "type": "price"
+        },
+        "buy-button": {
+          "type": "buy-button"
+        }
+      },
+      "block_order": ["title", "price", "buy-button"],
       "settings": {
-        
+        "enable_sticky_info": true,
+        "gallery_layout": "stacked"
       }
     }
   },
-  "order": [
-    "main"
-  ]
+  "order": ["main"]
 }
