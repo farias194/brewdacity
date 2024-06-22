@@ -13,6 +13,12 @@
         Buy Now
       </button>
     {% endif %}
+    {% elsif block.type == 'image' %}
+        {% if product.featured_image %}
+          <div class="product-image">
+            <img width='500' height='500'src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.title }}">
+          </div>
+        {% endif %}
   {% endfor %}
 {% schema  %} 
 {
@@ -45,6 +51,10 @@
                 {"name": "buy-button",
                 "type":"buy-button"
 
+            },
+            {
+                "name": "image",
+                "type": "image"
             }
 
 
