@@ -15,6 +15,7 @@
         "title": {
           "type": "text",
           "settings": {
+            "title_text": "Product Title"
           }
         },
         "price": {
@@ -27,17 +28,20 @@
           "settings": {
           }
         },
-        "image":{
-          "type": "image_picker"
+        "image_eMCeen": {
+          "type": "image",
+          "settings": {
+          }
         }
       },
       "block_order": [
         "title",
         "price",
         "buy-button",
-        "image"
+        "image_eMCeen"
       ],
       "settings": {
+        "columns": 2
       }
     }
   },
