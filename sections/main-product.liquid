@@ -1,27 +1,28 @@
 <div>hi</div>
-<div class="container" id=" product-wrapper" >
-{% for block in section.blocks %}
-  {% if block.type == 'text' %}
-    <div class="product-title">
-      {{ block.settings.title_text }}
-    </div>
-  {% elsif block.type == 'price' %}
-    <div class="product-price">
-      {{ product.price | money }}
-    </div>
-  {% elsif block.type == 'buy-button' %}
-    <button class="buy-button">
-      Buy Now
-    </button>
-  {% elsif block.type == 'image' %}
-    {% if product.featured_image %}
-      <div class="product-image">
-        <img src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.title }}">
+<div id="product-wrapper" class="flex-container">
+  {% for block in section.blocks %}
+    {% if block.type == 'text' %}
+      <div class="product-title">
+        {{ block.settings.title_text }}
       </div>
+    {% elsif block.type == 'price' %}
+      <div class="product-price">
+        {{ product.price | money }}
+      </div>
+    {% elsif block.type == 'buy-button' %}
+      <button class="buy-button">
+        Buy Now
+      </button>
+    {% elsif block.type == 'image' %}
+      {% if product.featured_image %}
+        <div class="product-image">
+          <img src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.title }}">
+        </div>
+      {% endif %}
     {% endif %}
-  {% endif %}
-{% endfor %}
+  {% endfor %}
 </div>
+
 {% schema %}
 {
   "name": "main-product",
