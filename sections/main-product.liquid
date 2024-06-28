@@ -1,4 +1,5 @@
 <div>hi</div>
+<div id=" product-wrapper" >
 {% for block in section.blocks %}
   {% if block.type == 'text' %}
     <div class="product-title">
@@ -20,7 +21,7 @@
     {% endif %}
   {% endif %}
 {% endfor %}
-
+</div>
 {% schema %}
 {
   "name": "main-product",
