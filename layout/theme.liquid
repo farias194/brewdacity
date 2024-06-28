@@ -3,6 +3,8 @@
 {{content_for_header}}
 {{'style.css' |  asset_url |  stylesheet_tag}}
 {{'main-product.css' |  asset_url |  stylesheet_tag}}
+{{'buy-button.js' |  asset_url |  script_tag }}
+
     </head>
     <body>
         {% render 'header' %}
@@ -10,7 +12,6 @@
         
 {{content_for_layout}}
 {{ 'theme.js' | asset_url | script_tag }}
-{{'buy-button.js' |  asset_url |  script_tag }}
 
 
     </body>
