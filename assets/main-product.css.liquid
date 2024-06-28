@@ -1,29 +1,31 @@
-.product-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  .product-price {
-    font-size: 20px;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  .buy-button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-  }
-  .product-image img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto 20px;
-  }
-  #product-wrapper{
+#product-wrapper {
     display: flex;
-    width: 100%;
-    flex-direction: column-reverse;
-    padding: 30em;
+    flex-wrap: wrap;
+    gap: 16px; /* Adjust the gap between items as needed */
+  }
+  
+  .product-title,
+  .product-price,
+  .buy-button,
+  .product-image {
+    flex: 1 1 100%; /* Flex-grow, flex-shrink, flex-basis */
+  }
+  
+  /* Add specific styles for different screen sizes */
+  @media (min-width: 768px) {
+    .product-title,
+    .product-price,
+    .buy-button,
+    .product-image {
+      flex: 1 1 48%; /* Adjust for two items per row */
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .product-title,
+    .product-price,
+    .buy-button,
+    .product-image {
+      flex: 1 1 23%; /* Adjust for four items per row */
+    }
   }
