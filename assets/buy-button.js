@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
           console.log('Product added to cart:', data);
           // Optionally, you can redirect to the cart page or show a confirmation message
           // window.location.href = '/cart';
-          alert('Product added to cart');
+   ;
         })
         .catch(error => {
           console.error('Error adding product to cart:', error);
