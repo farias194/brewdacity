@@ -10,9 +10,10 @@
         {{ product.price | money }}
       </div>
     {% elsif block.type == 'buy-button' %}
-      <button class="buy-button" >
-        Buy Now
-      </button>
+      <form id="add-to-cart-form" action="/cart/add" method="post">
+      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+      <button type="submit" class="buy-button">Buy Now</button>
+    </form>
     {% elsif block.type == 'image' %}
       {% if product.featured_image %}
         <div class="product-image">
