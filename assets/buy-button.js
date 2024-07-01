@@ -18,8 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(response => response.json())
         .then(data => {
           console.log('Product added to cart:', data);
-          // Optionally, you can redirect to the cart page or show a confirmation message
-          // window.location.href = '/cart';
+          
    ;
         })
         .catch(error => {
