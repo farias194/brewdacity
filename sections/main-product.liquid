@@ -1,32 +1,25 @@
 <div>hi</div>
 <div id="product-wrapper" class="flex-container">
-  {% for block in section.blocks %}
-    {% if block.type == 'text' %}
-      <div class="product-title">
-        {{ block.settings.title_text }}
-      </div>
-    {% elsif block.type == 'price' %}
-      <div class="product-price">
-        {{ product.price | money }}
-      </div>
-    {% elsif block.type == 'buy-button' %}
-      <form id="add-to-cart-form" action="/cart/add" method="post">
-      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-      <button type="submit" class="buy-button">Buy Now</button>
-    </form>
-    {% elsif block.type == 'image' %}
-      {% if product.featured_image %}
-        <div class="product-image">
-          <img src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.title }}">
+  {% form 'product', product %}
+    {% for block in section.blocks %}
+      {% if block.type == 'text' %}
+        <div class="product-title">
+          {{ block.settings.title_text }}
         </div>
+      {% elsif block.type == 'price' %}
+        <div class="product-price">
+          {{ product.price | money }}
+        </div>
+      {% elsif block.type == 'buy-button' %}
+        <button type="submit" class="buy-button">Buy Now</button>
+      {% elsif block.type == 'image' %}
+        {% if product.featured_image %}
+          <div class="product-image">
+            <img src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.title }}">
+          </div>
+        {% endif %}
       {% endif %}
-    {% endif %}
- 
-  {% endfor %}
-  {% form 'product', product  %}
-    <!-- form content -->
-    <input type="text" name="properties[Monogram]">
-    <input type="submit" value="Add to cart">
+    {% endfor %}
   {% endform %}
 </div>
 
