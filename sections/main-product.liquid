@@ -21,12 +21,13 @@
         </div>
       {% endif %}
     {% endif %}
-    {% form 'product', product  %}
-      <!-- form content -->
-      <input type="text" name="properties[Monogram]">
-      <input type="submit" value="Add to cart">
-    {% endform %}
+ 
   {% endfor %}
+  {% form 'product', product  %}
+    <!-- form content -->
+    <input type="text" name="properties[Monogram]">
+    <input type="submit" value="Add to cart">
+  {% endform %}
 </div>
 
 {% schema %}
