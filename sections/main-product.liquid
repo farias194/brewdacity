@@ -1,4 +1,3 @@
-<div>hi</div>
 <div id="product-wrapper" class="flex-container">
   {% form 'product', product %}
     {% for block in section.blocks %}
@@ -11,7 +10,24 @@
           {{ product.price | money }}
         </div>
       {% elsif block.type == 'buy-button' %}
-        <button type="submit" class="buy-button">Buy Now</button>
+        <div class="product-buy">
+          <!-- Variant Selector -->
+          {% if product.variants.size > 1 %}
+            <select name="id">
+              {% for variant in product.variants %}
+                <option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+              {% endfor %}
+            </select>
+          {% else %}
+            <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+          {% endif %}
+
+          <!-- Quantity Selector -->
+          <input type="number" name="quantity" value="1" min="1" class="quantity-selector">
+
+          <!-- Buy Button -->
+          <button type="submit" class="buy-button">Buy Now</button>
+        </div>
       {% elsif block.type == 'image' %}
         {% if product.featured_image %}
           <div class="product-image">
