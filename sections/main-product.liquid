@@ -1,5 +1,5 @@
 <div id="product-wrapper" class="flex-container">
-  {% form 'product', product %}
+  <form id="add-to-cart-form" action="/cart/add.js" method="post">
     {% for block in section.blocks %}
       {% if block.type == 'text' %}
         <div class="product-title">
@@ -26,7 +26,7 @@
           <input type="number" name="quantity" value="1" min="1" class="quantity-selector">
 
           <!-- Buy Button -->
-          <button type="submit" class="buy-button">Buy Now</button>
+          <button type="submit" class="buy-button">Add to Cart</button>
         </div>
       {% elsif block.type == 'image' %}
         {% if product.featured_image %}
@@ -36,7 +36,7 @@
         {% endif %}
       {% endif %}
     {% endfor %}
-  {% endform %}
+  </form>
 </div>
 
 {% schema %}
