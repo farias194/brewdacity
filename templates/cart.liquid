@@ -29,7 +29,8 @@
               <td>{{ item.price | money }}</td>
               <td>{{ item.line_price | money }}</td>
               <td>
-                <button type="submit" name="updates[{{ item.id }}]" value="0">Remove</button>              </td>
+                <button type="submit" name="updates[]" value="0">Remove</button>
+              </td>
             </tr>
           {% endfor %}
         </tbody>
