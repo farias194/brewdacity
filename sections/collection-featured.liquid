@@ -6,7 +6,7 @@
       {% for product in collections[section.settings.collection].products %}
         <div class="product">
           <a href="{{ product.url }}">
-            <img src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.title }}">
+            <img width = '500' height='500' src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.title }}">
             <h3>{{ product.title }}</h3>
             <p>{{ product.price | money }}</p>
           </a>
