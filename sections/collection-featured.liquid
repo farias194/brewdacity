@@ -1,3 +1,24 @@
+<!-- sections/collection-featured.liquid -->
+
+<div class="collection-featured">
+  {% if section.settings.collection %}
+    <h2>{{ collections[section.settings.collection].title }}</h2>
+    <div class="products-grid">
+      {% for product in collections[section.settings.collection].products %}
+        <div class="product">
+          <a href="{{ product.url }}">
+            <img src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.title }}">
+            <h3>{{ product.title }}</h3>
+            <p>{{ product.price | money }}</p>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>No collection selected</p>
+  {% endif %}
+</div>
+
 {% schema %}
 {
   "name": "Collection Feature",
@@ -6,7 +27,6 @@
       "type": "collection",
       "id": "collection",
       "label": "Select Collection",
-      "default": " "
     }
   ]
 }
