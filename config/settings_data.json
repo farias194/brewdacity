@@ -77,13 +77,20 @@
               "hero_text": "Come have a Brewtastic time!",
               "subline": "you know u wanna"
             }
+          },
+          "button_NTdPeG": {
+            "type": "button",
+            "settings": {
+              "button_link": "shopify:\/\/collections\/coffee",
+              "button_text": "coffee"
+            }
           }
         },
         "block_order": [
-          "text_block_AGH6hw"
+          "text_block_AGH6hw",
+          "button_NTdPeG"
         ],
         "settings": {
-          "hero_section": "shopify:\/\/shop_images\/Screenshot_2024-03-07_at_18-35-14_Brewdacity_on_Instagram_Available_Pokemon_Inventory_pt.3_Please_reach_out_for_pricing_pokemon_pocketmonsters_poke_pokemongame_tradingcards_cardgames.png"
         }
       },
       "product-collections": {
