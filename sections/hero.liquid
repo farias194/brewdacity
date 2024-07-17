@@ -86,7 +86,7 @@
         <div class="hero-text"> 
           <h2>{{ block.settings.hero_text }}</h2>
           <p>{{ block.settings.subline }}</p>
-          {%if block.settings.button_link and block.settings.button_text %}
+          {%if block.type == 'button_link' %}
             <a class="hero-button" href="{{block.settings.button_link}}">{{block.settings.button_text}}</a>
           {% endif %}
         </div>
