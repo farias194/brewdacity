@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "current": {
     "sections": {
@@ -120,6 +129,12 @@
           "title": "mew card",
           "product_image": "shopify:\/\/shop_images\/Screenshot_2024-03-07_at_18-35-55_Brewdacity_on_Instagram_Available_Pokemon_Inventory_pt.2_Please_reach_out_for_pricing_pokemon_pocketmonsters_poke_pokemongame_tradingcards_cardgames.png",
           "price": "$10.00"
+        }
+      },
+      "collection-featured": {
+        "type": "collection-featured",
+        "settings": {
+          "collection": "pokemon-boxes"
         }
       }
     },
