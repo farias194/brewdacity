@@ -51,9 +51,7 @@
 </style>
 
 
-<div class="hero-section">
-{%if section.settings.hero_section %}
-    <img width="500" height="500" src="{{section.settings.hero_section | img_url: 'master'}}" alt="Hero Image">
+<div class="hero-section" style="background-image: url({{ section.settings.hero_section | img_url: 'master' }});">{%if section.settings.hero_section %}
     {%endif%}
 
 
