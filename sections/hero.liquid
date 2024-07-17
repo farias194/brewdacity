@@ -74,7 +74,7 @@
           <p>{{ block.settings.subline }}</p>
           {%if block.settings.button_link and block.settings.button_text %}
             <a href="{{block.settings.button_link}}">{{block.settings.button_text}}</a>
-          {%endif%}
+          {% endif %}
         </div>
       {% endif %}
     {% endfor %}
