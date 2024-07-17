@@ -4,6 +4,28 @@
   {% if section.settings.collection %}
     <h2>{{ collections[section.settings.collection].title }}</h2>
     <div class="products-grid">
+      {% assign columns_desktop = section.settings.columns_desktop %}
+      {% assign columns_mobile = section.settings.columns_mobile %}
+      
+      <style>
+        .products-grid {
+          display: grid;
+          gap: 10px;
+        }
+
+        @media (min-width: 768px) {
+          .products-grid {
+            grid-template-columns: repeat({{ columns_desktop }}, 1fr);
+          }
+        }
+
+        @media (max-width: 767px) {
+          .products-grid {
+            grid-template-columns: repeat({{ columns_mobile }}, 1fr);
+          }
+        }
+      </style>
+
       {% for product in collections[section.settings.collection].products %}
         <div class="product">
           <a href="{{ product.url }}">
@@ -26,7 +48,23 @@
     {
       "type": "collection",
       "id": "collection",
-      "label": "Select Collection",
+      "label": "Select Collection"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "label": "Columns on Desktop",
+      "min": 1,
+      "max": 6,
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "columns_mobile",
+      "label": "Columns on Mobile",
+      "min": 1,
+      "max": 2,
+      "default": 2
     }
   ]
 }
