@@ -15,7 +15,7 @@
         "text_block_VtQLFd": {
           "type": "text_block",
           "settings": {
-            "color_title": "#FFFFFF",
+            "color_title": "#ffffff",
             "hero_text": "Come have a Brewtastic time!",
             "subline": "you know you wanna"
           }
@@ -34,6 +34,29 @@
       ],
       "settings": {
         "hero_section": "shopify:\/\/shop_images\/person-stands-on-rocks-poking-out-of-the-ocean-shoreline.jpg"
+      }
+    },
+    "drink-menu-section": {
+      "type": "drink-menu-section",
+      "blocks": {
+        "text_pEdHLd": {
+          "type": "text",
+          "settings": {
+            "drink_name": "coffee"
+          }
+        },
+        "price_hUqNdf": {
+          "type": "price",
+          "settings": {
+            "price": "10"
+          }
+        }
+      },
+      "block_order": [
+        "text_pEdHLd",
+        "price_hUqNdf"
+      ],
+      "settings": {
       }
     },
     "collection-featured": {
@@ -87,19 +110,13 @@
         "header": "",
         "header_color": "#000000"
       }
-    },
-    "drink-menu-section":{
-        "type": "drink-menu-section",
-        "settings":{
-
-        }
     }
   },
   "order": [
     "hero",
+    "drink-menu-section",
     "collection-featured",
     "product-details",
-    "about-section",
-    "drink-menu-section"
+    "about-section"
   ]
 }
