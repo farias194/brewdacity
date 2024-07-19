@@ -1,3 +1,5 @@
+
+
 <div class="drink-menu-container"> 
   {% if section.blocks.size > 0 %}
     {% for block in section.blocks %}
@@ -10,7 +12,18 @@
   {% else %}
     <p>No items added to the menu.</p>
   {% endif %}
+
+
+
 </div>
+<style>
+
+.drink-menu-container {
+    display: flex;
+    flex-direction: column;
+
+}
+</style>
 
 {% schema %} 
 {
