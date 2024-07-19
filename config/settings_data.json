@@ -133,6 +133,33 @@
         ],
         "settings": {
         }
+      },
+      "about-section": {
+        "type": "about-section",
+        "blocks": {
+          "header_hPkWMt": {
+            "type": "header",
+            "settings": {
+              "header": "About Us",
+              "color": "#c66363"
+            }
+          },
+          "text_QDRtfY": {
+            "type": "text",
+            "settings": {
+              "paragraph": "information about us here",
+              "color": "#000000"
+            }
+          }
+        },
+        "block_order": [
+          "header_hPkWMt",
+          "text_QDRtfY"
+        ],
+        "settings": {
+          "header": "",
+          "header_color": "#000000"
+        }
       }
     },
     "content_for_index": [
