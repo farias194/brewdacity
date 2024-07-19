@@ -1,31 +1,39 @@
-<div>Hi there</div>
+<div class='about-us'>
+  <div>{{ section.settings.header }}</div>
+  {% if section.blocks.size > 0 %}
+    {% for block in section.blocks %}
+      {% if block.type == 'text' %}
+        <div>{{ block.settings.paragraph }}</div>
+      {% endif %}
+    {% endfor %}
+  {% else %}
+    <p>No blocks added</p>
+  {% endif %}
+</div>
 
-
-
-{% schema  %} 
+{% schema %}
 {
-    "name": "About Section",
-    "settings": [
+  "name": "About Section",
+  "settings": [
     {
-        "type": "text",
-        "id":"header",
-        "label": "Header Text"
-
+      "type": "text",
+      "id": "header",
+      "label": "Header Text"
     }
-    
-],
-"blocks" : [
-{
-    "type": "text",
-    "name": "About Us Text",
-    "settings": [{
-    "id" : "paragraph",
-    "label": "About Us",
-    "default" : "information about us here"
-
-    }]
-}
-]
-
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "About Us Text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "paragraph",
+          "label": "About Us",
+          "default": "information about us here"
+        }
+      ]
+    }
+  ]
 }
 {% endschema %}
