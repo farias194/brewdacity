@@ -1,0 +1,22 @@
+{
+    "sections": {
+      "hero": {
+        "type": "hero"
+      },
+      "collection-featured": {
+        "type": "collection-featured"
+      },
+      "product-details": {
+        "type": "product-details"
+      },
+      "about-section": {
+        "type": "about-section"
+      }
+    },
+    "order": [
+      "hero",
+      "collection-featured",
+      "product-details",
+      "about-section"
+    ]
+  }
