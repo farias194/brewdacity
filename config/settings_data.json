@@ -50,6 +50,7 @@
           "text_block_AGH6hw": {
             "type": "text_block",
             "settings": {
+              "color_title": "#e0b5b5",
               "hero_text": "Come have a Brewtastic time!",
               "subline": "you know u wanna"
             }
@@ -117,10 +118,20 @@
       },
       "collection-featured": {
         "type": "collection-featured",
+        "blocks": {
+          "collection_U7aFQE": {
+            "type": "collection",
+            "settings": {
+              "collection": "pokemon-boxes",
+              "columns_desktop": 4,
+              "columns_mobile": 3
+            }
+          }
+        },
+        "block_order": [
+          "collection_U7aFQE"
+        ],
         "settings": {
-          "collection": "pokemon-boxes",
-          "columns_desktop": 4,
-          "columns_mobile": 3
         }
       }
     },
