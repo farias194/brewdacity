@@ -1,22 +1,39 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
-    "sections": {
-      "hero": {
-        "type": "hero"
-      },
-      "collection-featured": {
-        "type": "collection-featured"
-      },
-      "product-details": {
-        "type": "product-details"
-      },
-      "about-section": {
-        "type": "about-section"
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
       }
     },
-    "order": [
-      "hero",
-      "collection-featured",
-      "product-details",
-      "about-section"
-    ]
-  }
+    "collection-featured": {
+      "type": "collection-featured",
+      "settings": {
+      }
+    },
+    "product-details": {
+      "type": "product-details",
+      "settings": {
+      }
+    },
+    "about-section": {
+      "type": "about-section",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "collection-featured",
+    "product-details",
+    "about-section"
+  ]
+}
