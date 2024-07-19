@@ -1,9 +1,17 @@
 <div class='about-us'>
-  <div>{{ section.settings.header }}</div>
+  <div style="color: {{ section.settings.header_color }}">
+    {{ section.settings.header }}
+  </div>
   {% if section.blocks.size > 0 %}
     {% for block in section.blocks %}
       {% if block.type == 'text' %}
-        <div>{{ block.settings.paragraph }}</div>
+        <div style="color: {{ block.settings.color }}">
+          {{ block.settings.paragraph }}
+        </div>
+      {% elsif block.type == 'header' %}
+        <h2 style="color: {{ block.settings.color }}">
+          {{ block.settings.header }}
+        </h2>
       {% endif %}
     {% endfor %}
   {% else %}
@@ -19,9 +27,33 @@
       "type": "text",
       "id": "header",
       "label": "Header Text"
+    },
+    {
+      "type": "color",
+      "id": "header_color",
+      "label": "Header Color",
+      "default": "#000000"
     }
   ],
   "blocks": [
+    {
+      "type": "header",
+      "name": "About Us Header",
+      "settings": [
+        {
+          "type": "text",
+          "id": "header",
+          "label": "Header",
+          "default": "About Us"
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Header Color",
+          "default": "#000000"
+        }
+      ]
+    },
     {
       "type": "text",
       "name": "About Us Text",
@@ -31,6 +63,12 @@
           "id": "paragraph",
           "label": "About Us",
           "default": "information about us here"
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Text Color",
+          "default": "#000000"
         }
       ]
     }
