@@ -11,22 +11,81 @@
   "sections": {
     "hero": {
       "type": "hero",
+      "blocks": {
+        "text_block_VtQLFd": {
+          "type": "text_block",
+          "settings": {
+            "color_title": "#FFFFFF",
+            "hero_text": "Come have a Brewtastic time!",
+            "subline": "you know you wanna"
+          }
+        },
+        "button_YL33FB": {
+          "type": "button",
+          "settings": {
+            "button_link": "\/",
+            "button_text": "Learn More"
+          }
+        }
+      },
+      "block_order": [
+        "text_block_VtQLFd",
+        "button_YL33FB"
+      ],
       "settings": {
+        "hero_section": "shopify:\/\/shop_images\/person-stands-on-rocks-poking-out-of-the-ocean-shoreline.jpg"
       }
     },
     "collection-featured": {
       "type": "collection-featured",
+      "blocks": {
+        "collection_8XraH7": {
+          "type": "collection",
+          "settings": {
+            "collection": "pokemon-boxes",
+            "columns_desktop": 4,
+            "columns_mobile": 3
+          }
+        }
+      },
+      "block_order": [
+        "collection_8XraH7"
+      ],
       "settings": {
       }
     },
     "product-details": {
       "type": "product-details",
       "settings": {
+        "title": "Insert Product details here",
+        "price": "$10.00"
       }
     },
     "about-section": {
       "type": "about-section",
+      "blocks": {
+        "header_rxj7LJ": {
+          "type": "header",
+          "settings": {
+            "header": "About Us",
+            "color": "#000000"
+          }
+        },
+        "text_tpdJYq": {
+          "type": "text",
+          "settings": {
+            "paragraph": "information about us here",
+            "color": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "header_rxj7LJ",
+        "text_tpdJYq"
+      ],
       "settings": {
+        "header": "",
+        "header_color": "#000000"
       }
     }
   },
