@@ -28,6 +28,12 @@
       "type": "about-section",
       "settings": {
       }
+    },
+    "drink-menu-section":{
+        "type": "drink-menu-section",
+        "settings":{
+            
+        }
     }
   },
   "order": [
