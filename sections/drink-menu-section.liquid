@@ -1,0 +1,44 @@
+<div class="drink-menu-container"> 
+  {% if section.blocks.size > 0 %}
+    {% for block in section.blocks %}
+      {% if block.type == 'text' %}
+        <div class="drink-name">{{ block.settings.drink_name }}</div>
+      {% elsif block.type == 'price' %}
+        <div class="drink-price">{{ block.settings.price | money }}</div>
+      {% endif %}
+    {% endfor %}
+  {% else %}
+    <p>No items added to the menu.</p>
+  {% endif %}
+</div>
+
+{% schema %} 
+{
+  "name": "menu",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "drink-name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "drink_name",
+          "label": "Drink Name"
+        }
+      ]
+    },
+    {
+      "type": "price",
+      "name": "price",
+      "settings": [
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Drink Price"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
