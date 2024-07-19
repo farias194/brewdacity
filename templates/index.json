@@ -91,7 +91,7 @@
     "drink-menu-section":{
         "type": "drink-menu-section",
         "settings":{
-            
+
         }
     }
   },
@@ -99,6 +99,7 @@
     "hero",
     "collection-featured",
     "product-details",
-    "about-section"
+    "about-section",
+    "drink-menu-section"
   ]
 }
