@@ -1,16 +1,20 @@
 <div class="drink-menu-container"> 
-  {% if section.settings.drink_name and section.settings.price %}
-    <div class="drink-item">
-      <div class="drink-name">{{ section.settings.drink_name }}</div>
-      <div class="drink-price">{{ section.settings.price | money }}</div>
-    </div>
+  {% if section.blocks.size > 0 %}
+    {% for block in section.blocks %}
+      {% if block.type == 'drink_item' %}
+        <div class="drink-item">
+          <div class="drink-name">{{ block.settings.drink_name }}</div>
+          <div class="drink-price">{{ block.settings.drink_price | money }}</div>
+        </div>
+      {% endif %}
+    {% endfor %}
   {% else %}
     <p>No items added to the menu.</p>
   {% endif %}
 </div>
 
 <style>
-.drink-menu-container {s
+.drink-menu-container {
   display: flex;
   flex-direction: column;
   gap: 1rem; /* Optional: Adds spacing between items */
@@ -29,17 +33,24 @@
 {% schema %} 
 {
   "name": "menu",
-  "settings": [
+  "settings": [],
+  "blocks": [
     {
-      "type": "text",
-      "id": "drink_name",
-      "label": "Drink Name"
-    },
-    {
-      "type": "text",
-      "id": "price",
-      "label": "Drink Price",
-      "default": "10"
+      "type": "drink_item",
+      "name": "Drink Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "drink_name",
+          "label": "Drink Name"
+        },
+        {
+          "type": "text",
+          "id": "drink_price",
+          "label": "Drink Price",
+          "default": "10"
+        }
+      ]
     }
   ],
   "presets": [
