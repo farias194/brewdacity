@@ -1,27 +1,35 @@
-
-
 <div class="drink-menu-container"> 
   {% if section.blocks.size > 0 %}
     {% for block in section.blocks %}
       {% if block.type == 'text' %}
-        <div class="drink-name">{{ block.settings.drink_name }}</div>
+        <div class="drink-item">
+          <div class="drink-name">{{ block.settings.drink_name }}</div>
+        </div>
       {% elsif block.type == 'price' %}
-        <div class="drink-price">{{ block.settings.price | money }}</div>
+        <div class="drink-item">
+          <div class="drink-price">{{ block.settings.price | money }}</div>
+        </div>
       {% endif %}
     {% endfor %}
   {% else %}
     <p>No items added to the menu.</p>
   {% endif %}
-
-
-
 </div>
+
 <style>
-
 .drink-menu-container {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Optional: Adds spacing between items */
+}
 
+.drink-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.drink-name, .drink-price {
+  flex: 1;
 }
 </style>
 
@@ -50,7 +58,6 @@
           "id": "price",
           "label": "Drink Price",
           "default": "10"
-          
         }
       ]
     }
