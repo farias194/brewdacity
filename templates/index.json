@@ -36,36 +36,13 @@
         "hero_section": "shopify:\/\/shop_images\/person-stands-on-rocks-poking-out-of-the-ocean-shoreline.jpg"
       }
     },
-    "drink-menu-section": {
-      "type": "drink-menu-section",
-      "blocks": {
-        "text_pEdHLd": {
-          "type": "text",
-          "settings": {
-            "drink_name": "coffee"
-          }
-        },
-        "price_hUqNdf": {
-          "type": "price",
-          "settings": {
-            "price": "10"
-          }
-        }
-      },
-      "block_order": [
-        "text_pEdHLd",
-        "price_hUqNdf"
-      ],
-      "settings": {
-      }
-    },
     "collection-featured": {
       "type": "collection-featured",
       "blocks": {
         "collection_8XraH7": {
           "type": "collection",
           "settings": {
-            "collection": "pokemon-boxes",
+            "collection": "coffee",
             "columns_desktop": 4,
             "columns_mobile": 3
           }
@@ -82,6 +59,31 @@
       "settings": {
         "title": "Insert Product details here",
         "price": "$10.00"
+      }
+    },
+    "drink-menu-section": {
+      "type": "drink-menu-section",
+      "blocks": {
+        "drink_item_dFAw8C": {
+          "type": "drink_item",
+          "settings": {
+            "drink_name": "combucha",
+            "drink_price": "10"
+          }
+        },
+        "drink_item_W68egA": {
+          "type": "drink_item",
+          "settings": {
+            "drink_name": "coffee",
+            "drink_price": "3000"
+          }
+        }
+      },
+      "block_order": [
+        "drink_item_dFAw8C",
+        "drink_item_W68egA"
+      ],
+      "settings": {
       }
     },
     "about-section": {
@@ -114,9 +116,9 @@
   },
   "order": [
     "hero",
-    "drink-menu-section",
     "collection-featured",
     "product-details",
+    "drink-menu-section",
     "about-section"
   ]
 }
