@@ -1,4 +1,4 @@
-fetch('{{ "design-tokens.tokens.json" | asset_url }}')
+fetch('{{ "design-tokens.json" | asset_url }}')
   .then(response => response.json())
   .then(tokens => {
     const root = document.documentElement;
