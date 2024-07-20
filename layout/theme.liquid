@@ -4,13 +4,14 @@
 {{'style.css' |  asset_url |  stylesheet_tag}}
 {{'main-product.css' |  asset_url |  stylesheet_tag}}
 {{'buy-button.js' |  asset_url |  script_tag }}
-{{ 'load-design-tokens.js' | asset_url }}
     </head>
     <body>
         {% render 'header' %}
         {%section 'navbar'%}
         
 {{content_for_layout}}
+{{ 'load-design-tokens.js' | asset_url }}
+
 {{ 'theme.js' | asset_url | script_tag }}
 
 
