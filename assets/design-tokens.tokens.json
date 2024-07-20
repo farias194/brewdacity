@@ -1,0 +1,268 @@
+{
+  "color": {
+    "header-font-color": {
+      "description": "color for headers",
+      "type": "color",
+      "value": "#161515ff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:b414e2197c2477f3550fa0b440e9676bbfa19fb9,",
+          "exportKey": "color"
+        }
+      }
+    },
+    "paragraph-font-color": {
+      "description": "color for paragraphs",
+      "type": "color",
+      "value": "#0f0f0fff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:d128208800102fd6d44c140e0ec46982f20ac119,",
+          "exportKey": "color"
+        }
+      }
+    },
+    "featured-collection-bgcolor": {
+      "description": "possible background color for featured collection",
+      "type": "color",
+      "value": "#4440ffff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:ce38081c84421944ed727288d025b2de162d703a,",
+          "exportKey": "color"
+        }
+      }
+    },
+    "button-color": {
+      "0": {
+        "type": "color",
+        "value": "#3430eeff",
+        "blendMode": "normal"
+      },
+      "1": {
+        "type": "color",
+        "value": "#677ef8b5",
+        "blendMode": "normal"
+      },
+      "description": "color for button",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:e23935dcd4e4c09438a1b98776b51af1d52de452,",
+          "exportKey": "color"
+        }
+      }
+    }
+  },
+  "font": {
+    "paragraph size": {
+      "description": "font size for paragraph",
+      "type": "custom-fontStyle",
+      "value": {
+        "fontSize": 40,
+        "textDecoration": "none",
+        "fontFamily": "Montserrat",
+        "fontWeight": 500,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 48,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      },
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:241aba4b819dd0497292ac81caf24a62551cbe17,",
+          "exportKey": "font"
+        }
+      }
+    },
+    "header-size": {
+      "description": "font size for header",
+      "type": "custom-fontStyle",
+      "value": {
+        "fontSize": 40,
+        "textDecoration": "none",
+        "fontFamily": "Montserrat",
+        "fontWeight": 900,
+        "fontStyle": "normal",
+        "fontStretch": "normal",
+        "letterSpacing": 0,
+        "lineHeight": 48,
+        "paragraphIndent": 0,
+        "paragraphSpacing": 0,
+        "textCase": "none"
+      },
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "styleId": "S:2bb183dddf8f7b49110af9ddf52599eaeefbfd50,",
+          "exportKey": "font"
+        }
+      }
+    }
+  },
+  "variable collection": {
+    "collection-product-spacing": {
+      "type": "dimension",
+      "value": 10,
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "mode": "Mode 1",
+          "collection": "Variable collection",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "variableId": "VariableID:854:310",
+          "exportKey": "variables"
+        }
+      }
+    },
+    "primary-color": {
+      "type": "color",
+      "value": "#514eefff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "mode": "Mode 1",
+          "collection": "Variable collection",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "variableId": "VariableID:854:316",
+          "exportKey": "variables"
+        }
+      }
+    },
+    "secondary-color": {
+      "type": "color",
+      "value": "#58e47fff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "mode": "Mode 1",
+          "collection": "Variable collection",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "variableId": "VariableID:854:317",
+          "exportKey": "variables"
+        }
+      }
+    },
+    "color 2": {
+      "type": "color",
+      "value": "#ffffffff",
+      "blendMode": "normal",
+      "extensions": {
+        "org.lukasoppermann.figmaDesignTokens": {
+          "mode": "Mode 1",
+          "collection": "Variable collection",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "variableId": "VariableID:854:318",
+          "exportKey": "variables"
+        }
+      }
+    }
+  },
+  "typography": {
+    "paragraph size": {
+      "description": "font size for paragraph",
+      "fontSize": {
+        "type": "dimension",
+        "value": 40
+      },
+      "textDecoration": {
+        "type": "string",
+        "value": "none"
+      },
+      "fontFamily": {
+        "type": "string",
+        "value": "Montserrat"
+      },
+      "fontWeight": {
+        "type": "number",
+        "value": 500
+      },
+      "fontStyle": {
+        "type": "string",
+        "value": "normal"
+      },
+      "fontStretch": {
+        "type": "string",
+        "value": "normal"
+      },
+      "letterSpacing": {
+        "type": "dimension",
+        "value": 0
+      },
+      "lineHeight": {
+        "type": "dimension",
+        "value": 48
+      },
+      "paragraphIndent": {
+        "type": "dimension",
+        "value": 0
+      },
+      "paragraphSpacing": {
+        "type": "dimension",
+        "value": 0
+      },
+      "textCase": {
+        "type": "string",
+        "value": "none"
+      }
+    },
+    "header-size": {
+      "description": "font size for header",
+      "fontSize": {
+        "type": "dimension",
+        "value": 40
+      },
+      "textDecoration": {
+        "type": "string",
+        "value": "none"
+      },
+      "fontFamily": {
+        "type": "string",
+        "value": "Montserrat"
+      },
+      "fontWeight": {
+        "type": "number",
+        "value": 900
+      },
+      "fontStyle": {
+        "type": "string",
+        "value": "normal"
+      },
+      "fontStretch": {
+        "type": "string",
+        "value": "normal"
+      },
+      "letterSpacing": {
+        "type": "dimension",
+        "value": 0
+      },
+      "lineHeight": {
+        "type": "dimension",
+        "value": 48
+      },
+      "paragraphIndent": {
+        "type": "dimension",
+        "value": 0
+      },
+      "paragraphSpacing": {
+        "type": "dimension",
+        "value": 0
+      },
+      "textCase": {
+        "type": "string",
+        "value": "none"
+      }
+    }
+  }
+}

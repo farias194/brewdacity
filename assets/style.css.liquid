@@ -1,9 +1,39 @@
-:root{
-    --bodyTextSize: 1.2em;
-    --headerTextSize: calc(--bodyTextSize * 2);
-}
-
-html{
-    margin: 0px;
-    padding: 0px;
-}
+:root {
+    // Fallback values (optional)
+    --header-font-color: #161515;
+    --paragraph-font-color: #0f0f0f;
+    --featured-collection-bgcolor: #4440ff;
+    --button-color-0: #3430ee;
+    --button-color-1: #677ef8;
+    --paragraph-size-fontSize: 40px;
+    --paragraph-size-lineHeight: 48px;
+    --header-size-fontSize: 40px;
+    --header-size-lineHeight: 48px;
+  }
+  
+  .header {
+    color: var(--header-font-color);
+    font-size: var(--header-size-fontSize);
+    line-height: var(--header-size-lineHeight);
+    font-family: "Montserrat";
+    font-weight: 900;
+  }
+  
+  .paragraph {
+    color: var(--paragraph-font-color);
+    font-size: var(--paragraph-size-fontSize);
+    line-height: var(--paragraph-size-lineHeight);
+    font-family: "Montserrat";
+    font-weight: 500;
+  }
+  
+  .featured-collection {
+    background-color: var(--featured-collection-bgcolor);
+  }
+  
+  .button {
+    background-color: var(--button-color-0);
+    &:hover {
+      background-color: var(--button-color-1);
+    }
+  }
