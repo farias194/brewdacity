@@ -77,11 +77,19 @@
             "drink_name": "coffee",
             "drink_price": "3000"
           }
+        },
+        "drink_item_M6KqXm": {
+          "type": "drink_item",
+          "settings": {
+            "drink_name": "hi",
+            "drink_price": "7000"
+          }
         }
       },
       "block_order": [
         "drink_item_dFAw8C",
-        "drink_item_W68egA"
+        "drink_item_W68egA",
+        "drink_item_M6KqXm"
       ],
       "settings": {
       }
@@ -129,6 +137,7 @@
         "text_aMDnGW"
       ],
       "settings": {
+        "color_scheme": "dark"
       }
     }
   },
