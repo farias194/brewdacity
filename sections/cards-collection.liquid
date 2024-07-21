@@ -5,16 +5,16 @@
 <div class="collection-template">
   <!-- Sorting Dropdown -->
   <form id="SortByForm" method="get">
-    <label for="SortBy">{{ 'products.facets.sort_by_label' | t }}</label>
+    <label for="SortBy">{{ 'products.facets.sort_by_label'  }}</label>
     <select name="sort_by" id="SortBy" onchange="this.form.submit()">
-      <option value="manual" {% if collection.sort_by == 'manual' %}selected{% endif %}>{{ 'Default' | t }}</option>
-      <option value="best-selling" {% if collection.sort_by == 'best-selling' %}selected{% endif %}>{{ 'Best selling' | t }}</option>
-      <option value="title-ascending" {% if collection.sort_by == 'title-ascending' %}selected{% endif %}>{{ 'Alphabetically, A-Z' | t }}</option>
-      <option value="title-descending" {% if collection.sort_by == 'title-descending' %}selected{% endif %}>{{ 'Alphabetically, Z-A' | t }}</option>
-      <option value="price-ascending" {% if collection.sort_by == 'price-ascending' %}selected{% endif %}>{{ 'Price, low to high' | t }}</option>
-      <option value="price-descending" {% if collection.sort_by == 'price-descending' %}selected{% endif %}>{{ 'Price, high to low' | t }}</option>
-      <option value="created-descending" {% if collection.sort_by == 'created-descending' %}selected{% endif %}>{{ 'Date, new to old' | t }}</option>
-      <option value="created-ascending" {% if collection.sort_by == 'created-ascending' %}selected{% endif %}>{{ 'Date, old to new' | t }}</option>
+      <option value="manual" {% if collection.sort_by == 'manual' %}selected{% endif %}>{{ 'Default'  }}</option>
+      <option value="best-selling" {% if collection.sort_by == 'best-selling' %}selected{% endif %}>{{ 'Best selling'  }}</option>
+      <option value="title-ascending" {% if collection.sort_by == 'title-ascending' %}selected{% endif %}>{{ 'Alphabetically, A-Z' }}</option>
+      <option value="title-descending" {% if collection.sort_by == 'title-descending' %}selected{% endif %}>{{ 'Alphabetically, Z-A'  }}</option>
+      <option value="price-ascending" {% if collection.sort_by == 'price-ascending' %}selected{% endif %}>{{ 'Price, low to high' }}</option>
+      <option value="price-descending" {% if collection.sort_by == 'price-descending' %}selected{% endif %}>{{ 'Price, high to low'  }}</option>
+      <option value="created-descending" {% if collection.sort_by == 'created-descending' %}selected{% endif %}>{{ 'Date, new to old'  }}</option>
+      <option value="created-ascending" {% if collection.sort_by == 'created-ascending' %}selected{% endif %}>{{ 'Date, old to new'  }}</option>
     </select>
   </form>
 
