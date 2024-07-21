@@ -16,10 +16,18 @@
 </div>
 
 <style>
-.footer-container {
-  /* You can add additional styles for the footer container here */
+.footer-container[data-color-scheme="light"] {
+background-color: whitesmoke;
+color: black;
 }
 
+.footer-container[data-color-scheme="accent"] {
+    background-color: aquamarine;
+    color: black;
+}
+.footer-container[data-color-scheme="dark"] {
+background-color: black;
+color: whitesmoke;}
 .footer-header {
   /* Add your footer header styles here */
 }
@@ -35,21 +43,21 @@
   "settings": [
     {
       "type": "select",
-      "id": "bg_color",
-      "label": "Background Color",
-      "default": "#D9D9D9",
+      "id": "color_scheme",
+      "label": "color",
+      "default": "light",
       "options": [
         {
-          "value": "#D9D9D9",
-          "label": "White"
+          "value": "light",
+          "label": "light"
         },
         {
-          "value": "#B4E0EE",
-          "label": "Accent Color"
+          "value": "accent",
+          "label": "accent"
         },
         {
-          "value": "#1D1C1C",
-          "label": "Dark"
+          "value": "dark",
+          "label": "dark"
         }
       ]
     }
