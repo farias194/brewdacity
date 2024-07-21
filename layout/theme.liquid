@@ -10,7 +10,7 @@
     <body>
         {% render 'header' %}
         {%section 'navbar'%}
-        
+        {% section 'footer' %}
 {{content_for_layout}}
 
 {{ 'theme.js' | asset_url | script_tag }}
