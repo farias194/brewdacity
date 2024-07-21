@@ -1,0 +1,73 @@
+<div class="footer-container">
+  {% if section.blocks.size > 0 %}
+    {% for block in section.blocks %}
+      {% if block.type == 'text' %}
+        <div class="footer-header" style="font-weight: {{ block.settings['footer-text-weight'] }}">
+          {{ block.settings['footer-header-text'] }}
+        </div>
+        <div class="footer-text" style="font-weight: {{ block.settings['footer-text-weight'] }}">
+          {{ block.settings['footer-text'] }}
+        </div>
+      {% endif %}
+    {% endfor %}
+  {% else %}
+    <p>No footer content added.</p>
+  {% endif %}
+</div>
+
+<style>
+.footer-container {
+  /* Add your footer container styles here */
+}
+
+.footer-header {
+  /* Add your footer header styles here */
+}
+
+.footer-text {
+  /* Add your footer text styles here */
+}
+</style>
+
+{% schema %}
+    {
+      "name": "Footer",
+      "settings": [],
+      "blocks": [
+        {
+          "type": "text",
+          "name": "footer-text",
+          "settings": [
+            {
+              "type": "text",
+              "label": "Footer Text",
+              "id": "footer-text",
+              "default": "Insert your footer text here"
+            },
+            {
+              "type": "text",
+              "label": "Footer Header Text",
+              "id": "footer-header-text",
+              "default": "Thanks for coming to our store"
+            },
+            {
+              "type": "select",
+              "label": "Font Weight",
+              "id": "footer-text-weight",
+              "default": "normal",
+              "options": [
+                {
+                  "value": "normal",
+                  "label": "Normal"
+                },
+                {
+                  "value": "bold",
+                  "label": "Bold"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+    {% endschema %}
