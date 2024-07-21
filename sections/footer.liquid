@@ -1,4 +1,4 @@
-<div class="footer-container">
+<div class="footer-container" style="{{section.settings.bg_color}}">
   {% if section.blocks.size > 0 %}
     {% for block in section.blocks %}
       {% if block.type == 'text' %}
@@ -32,7 +32,30 @@
 {% schema %}
     {
       "name": "Footer",
-      "settings": [],
+      "settings": [{
+        "type": "select",
+        "id": "bg_color",
+        "label": "background-color",
+        "default": "white",
+        "options": [
+            {
+                "value": "#D9D9D9",
+                "label": "white"
+            },
+            {
+                "value": "#B4E0EE",
+                "label": "accent color"
+            },
+            {
+                "value": "#1D1C1C",
+                "label": "dark"
+            }
+        ]
+
+      }
+        
+
+      ],
       "blocks": [
         {
           "type": "text",
@@ -67,7 +90,8 @@
               ]
             }
           ]
-        }
+        },
+
       ]
     }
     {% endschema %}
