@@ -5,7 +5,7 @@
 <div class="collection-template">
   <!-- Sorting Dropdown -->
   <form id="SortByForm" method="get">
-    <label for="SortBy">{{ 'products.facets.sort_by_label'  }}</label>
+    <label for="SortBy">Sort By : </label>
     <select name="sort_by" id="SortBy" onchange="this.form.submit()">
       <option value="manual" {% if collection.sort_by == 'manual' %}selected{% endif %}>{{ 'Default'  }}</option>
       <option value="best-selling" {% if collection.sort_by == 'best-selling' %}selected{% endif %}>{{ 'Best selling'  }}</option>
