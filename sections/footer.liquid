@@ -1,4 +1,4 @@
-<div class="footer-container" >
+<div class="footer-container" style="background-color: {{ section.settings.bg_color }}">
   {% if section.blocks.size > 0 %}
     {% for block in section.blocks %}
       {% if block.type == 'text' %}
@@ -17,7 +17,8 @@
 
 <style>
 .footer-container {
-background-color: {{ section.settings.bg_color }};}
+  /* You can add additional styles for the footer container here */
+}
 
 .footer-header {
   /* Add your footer header styles here */
@@ -29,44 +30,65 @@ background-color: {{ section.settings.bg_color }};}
 </style>
 
 {% schema %}
+{
+  "name": "Footer",
+  "settings": [
     {
-      "name": "Footer",
-      "settings": [],
-      "blocks": [
+      "type": "select",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#D9D9D9",
+      "options": [
+        {
+          "value": "#D9D9D9",
+          "label": "White"
+        },
+        {
+          "value": "#B4E0EE",
+          "label": "Accent Color"
+        },
+        {
+          "value": "#1D1C1C",
+          "label": "Dark"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "footer-text",
+      "settings": [
         {
           "type": "text",
-          "name": "footer-text",
-          "settings": [
+          "label": "Footer Text",
+          "id": "footer-text",
+          "default": "Insert your footer text here"
+        },
+        {
+          "type": "text",
+          "label": "Footer Header Text",
+          "id": "footer-header-text",
+          "default": "Thanks for coming to our store"
+        },
+        {
+          "type": "select",
+          "label": "Font Weight",
+          "id": "footer-text-weight",
+          "default": "normal",
+          "options": [
             {
-              "type": "text",
-              "label": "Footer Text",
-              "id": "footer-text",
-              "default": "Insert your footer text here"
+              "value": "normal",
+              "label": "Normal"
             },
             {
-              "type": "text",
-              "label": "Footer Header Text",
-              "id": "footer-header-text",
-              "default": "Thanks for coming to our store"
-            },
-            {
-              "type": "select",
-              "label": "Font Weight",
-              "id": "footer-text-weight",
-              "default": "normal",
-              "options": [
-                {
-                  "value": "normal",
-                  "label": "Normal"
-                },
-                {
-                  "value": "bold",
-                  "label": "Bold"
-                }
-              ]
+              "value": "bold",
+              "label": "Bold"
             }
           ]
         }
       ]
     }
-    {% endschema %}
+  ]
+}
+{% endschema %}
