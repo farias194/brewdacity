@@ -3,8 +3,22 @@
 {% assign columns_mobile = section.settings.columns_mobile %}
 
 <div class="collection-template">
-  {% paginate collection.products by products_per_page %}
+  <!-- Sorting Dropdown -->
+  <form id="SortByForm" method="get">
+    <label for="SortBy">{{ 'products.facets.sort_by_label' | t }}</label>
+    <select name="sort_by" id="SortBy" onchange="this.form.submit()">
+      <option value="manual" {% if collection.sort_by == 'manual' %}selected{% endif %}>{{ 'Default' | t }}</option>
+      <option value="best-selling" {% if collection.sort_by == 'best-selling' %}selected{% endif %}>{{ 'Best selling' | t }}</option>
+      <option value="title-ascending" {% if collection.sort_by == 'title-ascending' %}selected{% endif %}>{{ 'Alphabetically, A-Z' | t }}</option>
+      <option value="title-descending" {% if collection.sort_by == 'title-descending' %}selected{% endif %}>{{ 'Alphabetically, Z-A' | t }}</option>
+      <option value="price-ascending" {% if collection.sort_by == 'price-ascending' %}selected{% endif %}>{{ 'Price, low to high' | t }}</option>
+      <option value="price-descending" {% if collection.sort_by == 'price-descending' %}selected{% endif %}>{{ 'Price, high to low' | t }}</option>
+      <option value="created-descending" {% if collection.sort_by == 'created-descending' %}selected{% endif %}>{{ 'Date, new to old' | t }}</option>
+      <option value="created-ascending" {% if collection.sort_by == 'created-ascending' %}selected{% endif %}>{{ 'Date, old to new' | t }}</option>
+    </select>
+  </form>
 
+  {% paginate collection.products by products_per_page %}
     <div class="product-grid" style="grid-template-columns: repeat({{ columns_desktop }}, 1fr);">
       {% for product in collection.products %}
         <div class="product-grid__item">
@@ -68,5 +82,4 @@
       grid-template-columns: repeat({{ columns_desktop }}, 1fr);
     }
   }
-
 </style>
