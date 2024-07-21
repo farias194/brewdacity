@@ -1,4 +1,4 @@
-<div class="footer-container">
+<div class="footer-container" >
   {% if section.blocks.size > 0 %}
     {% for block in section.blocks %}
       {% if block.type == 'text' %}
@@ -17,8 +17,7 @@
 
 <style>
 .footer-container {
-  /* Add your footer container styles here */
-}
+background-color: {{ section.settings.bg_color }};}
 
 .footer-header {
   /* Add your footer header styles here */
