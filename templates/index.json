@@ -123,21 +123,9 @@
     },
     "footer": {
       "type": "footer",
-      "blocks": {
-        "text_aMDnGW": {
-          "type": "text",
-          "settings": {
-            "footer-text": "Insert your footer text here",
-            "footer-header-text": "Thanks for coming to our store",
-            "footer-text-weight": "normal"
-          }
-        }
-      },
-      "block_order": [
-        "text_aMDnGW"
-      ],
+      "disabled": true,
       "settings": {
-        "color_scheme": "dark"
+        "color_scheme": "light"
       }
     }
   },
