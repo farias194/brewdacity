@@ -112,6 +112,9 @@
         "header": "",
         "header_color": "#000000"
       }
+    },
+    "footer":{
+        "type": "footer"
     }
   },
   "order": [
