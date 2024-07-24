@@ -160,6 +160,12 @@
           "header": "",
           "header_color": "#000000"
         }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "color_scheme": "accent"
+        }
       }
     },
     "content_for_index": [
