@@ -36,6 +36,33 @@
         "hero_section": "shopify:\/\/shop_images\/person-stands-on-rocks-poking-out-of-the-ocean-shoreline.jpg"
       }
     },
+    "about-section": {
+      "type": "about-section",
+      "blocks": {
+        "header_rxj7LJ": {
+          "type": "header",
+          "settings": {
+            "header": "About Us",
+            "color": "#000000"
+          }
+        },
+        "text_tpdJYq": {
+          "type": "text",
+          "settings": {
+            "paragraph": "information about us here",
+            "color": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "header_rxj7LJ",
+        "text_tpdJYq"
+      ],
+      "settings": {
+        "header": "",
+        "header_color": "#000000"
+      }
+    },
     "collection-featured": {
       "type": "collection-featured",
       "blocks": {
@@ -94,33 +121,6 @@
       "settings": {
       }
     },
-    "about-section": {
-      "type": "about-section",
-      "blocks": {
-        "header_rxj7LJ": {
-          "type": "header",
-          "settings": {
-            "header": "About Us",
-            "color": "#000000"
-          }
-        },
-        "text_tpdJYq": {
-          "type": "text",
-          "settings": {
-            "paragraph": "information about us here",
-            "color": "#000000"
-          }
-        }
-      },
-      "block_order": [
-        "header_rxj7LJ",
-        "text_tpdJYq"
-      ],
-      "settings": {
-        "header": "",
-        "header_color": "#000000"
-      }
-    },
     "footer": {
       "type": "footer",
       "disabled": true,
@@ -131,10 +131,10 @@
   },
   "order": [
     "hero",
+    "about-section",
     "collection-featured",
     "product-details",
     "drink-menu-section",
-    "about-section",
     "footer"
   ]
 }
