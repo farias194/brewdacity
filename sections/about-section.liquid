@@ -1,3 +1,5 @@
+
+
 <div class='about-us'>
   <div style="color: {{ section.settings.header_color }}">
     {{ section.settings.header }}
@@ -9,7 +11,7 @@
           {{ block.settings.paragraph }}
         </div>
       {% elsif block.type == 'header' %}
-        <h2 style="color: {{ block.settings.color }}">
+        <h2 class = 'about-us-text' style="color: {{ block.settings.color }}">
           {{ block.settings.header }}
         </h2>
       {% endif %}
@@ -19,6 +21,12 @@
   {% endif %}
 </div>
 
+
+<style>
+  .about-us-text{
+    font-size: var(--paragraph-size-fontSize);
+  }
+</style>
 {% schema %}
 {
   "name": "About Section",
