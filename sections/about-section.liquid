@@ -7,7 +7,7 @@
       {% for block in section.blocks %}
         {% if block.type == 'text' %}
           <div class='about-us-text-paragraph' style="color: {{ block.settings.color }}">
-            {{ block.settings.paragraph }}
+            <p>{{ block.settings.paragraph }}</p>
           </div>
         {% elsif block.type == 'header' %}
           <h2 class='about-us-text-header' style="color: {{ block.settings.color }}">
