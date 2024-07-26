@@ -43,14 +43,14 @@
           "type": "header",
           "settings": {
             "header": "About Us",
-            "color": "#000000"
+            "color": "#e5dfdf"
           }
         },
         "text_tpdJYq": {
           "type": "text",
           "settings": {
-            "paragraph": "information about us here",
-            "color": "#000000"
+            "paragraph": "We're a trading card and coffe shop third space for people to come together and trade cards.",
+            "color": "#ebeaea"
           }
         }
       },
@@ -60,7 +60,9 @@
       ],
       "settings": {
         "header": "",
-        "header_color": "#000000"
+        "header_color": "#000000",
+        "alignment": "left",
+        "bg_color": "brewdacity-alternate-bg-color"
       }
     },
     "collection-featured": {
