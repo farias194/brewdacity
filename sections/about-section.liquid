@@ -1,4 +1,4 @@
-<div class="about-us-container">
+<div class="about-us-container" style="background-color: var(--bg-color-{{ section.settings.bg_color }});">
   <div class="about-us {{ section.settings.alignment }}">
     <div style="color: {{ section.settings.header_color }}">
       {{ section.settings.header }}
@@ -111,6 +111,24 @@
           "id": "color",
           "label": "Header Color",
           "default": "#000000"
+        },
+        {
+          "type": "select",
+          "id": "bg_color",
+          "label": "Background Color",
+          "default": "#FFFFFF",
+          "options": [{
+            "value": "brewdacity-bg-color",
+            "label": "Default Color"
+          },
+          {
+            "value": "alternate-bg-color",
+            "label": "Alternate Color"
+          },
+          {
+            "value": "alternate-bg-color-warm",
+            "label": "Alternate Color Warm"
+          }]
         }
       ]
     },
