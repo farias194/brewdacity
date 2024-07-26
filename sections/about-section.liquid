@@ -1,130 +1,129 @@
-
 <div class="about-us-container">
-<div class='about-us {{section.settings.alignment}}'>
-  <div style="color: {{ section.settings.header_color }}">
-    {{ section.settings.header }}
+  <div class='about-us {{ section.settings.alignment }}'>
+    <div style="color: {{ section.settings.header_color }}">
+      {{ section.settings.header }}
+    </div>
+    {% if section.blocks.size > 0 %}
+      {% for block in section.blocks %}
+        {% if block.type == 'text' %}
+          <div class='about-us-text-paragraph' style="color: {{ block.settings.color }}">
+            {{ block.settings.paragraph }}
+          </div>
+        {% elsif block.type == 'header' %}
+          <h2 class='about-us-text-header' style="color: {{ block.settings.color }}">
+            {{ block.settings.header }}
+          </h2>
+        {% endif %}
+      {% endfor %}
+    {% else %}
+      <p>No blocks added</p>
+    {% endif %}
   </div>
-  {% if section.blocks.size > 0 %}
-    {% for block in section.blocks %}
-      {% if block.type == 'text' %}
-        <div class = 'about-us-text-paragraph' style="color: {{ block.settings.color }}">
-          {{ block.settings.paragraph }}
-        </div>
-      {% elsif block.type == 'header' %}
-        <h2 class = 'about-us-text-header' style="color: {{ block.settings.color }}">
-          {{ block.settings.header }}
-        </h2>
-      {% endif %}
-    {% endfor %}
-  {% else %}
-    <p>No blocks added</p>
-  {% endif %}
 </div>
-</div>
+
 
 
 <style>
-  .about-us.left{
-    flex-direction: flex-start;
-  }
-  .about-us.right{
-    flex-direction: flex-end;
-  },
-  .about-us.center{
-    flex-direction: flex-start;
-    justify-content: center;
-  }
-  .about-us-container{
-    width: 100%;
-    display: flex;
+.about-us.left {
+  justify-content: flex-start;
+}
 
-  }
-  .about-us-text-header{
-    font-size: var(--header-size-fontSize);
-  }
-  .about-us-text-paragraph{
-    font-size: var(--paragraph-size-fontSize);
-  }
+.about-us.right {
+  justify-content: flex-end;
+}
+
+.about-us.center {
+  justify-content: center;
+}
+
+.about-us-container {
+  width: 100%;
+  display: flex;
+}
+
+.about-us-text-header {
+  font-size: var(--header-size-fontSize);
+}
+
+.about-us-text-paragraph {
+  font-size: var(--paragraph-size-fontSize);
+}
+
 </style>
 {% schema %}
-{
-  "name": "About Section",
-  "settings": [
-    {
-      "type": "text",
-      "id": "header",
-      "label": "Header Text"
-    },
-    {
-      "type": "color",
-      "id": "header_color",
-      "label": "Header Color",
-      "default": "#000000"
-    },
-    {
-      "type": "select",
-      "id": "alignment",
-      "label": "Alignment",
-      "options":[
-        {
-        "value": "left",
-        "label": "left"},
-
-        {
-          "value":"right",
-          "label": "right"
-          
-        },
-
-        {
-          "value": "center",
-          "label": "center"
-        }
-        
-      
-        
-      ]
-
-
-    }
-  ],
-  "blocks": [
-    {
-      "type": "header",
-      "name": "About Us Header",
-      "settings": [
-        {
-          "type": "text",
-          "id": "header",
-          "label": "Header",
-          "default": "About Us"
-        },
-        {
-          "type": "color",
-          "id": "color",
-          "label": "Header Color",
-          "default": "#000000"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "name": "About Us Text",
-      "settings": [
-        {
-          "type": "text",
-          "id": "paragraph",
-          "label": "About Us",
-          "default": "information about us here"
-        },
-        {
-          "type": "color",
-          "id": "color",
-          "label": "Text Color",
-          "default": "#000000"
-        }
-      ]
-    }
-  ]
-}
-{% endschema %}
+  {
+    "name": "About Section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "header",
+        "label": "Header Text"
+      },
+      {
+        "type": "color",
+        "id": "header_color",
+        "label": "Header Color",
+        "default": "#000000"
+      },
+      {
+        "type": "select",
+        "id": "alignment",
+        "label": "Alignment",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          }
+        ],
+        "default": "left"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "header",
+        "name": "About Us Header",
+        "settings": [
+          {
+            "type": "text",
+            "id": "header",
+            "label": "Header",
+            "default": "About Us"
+          },
+          {
+            "type": "color",
+            "id": "color",
+            "label": "Header Color",
+            "default": "#000000"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "name": "About Us Text",
+        "settings": [
+          {
+            "type": "text",
+            "id": "paragraph",
+            "label": "About Us",
+            "default": "Information about us here"
+          },
+          {
+            "type": "color",
+            "id": "color",
+            "label": "Text Color",
+            "default": "#000000"
+          }
+        ]
+      }
+    ]
+  }
+  {% endschema %}
+  
