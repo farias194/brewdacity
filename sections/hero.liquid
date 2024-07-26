@@ -3,7 +3,7 @@
     <img src="{{ section.settings.hero_image | img_url: 'master' }}" alt="Hero Image">
   {% elsif section.settings.hero_media_type == 'video' %}
     <video autoplay muted loop>
-      <source src="{{ section.settings.hero_video }}" type="video/mp4">
+      <source src="{{ section.settings.hero_video | file_url }}" type="video/mp4">
       Your browser does not support the video tag.
     </video>
   {% endif %}
@@ -95,8 +95,8 @@
     },
     {
       "id": "hero_video",
-      "type": "url",
-      "label": "Hero Video URL"
+      "type": "video_picker",
+      "label": "Hero Video"
     }
   ],
   "blocks": [
