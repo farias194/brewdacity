@@ -7,11 +7,11 @@
   {% if section.blocks.size > 0 %}
     {% for block in section.blocks %}
       {% if block.type == 'text' %}
-        <div style="color: {{ block.settings.color }}">
+        <div class = 'about-us-text-paragraph' style="color: {{ block.settings.color }}">
           {{ block.settings.paragraph }}
         </div>
       {% elsif block.type == 'header' %}
-        <h2 class = 'about-us-text' style="color: {{ block.settings.color }}">
+        <h2 class = 'about-us-text-header' style="color: {{ block.settings.color }}">
           {{ block.settings.header }}
         </h2>
       {% endif %}
@@ -23,7 +23,10 @@
 
 
 <style>
-  .about-us-text{
+  .about-us-text-header{
+    font-size: var(--header-size-fontSize);
+  }
+  .about-us-text-paragraph{
     font-size: var(--paragraph-size-fontSize);
   }
 </style>
