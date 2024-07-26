@@ -60,7 +60,26 @@
 {% schema %}
 {
   "name": "Collection Feature",
-  "settings": [],
+  "settings": [
+    {
+          "type": "select",
+          "id": "bg_color",
+          "label": "Background Color",
+          "default": "brewdacity-bg-color",
+          "options": [{
+            "value": "brewdacity-bg-color",
+            "label": "Default Color"
+          },
+          {
+            "value": "brewdacity-alternate-bg-color",
+            "label": "Alternate Color"
+          },
+          {
+            "value": "brewdacity-alternate-bg-color-warm",
+            "label": "Alternate Color Warm"
+          }]
+}
+  ],
   "blocks": [
     {
       "type": "collection",
