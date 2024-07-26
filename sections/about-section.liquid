@@ -1,6 +1,6 @@
 
 
-<div class='about-us'>
+<div class='about-us {{section.settings.alignment}}'>
   <div style="color: {{ section.settings.header_color }}">
     {{ section.settings.header }}
   </div>
@@ -23,6 +23,20 @@
 
 
 <style>
+  .about-us.left{
+    flex-direction: flex-start;
+  }
+  .about-us.right{
+    flex-direction: flex-end;
+  },
+  .about-us.center{
+    flex-direction: flex-start;
+    justify-content: center;
+  }
+  .about-us{
+    display: flex;
+
+  }
   .about-us-text-header{
     font-size: var(--header-size-fontSize);
   }
@@ -44,6 +58,32 @@
       "id": "header_color",
       "label": "Header Color",
       "default": "#000000"
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Alignment",
+      "options":[
+        {
+        "value": "left",
+        "label": "left"},
+
+        {
+          "value":"right",
+          "label": "right"
+          
+        },
+
+        {
+          "value": "center",
+          "label": "center"
+        }
+        
+      
+        
+      ]
+
+
     }
   ],
   "blocks": [
