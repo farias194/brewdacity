@@ -1,5 +1,5 @@
 
-
+<div class="about-us-container">
 <div class='about-us {{section.settings.alignment}}'>
   <div style="color: {{ section.settings.header_color }}">
     {{ section.settings.header }}
@@ -20,6 +20,7 @@
     <p>No blocks added</p>
   {% endif %}
 </div>
+</div>
 
 
 <style>
@@ -33,7 +34,8 @@
     flex-direction: flex-start;
     justify-content: center;
   }
-  .about-us{
+  .about-us-container{
+    width: 100%;
     display: flex;
 
   }
