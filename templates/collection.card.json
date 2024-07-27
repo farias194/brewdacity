@@ -9,29 +9,20 @@
 */
 {
   "sections": {
-    "main": {
-      "type": "cards-collection",
+    "collection_page_R69U7K": {
+      "type": "collection-page",
       "blocks": {
-        "collection_kYCTqM": {
+        "collection_FCNBry": {
           "type": "collection",
           "settings": {
             "collection": "pokemon-boxes",
             "columns_desktop": 4,
             "columns_mobile": 3
           }
-        },
-        "collection_mXdtJm": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "columns_desktop": 4,
-            "columns_mobile": 3
-          }
         }
       },
       "block_order": [
-        "collection_kYCTqM",
-        "collection_mXdtJm"
+        "collection_FCNBry"
       ],
       "settings": {
         "products_per_page": 16,
@@ -42,6 +33,6 @@
     }
   },
   "order": [
-    "main"
+    "collection_page_R69U7K"
   ]
 }
