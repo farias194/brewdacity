@@ -4,11 +4,16 @@
     <form id="CollectionForm" method="get">
       <label for="CollectionSelect">Select Collection: </label>
       <select name="collection" id="CollectionSelect" onchange="this.form.submit()">
-        {% for collection in collections %}
-          <option value="{{ collection.handle }}" {% if collection.handle == request.query.collection %}selected{% endif %}>
-            {{ collection.title }}
+        {% if section.settings.collection_1 %}
+          <option value="{{ section.settings.collection_1.handle }}" {% if request.query.collection == section.settings.collection_1.handle %}selected{% endif %}>
+            {{ section.settings.collection_1.title }}
           </option>
-        {% endfor %}
+        {% endif %}
+        {% if section.settings.collection_2 %}
+          <option value="{{ section.settings.collection_2.handle }}" {% if request.query.collection == section.settings.collection_2.handle %}selected{% endif %}>
+            {{ section.settings.collection_2.title }}
+          </option>
+        {% endif %}
       </select>
     </form>
     
@@ -48,6 +53,59 @@
     {% endif %}
   </div>
 </div>
+
+{% schema %}
+{
+  "name": "Cards Collection",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "label": "Products Per Page",
+      "min": 4,
+      "max": 20,
+      "step": 4,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "columns_mobile",
+      "label": "Columns (Mobile)",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "label": "Columns (Desktop)",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "collection",
+      "id": "collection_1",
+      "label": "Collection 1",
+      "default": ""
+    },
+    {
+      "type": "collection",
+      "id": "collection_2",
+      "label": "Collection 2",
+      "default": ""
+    }
+  ],
+  "presets": [
+    {
+      "name": "Default",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
 
 <style>
   .collection-template {
