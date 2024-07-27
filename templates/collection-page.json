@@ -58,13 +58,7 @@
             "type": "collection",
             "id": "collection",
             "label": "Select Collection",
-            "settings":[{
-
-                "type": "url",
-                "id" : "collection title",
-                "default": "/"
-
-            }]
+           
           },
           
           {
@@ -83,7 +77,14 @@
             "max": 9,
             "default": 3
           }
-        ]
+        ],
+       
+      },
+      {
+        "type":"url",
+        "id" : "collection-title",
+        "label": "collection title",
+        "default": "/"
       }
     ],
     "presets": [
