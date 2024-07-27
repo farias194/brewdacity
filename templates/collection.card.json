@@ -11,12 +11,33 @@
   "sections": {
     "main": {
       "type": "cards-collection",
+      "blocks": {
+        "collection_kYCTqM": {
+          "type": "collection",
+          "settings": {
+            "collection": "pokemon-boxes",
+            "columns_desktop": 4,
+            "columns_mobile": 3
+          }
+        },
+        "collection_mXdtJm": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "columns_desktop": 4,
+            "columns_mobile": 3
+          }
+        }
+      },
+      "block_order": [
+        "collection_kYCTqM",
+        "collection_mXdtJm"
+      ],
       "settings": {
         "products_per_page": 16,
         "columns_mobile": 2,
         "columns_desktop": 4,
-        "collection_1": "pokemon-cards",
-        "collection_2": ""
+        "bg_color": "brewdacity-bg-color"
       }
     }
   },
