@@ -23,8 +23,8 @@
         "button_YL33FB": {
           "type": "button",
           "settings": {
-            "button_link": "\/",
-            "button_text": "Learn More"
+            "button_link": "shopify:\/\/collections\/pokemon-boxes",
+            "button_text": "shop cards"
           }
         }
       },
