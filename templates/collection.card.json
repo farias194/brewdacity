@@ -12,51 +12,10 @@
     "main": {
       "type": "cards-collection",
       "settings": {
-        "products_per_page": 16,
-        "columns_mobile": 2,
-        "columns_desktop": 4
-      }
-    },
-    "collection_featured_dGtdwm": {
-      "type": "collection-featured",
-      "blocks": {
-        "collection_Rff7WC": {
-          "type": "collection",
-          "settings": {
-            "collection": "pokemon-cards",
-            "columns_desktop": 4,
-            "columns_mobile": 3
-          }
-        },
-        "collection_kF7CwW": {
-          "type": "collection",
-          "settings": {
-            "collection": "coffee",
-            "columns_desktop": 4,
-            "columns_mobile": 3
-          }
-        },
-        "collection_N3awAP": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "columns_desktop": 4,
-            "columns_mobile": 3
-          }
-        }
-      },
-      "block_order": [
-        "collection_Rff7WC",
-        "collection_kF7CwW",
-        "collection_N3awAP"
-      ],
-      "settings": {
-        "bg_color": "brewdacity-bg-color"
       }
     }
   },
   "order": [
-    "main",
-    "collection_featured_dGtdwm"
+    "main"
   ]
 }
