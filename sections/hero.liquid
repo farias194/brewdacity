@@ -1,51 +1,54 @@
 <div class="hero-section">
   {% if section.settings.hero_media_type == 'image' %}
-    <img src="{{ section.settings.hero_image | img_url: 'master' }}" alt="Hero Image">
+    <img src="{{ section.settings.hero_image | img_url: 'master' }}" alt="Hero Image" class="hero-media">
   {% elsif section.settings.hero_media_type == 'video' %}
-    <video autoplay muted loop>
+    <video autoplay muted loop class="hero-media">
       <source src="{{ section.settings.hero_video }}" type="video/mp4">
       Your browser does not support the video tag.
     </video>
   {% endif %}
 
-  {% for block in section.blocks %}
-    {% if block.type == 'text_block' %}
-      <div class="hero-text"> 
-        <h2 style="color:{{ block.settings.color_title }}">{{ block.settings.hero_text }}</h2>
-        <p>{{ block.settings.subline }}</p>
-      </div>
-    {% elsif block.type == 'button' %}
-      <a class="hero-button" href="{{ block.settings.button_link }}">{{ block.settings.button_text }}</a>
-    {% endif %}
-  {% endfor %}
+  <div class="hero-content">
+    {% for block in section.blocks %}
+      {% if block.type == 'text_block' %}
+        <div class="hero-text"> 
+          <h2 style="color:{{ block.settings.color_title }}">{{ block.settings.hero_text }}</h2>
+          <p>{{ block.settings.subline }}</p>
+        </div>
+      {% elsif block.type == 'button' %}
+        <a class="hero-button" href="{{ block.settings.button_link }}">{{ block.settings.button_text }}</a>
+      {% endif %}
+    {% endfor %}
+  </div>
 </div>
 
 <style>
 .hero-section {
-  display: flex;
-  flex-direction: column;
+  position: relative;
   max-width: 100vw;
   height: 60vh;
   background-size: cover;
   background-position: center;
   color: white;
-  position: relative;
 }
-.hero-section video{
-  object-fit: cover;
-}
-.hero-section img, .hero-section video {
+
+.hero-media {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  z-index: -1;
 }
 
-.hero-text {
+.hero-content {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  z-index: 1;
 }
 
 .hero-text h2 {
