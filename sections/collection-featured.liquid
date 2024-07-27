@@ -1,192 +1,134 @@
-<div class="collection-template">
-  <div class="sidebar">
-    <!-- Collections Dropdown -->
-    <form id="CollectionForm" method="get">
-      <label for="CollectionSelect">Select Collection: </label>
-      <select name="collection" id="CollectionSelect" onchange="this.form.submit()">
-        {% for collection in collections %}
-          <option value="{{ collection.handle }}" {% if collection.handle == request.query.collection %}selected{% endif %}>
-            {{ collection.title }}
-          </option>
-        {% endfor %}
-      </select>
-    </form>
-    
-    <!-- Sorting Dropdown -->
-    <form id="SortByForm" method="get">
-      <label for="SortBy">Sort By: </label>
-      <select name="sort_by" id="SortBy" onchange="this.form.submit()">
-        <option value="manual" {% if request.query.sort_by == 'manual' %}selected{% endif %}>{{ 'Default' }}</option>
-        <option value="best-selling" {% if request.query.sort_by == 'best-selling' %}selected{% endif %}>{{ 'Best selling' }}</option>
-        <option value="title-ascending" {% if request.query.sort_by == 'title-ascending' %}selected{% endif %}>{{ 'Alphabetically, A-Z' }}</option>
-        <option value="title-descending" {% if request.query.sort_by == 'title-descending' %}selected{% endif %}>{{ 'Alphabetically, Z-A' }}</option>
-        <option value="price-ascending" {% if request.query.sort_by == 'price-ascending' %}selected{% endif %}>{{ 'Price, low to high' }}</option>
-        <option value="price-descending" {% if request.query.sort_by == 'price-descending' %}selected{% endif %}>{{ 'Price, high to low' }}</option>
-        <option value="created-descending" {% if request.query.sort_by == 'created-descending' %}selected{% endif %}>{{ 'Date, new to old' }}</option>
-        <option value="created-ascending" {% if request.query.sort_by == 'created-ascending' %}selected{% endif %}>{{ 'Date, old to new' }}</option>
-      </select>
-    </form>
-  </div>
+<!-- sections/collection-featured.liquid -->
 
-  <div class="main-content">
-    {% assign selected_collection_handle = request.query.collection %}
-    {% assign selected_collection = collections[selected_collection_handle] %}
-    
-    {% if selected_collection %}
-      {% paginate selected_collection.products by products_per_page %}
-        <div class="product-grid" style="grid-template-columns: repeat({{ columns_desktop }}, 1fr);">
-          {% for product in selected_collection.products %}
-            <div class="product-grid__item">
-              {% render 'product-card', product: product %}
-            </div>
-          {% endfor %}
-        </div>
-        {% render 'pagination' %}
-      {% endpaginate %}
-    {% else %}
-      <p>No collection selected or collection not found.</p>
-    {% endif %}
+<div class="collection-featured" style="background-color: var(--{{ section.settings.bg_color }});">
+  {% if section.blocks.size > 0 %}
+    {% for block in section.blocks %}
+      <div class="collection">
+        {% if block.settings.collection %}
+          <h2>{{ collections[block.settings.collection].title }}</h2>
+          <div class="products-grid">
+            {% assign columns_desktop = block.settings.columns_desktop %}
+            {% assign columns_mobile = block.settings.columns_mobile %}
+            
+            <style>
+            .product a {
+                color: whitesmoke; /* Change link color to white */
+                text-decoration: none; /* Remove underline */
+              }
 
-    <!-- Featured Collections Section -->
-    <div class="collection-featured" style="background-color: var(--{{ section.settings.bg_color }});">
-      {% if section.blocks.size > 0 %}
-        {% for block in section.blocks %}
-          <div class="collection">
-            {% if block.settings.collection %}
-              <h2>{{ collections[block.settings.collection].title }}</h2>
-              <div class="products-grid">
-                {% assign columns_desktop = block.settings.columns_desktop %}
-                {% assign columns_mobile = block.settings.columns_mobile %}
+              .product a:hover {
+                color: white; /* Optional: Change link color on hover */
+              }
+              .collection h2{
+            color: whitesmoke;
+            text-align: center;
+              }
+             
+              .products-grid {
+                display: grid;
+                gap: 10px;
+                padding: 5rem;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+              }
 
-                <style>
-                .product a {
-                  color: whitesmoke;
-                  text-decoration: none;
-                }
-                .product a:hover {
-                  color: white;
-                }
-                .collection h2 {
-                  color: whitesmoke;
-                  text-align: center;
-                }
+              @media (min-width: 768px) {
                 .products-grid {
-                  display: grid;
-                  gap: 10px;
-                  padding: 5rem;
-                  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                  grid-template-columns: repeat({{ columns_desktop }}, 1fr);
                 }
-                @media (min-width: 768px) {
-                  .products-grid {
-                    grid-template-columns: repeat({{ columns_desktop }}, 1fr);
-                  }
-                }
-                @media (max-width: 767px) {
-                  .products-grid {
-                    grid-template-columns: repeat({{ columns_mobile }}, 1fr);
-                  }
-                }
-                </style>
+              }
 
-                {% for product in collections[block.settings.collection].products %}
-                  <div class="product">
-                    <a href="{{ product.url }}">
-                      <img class ="product-image" src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.title }}">
-                      <h3>{{ product.title }}</h3>
-                      <p>{{ product.price | money }}</p>
-                    </a>
-                  </div>
-                {% endfor %}
+              @media (max-width: 767px) {
+                .products-grid {
+                  grid-template-columns: repeat({{ columns_mobile }}, 1fr);
+                }
+              }
+            </style>
+
+            {% for product in collections[block.settings.collection].products %}
+              <div class="product">
+                <a href="{{ product.url }}">
+                  <img class ="product-image" src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.title }}">
+                  <h3>{{ product.title }}</h3>
+                  <p>{{ product.price | money }}</p>
+                </a>
               </div>
-            {% else %}
-              <p>No collection selected</p>
-            {% endif %}
+            {% endfor %}
           </div>
-        {% endfor %}
-      {% else %}
-        <p>No collections added</p>
-      {% endif %}
-    </div>
-    <style>
-      .product-image {
-        width: 50%;
-      }
-      .collection-featured {
-        margin-top: -40px;
-      }
-    </style>
-  </div>
+        {% else %}
+          <p>No collection selected</p>
+        {% endif %}
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>No collections added</p>
+  {% endif %}
 </div>
-
+<style>
+  .product-image{
+    width: 50%;
+  }
+  .collection-featured{
+                margin-top: -40px;
+              }
+              
+</style>
 {% schema %}
 {
-  "name": "Cards Collection",
+  "name": "Collection Feature",
   "settings": [
     {
-      "type": "range",
-      "id": "products_per_page",
-      "label": "Products Per Page",
-      "min": 4,
-      "max": 20,
-      "step": 4,
-      "default": 16
-    },
+          "type": "select",
+          "id": "bg_color",
+          "label": "Background Color",
+          "default": "brewdacity-bg-color",
+          "options": [{
+            "value": "brewdacity-bg-color",
+            "label": "Default Color"
+          },
+          {
+            "value": "brewdacity-alternate-bg-color",
+            "label": "Alternate Color"
+          },
+          {
+            "value": "brewdacity-alternate-bg-color-warm",
+            "label": "Alternate Color Warm"
+          }]
+}
+  ],
+  "blocks": [
     {
-      "type": "range",
-      "id": "columns_mobile",
-      "label": "Columns (Mobile)",
-      "min": 1,
-      "max": 4,
-      "step": 1,
-      "default": 2
-    },
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Select Collection"
+        },
+        {
+          "type": "range",
+          "id": "columns_desktop",
+          "label": "Columns on Desktop",
+          "min": 1,
+          "max": 6,
+          "default": 4
+        },
+        {
+          "type": "range",
+          "id": "columns_mobile",
+          "label": "Columns on Mobile",
+          "min": 3,
+          "max": 9,
+          "default": 3
+        }
+      ]
+    }
+  ],
+  "presets": [
     {
-      "type": "range",
-      "id": "columns_desktop",
-      "label": "Columns (Desktop)",
-      "min": 2,
-      "max": 6,
-      "step": 1,
-      "default": 4
+      "name": "Collection Feature",
+      "category": "Custom"
     }
   ]
 }
 {% endschema %}
-
-<style>
-  .collection-template {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-  }
-
-  .sidebar {
-    flex: 1;
-    max-width: 250px;
-  }
-
-  .main-content {
-    flex: 3;
-  }
-
-  .product-grid {
-    display: grid;
-    gap: 20px;
-  }
-
-  @media (max-width: 749px) {
-    .product-grid {
-      grid-template-columns: repeat({{ columns_mobile }}, 1fr);
-    }
-  }
-
-  @media (min-width: 750px) {
-    .product-grid {
-      grid-template-columns: repeat({{ columns_desktop }}, 1fr);
-    }
-  }
-
-  form {
-    margin-bottom: 20px;
-  }
-</style>
