@@ -82,16 +82,17 @@
   .collection-template {
     display: flex;
     flex-direction: row;
-    width: 100vw;
     gap: 20px;
   }
 
   .sidebar {
-    max-width: 20vw; /* Adjust as needed */
+    flex: 1; /* Flex grow */
+    max-width: 250px; /* Optional: limit width */
   }
 
   .main-content {
-    width: 60vw;
+    flex: 3; /* Flex grow */
+    width: calc(100% - 270px); /* Adjust width */
   }
 
   .product-grid {
