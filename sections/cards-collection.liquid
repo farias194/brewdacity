@@ -11,10 +11,6 @@
         {% endfor %}
       </select>
     </form>
-  </div>
-
-  <div class="main-content">
-    <!-- Sorting Dropdown -->
     <form id="SortByForm" method="get">
       <label for="SortBy">Sort By: </label>
       <select name="sort_by" id="SortBy" onchange="this.form.submit()">
@@ -28,6 +24,11 @@
         <option value="created-ascending" {% if collection.sort_by == 'created-ascending' %}selected{% endif %}>{{ 'Date, old to new' }}</option>
       </select>
     </form>
+  </div>
+
+  <div class="main-content">
+    <!-- Sorting Dropdown -->
+  
 
     {% assign selected_collection = collections[request.params.collection] %}
     {% paginate selected_collection.products by products_per_page %}
