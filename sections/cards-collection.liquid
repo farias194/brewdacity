@@ -34,8 +34,8 @@
     {% assign selected_collection = collections[selected_collection_handle] %}
     
     {% if selected_collection %}
-      {% paginate selected_collection.products by products_per_page %}
-        <div class="product-grid" style="grid-template-columns: repeat({{ columns_desktop }}, 1fr);">
+      {% paginate selected_collection.products by settings.products_per_page %}
+        <div class="product-grid" style="grid-template-columns: repeat({{ settings.columns_desktop }}, 1fr);">
           {% for product in selected_collection.products %}
             <div class="product-grid__item">
               {% render 'product-card', product: product %}
@@ -49,7 +49,7 @@
     {% endif %}
 
     <!-- Featured Collections Section -->
-    <div class="collection-featured" style="background-color: var(--{{ section.settings.bg_color }});">
+    <div class="collection-featured" style="background-color: var(--{{ settings.bg_color }});">
       {% if section.blocks.size > 0 %}
         {% for block in section.blocks %}
           <div class="collection">
@@ -149,6 +149,61 @@
       "max": 6,
       "step": 1,
       "default": 4
+    },
+    {
+      "type": "select",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "brewdacity-bg-color",
+      "options": [
+        {
+          "value": "brewdacity-bg-color",
+          "label": "Default Color"
+        },
+        {
+          "value": "brewdacity-alternate-bg-color",
+          "label": "Alternate Color"
+        },
+        {
+          "value": "brewdacity-alternate-bg-color-warm",
+          "label": "Alternate Color Warm"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Select Collection"
+        },
+        {
+          "type": "range",
+          "id": "columns_desktop",
+          "label": "Columns on Desktop",
+          "min": 1,
+          "max": 6,
+          "default": 4
+        },
+        {
+          "type": "range",
+          "id": "columns_mobile",
+          "label": "Columns on Mobile",
+          "min": 3,
+          "max": 9,
+          "default": 3
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Feature",
+      "category": "Custom"
     }
   ]
 }
@@ -177,13 +232,13 @@
 
   @media (max-width: 749px) {
     .product-grid {
-      grid-template-columns: repeat({{ columns_mobile }}, 1fr);
+      grid-template-columns: repeat({{ settings.columns_mobile }}, 1fr);
     }
   }
 
   @media (min-width: 750px) {
     .product-grid {
-      grid-template-columns: repeat({{ columns_desktop }}, 1fr);
+      grid-template-columns: repeat({{ settings.columns_desktop }}, 1fr);
     }
   }
 
