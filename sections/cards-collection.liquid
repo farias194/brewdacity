@@ -5,79 +5,49 @@
       <label for="CollectionSelect">Select Collection: </label>
       <select name="collection" id="CollectionSelect" onchange="this.form.submit()">
         {% for collection in collections %}
-          <option value="{{ collection.handle }}" {% if collection.handle == request.params.collection %}selected{% endif %}>
+          <option value="{{ collection.handle }}" {% if collection.handle == request.query.collection %}selected{% endif %}>
             {{ collection.title }}
           </option>
         {% endfor %}
       </select>
     </form>
+    
+    <!-- Sorting Dropdown -->
     <form id="SortByForm" method="get">
       <label for="SortBy">Sort By: </label>
       <select name="sort_by" id="SortBy" onchange="this.form.submit()">
-        <option value="manual" {% if collection.sort_by == 'manual' %}selected{% endif %}>{{ 'Default' }}</option>
-        <option value="best-selling" {% if collection.sort_by == 'best-selling' %}selected{% endif %}>{{ 'Best selling' }}</option>
-        <option value="title-ascending" {% if collection.sort_by == 'title-ascending' %}selected{% endif %}>{{ 'Alphabetically, A-Z' }}</option>
-        <option value="title-descending" {% if collection.sort_by == 'title-descending' %}selected{% endif %}>{{ 'Alphabetically, Z-A' }}</option>
-        <option value="price-ascending" {% if collection.sort_by == 'price-ascending' %}selected{% endif %}>{{ 'Price, low to high' }}</option>
-        <option value="price-descending" {% if collection.sort_by == 'price-descending' %}selected{% endif %}>{{ 'Price, high to low' }}</option>
-        <option value="created-descending" {% if collection.sort_by == 'created-descending' %}selected{% endif %}>{{ 'Date, new to old' }}</option>
-        <option value="created-ascending" {% if collection.sort_by == 'created-ascending' %}selected{% endif %}>{{ 'Date, old to new' }}</option>
+        <option value="manual" {% if request.query.sort_by == 'manual' %}selected{% endif %}>{{ 'Default' }}</option>
+        <option value="best-selling" {% if request.query.sort_by == 'best-selling' %}selected{% endif %}>{{ 'Best selling' }}</option>
+        <option value="title-ascending" {% if request.query.sort_by == 'title-ascending' %}selected{% endif %}>{{ 'Alphabetically, A-Z' }}</option>
+        <option value="title-descending" {% if request.query.sort_by == 'title-descending' %}selected{% endif %}>{{ 'Alphabetically, Z-A' }}</option>
+        <option value="price-ascending" {% if request.query.sort_by == 'price-ascending' %}selected{% endif %}>{{ 'Price, low to high' }}</option>
+        <option value="price-descending" {% if request.query.sort_by == 'price-descending' %}selected{% endif %}>{{ 'Price, high to low' }}</option>
+        <option value="created-descending" {% if request.query.sort_by == 'created-descending' %}selected{% endif %}>{{ 'Date, new to old' }}</option>
+        <option value="created-ascending" {% if request.query.sort_by == 'created-ascending' %}selected{% endif %}>{{ 'Date, old to new' }}</option>
       </select>
     </form>
   </div>
 
   <div class="main-content">
-    <!-- Sorting Dropdown -->
-  
-
-    {% assign selected_collection = collections[request.params.collection] %}
-    {% paginate selected_collection.products by products_per_page %}
-      <div class="product-grid" style="grid-template-columns: repeat({{ columns_desktop }}, 1fr);">
-        {% for product in selected_collection.products %}
-          <div class="product-grid__item">
-            {% render 'product-card', product: product %}
-          </div>
-        {% endfor %}
-      </div>
-      {% render 'pagination' %}
-    {% endpaginate %}
+    {% assign selected_collection_handle = request.query.collection %}
+    {% assign selected_collection = collections[selected_collection_handle] %}
+    
+    {% if selected_collection %}
+      {% paginate selected_collection.products by products_per_page %}
+        <div class="product-grid" style="grid-template-columns: repeat({{ columns_desktop }}, 1fr);">
+          {% for product in selected_collection.products %}
+            <div class="product-grid__item">
+              {% render 'product-card', product: product %}
+            </div>
+          {% endfor %}
+        </div>
+        {% render 'pagination' %}
+      {% endpaginate %}
+    {% else %}
+      <p>No collection selected or collection not found.</p>
+    {% endif %}
   </div>
 </div>
-
-{% schema %}
-{
-  "name": "Cards Collection",
-  "settings": [
-    {
-      "type": "range",
-      "id": "products_per_page",
-      "label": "Products Per Page",
-      "min": 4,
-      "max": 20,
-      "step": 4,
-      "default": 16
-    },
-    {
-      "type": "range",
-      "id": "columns_mobile",
-      "label": "Columns (Mobile)",
-      "min": 1,
-      "max": 4,
-      "step": 1,
-      "default": 2
-    },
-    {
-      "type": "range",
-      "id": "columns_desktop",
-      "label": "Columns (Desktop)",
-      "min": 2,
-      "max": 6,
-      "step": 1,
-      "default": 4
-    }
-  ]
-}
-{% endschema %}
 
 <style>
   .collection-template {
@@ -87,14 +57,12 @@
   }
 
   .sidebar {
-    justify-self: flex-start;
-    flex: 1; /* Flex grow */
+    flex: 1;
     max-width: 250px; /* Optional: limit width */
   }
 
   .main-content {
-    flex: 3; /* Flex grow */
-    width: calc(100% - 270px); /* Adjust width */
+    flex: 3;
   }
 
   .product-grid {
@@ -114,7 +82,6 @@
     }
   }
 
-  /* Style for dropdowns */
   form {
     margin-bottom: 20px;
   }
