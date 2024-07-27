@@ -57,8 +57,16 @@
           {
             "type": "collection",
             "id": "collection",
-            "label": "Select Collection"
+            "label": "Select Collection",
+            "settings":[{
+
+                "type": "url",
+                "id" : "collection title",
+                "default": "/"
+
+            }]
           },
+          
           {
             "type": "range",
             "id": "columns_desktop",
