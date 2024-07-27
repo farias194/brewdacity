@@ -12,6 +12,11 @@
     "main": {
       "type": "cards-collection",
       "settings": {
+        "products_per_page": 16,
+        "columns_mobile": 2,
+        "columns_desktop": 4,
+        "collection_1": "pokemon-cards",
+        "collection_2": ""
       }
     }
   },
