@@ -1,3 +1,4 @@
+<!-- Main Template -->
 <div class="collection-template">
   <div class="sidebar">
     <!-- Collections Dropdown -->
@@ -51,6 +52,9 @@
     {% else %}
       <p>No collection selected or collection not found.</p>
     {% endif %}
+
+    <!-- Include Featured Collections Section -->
+    {% section 'collection-featured' %}
   </div>
 </div>
 
@@ -84,22 +88,6 @@
       "max": 6,
       "step": 1,
       "default": 4
-    },
-    {
-      "type": "collection",
-      "id": "collection_1",
-      "label": "Collection 1",
-    },
-    {
-      "type": "collection",
-      "id": "collection_2",
-      "label": "Collection 2",
-    }
-  ],
-  "presets": [
-    {
-      "name": "Default",
-      "category": "Custom"
     }
   ]
 }
@@ -114,7 +102,7 @@
 
   .sidebar {
     flex: 1;
-    max-width: 250px; /* Optional: limit width */
+    max-width: 250px;
   }
 
   .main-content {
@@ -142,3 +130,4 @@
     margin-bottom: 20px;
   }
 </style>
+
