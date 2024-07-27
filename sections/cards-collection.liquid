@@ -3,24 +3,37 @@
 {% assign columns_mobile = section.settings.columns_mobile %}
 
 <div class="collection-template">
-  <!-- Sorting Dropdown -->
-  <form id="SortByForm" method="get">
-    <label for="SortBy">Sort By : </label>
-    <select name="sort_by" id="SortBy" onchange="this.form.submit()">
-      <option value="manual" {% if collection.sort_by == 'manual' %}selected{% endif %}>{{ 'Default'  }}</option>
-      <option value="best-selling" {% if collection.sort_by == 'best-selling' %}selected{% endif %}>{{ 'Best selling'  }}</option>
-      <option value="title-ascending" {% if collection.sort_by == 'title-ascending' %}selected{% endif %}>{{ 'Alphabetically, A-Z' }}</option>
-      <option value="title-descending" {% if collection.sort_by == 'title-descending' %}selected{% endif %}>{{ 'Alphabetically, Z-A'  }}</option>
-      <option value="price-ascending" {% if collection.sort_by == 'price-ascending' %}selected{% endif %}>{{ 'Price, low to high' }}</option>
-      <option value="price-descending" {% if collection.sort_by == 'price-descending' %}selected{% endif %}>{{ 'Price, high to low'  }}</option>
-      <option value="created-descending" {% if collection.sort_by == 'created-descending' %}selected{% endif %}>{{ 'Date, new to old'  }}</option>
-      <option value="created-ascending" {% if collection.sort_by == 'created-ascending' %}selected{% endif %}>{{ 'Date, old to new'  }}</option>
+  <!-- Collections Dropdown -->
+  <form id="CollectionForm" method="get">
+    <label for="CollectionSelect">Select Collection: </label>
+    <select name="collection" id="CollectionSelect" onchange="this.form.submit()">
+      {% for collection in collections %}
+        <option value="{{ collection.handle }}" {% if collection.handle == request.params.collection %}selected{% endif %}>
+          {{ collection.title }}
+        </option>
+      {% endfor %}
     </select>
   </form>
 
-  {% paginate collection.products by products_per_page %}
+  <!-- Sorting Dropdown -->
+  <form id="SortByForm" method="get">
+    <label for="SortBy">Sort By: </label>
+    <select name="sort_by" id="SortBy" onchange="this.form.submit()">
+      <option value="manual" {% if collection.sort_by == 'manual' %}selected{% endif %}>{{ 'Default' }}</option>
+      <option value="best-selling" {% if collection.sort_by == 'best-selling' %}selected{% endif %}>{{ 'Best selling' }}</option>
+      <option value="title-ascending" {% if collection.sort_by == 'title-ascending' %}selected{% endif %}>{{ 'Alphabetically, A-Z' }}</option>
+      <option value="title-descending" {% if collection.sort_by == 'title-descending' %}selected{% endif %}>{{ 'Alphabetically, Z-A' }}</option>
+      <option value="price-ascending" {% if collection.sort_by == 'price-ascending' %}selected{% endif %}>{{ 'Price, low to high' }}</option>
+      <option value="price-descending" {% if collection.sort_by == 'price-descending' %}selected{% endif %}>{{ 'Price, high to low' }}</option>
+      <option value="created-descending" {% if collection.sort_by == 'created-descending' %}selected{% endif %}>{{ 'Date, new to old' }}</option>
+      <option value="created-ascending" {% if collection.sort_by == 'created-ascending' %}selected{% endif %}>{{ 'Date, old to new' }}</option>
+    </select>
+  </form>
+
+  {% assign selected_collection = collections[request.params.collection] %}
+  {% paginate selected_collection.products by products_per_page %}
     <div class="product-grid" style="grid-template-columns: repeat({{ columns_desktop }}, 1fr);">
-      {% for product in collection.products %}
+      {% for product in selected_collection.products %}
         <div class="product-grid__item">
           {% render 'product-card', product: product %}
         </div>
@@ -70,7 +83,7 @@
     display: grid;
     gap: 20px;
   }
-  
+
   @media (max-width: 749px) {
     .product-grid {
       grid-template-columns: repeat({{ columns_mobile }}, 1fr);
@@ -81,5 +94,10 @@
     .product-grid {
       grid-template-columns: repeat({{ columns_desktop }}, 1fr);
     }
+  }
+
+  /* Style for dropdowns */
+  form {
+    margin-bottom: 20px;
   }
 </style>
