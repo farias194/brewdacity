@@ -82,7 +82,7 @@
       },
       {
         "type":"url",
-        "id" : "collection-title",
+        "id" : "collection_title",
         "label": "collection title",
         "default": "/"
       }
