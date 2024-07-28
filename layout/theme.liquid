@@ -12,7 +12,7 @@
         {% render 'header' %}
         {%section 'navbar'%}
 {{content_for_layout}}
-
+{{ 'dynamic-collection.js' | asset_url |  script_tag }}
 {{ 'theme.js' | asset_url | script_tag }}
 
 {% section 'footer' %}
