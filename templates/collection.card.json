@@ -27,9 +27,16 @@
       "settings": {
         "bg_color": "brewdacity-bg-color"
       }
+    },
+    "collection_featured_JpRhhY": {
+      "type": "collection-featured",
+      "settings": {
+        "bg_color": "brewdacity-bg-color"
+      }
     }
   },
   "order": [
-    "collection_featured_8H8dVf"
+    "collection_featured_8H8dVf",
+    "collection_featured_JpRhhY"
   ]
 }
