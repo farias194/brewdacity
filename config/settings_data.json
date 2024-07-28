@@ -33,12 +33,20 @@
               "navlink": "home",
               "link_url": "\/"
             }
+          },
+          "nav_link_8erhyH": {
+            "type": "nav_link",
+            "settings": {
+              "navlink": "pokemon cards",
+              "link_url": "shopify:\/\/collections\/pokemon-cards"
+            }
           }
         },
         "block_order": [
           "nav_link_aCtCwL",
           "nav_link_c9jfqE",
-          "nav_link_LGdMq3"
+          "nav_link_LGdMq3",
+          "nav_link_8erhyH"
         ],
         "settings": {
           "nav_title": "Brewdacity"
