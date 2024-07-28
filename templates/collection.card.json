@@ -9,66 +9,27 @@
 */
 {
   "sections": {
-    "collection_page_R69U7K": {
-      "type": "collection-page",
+    "collection_featured_8H8dVf": {
+      "type": "collection-featured",
       "blocks": {
-        "collection_6jYnjJ": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "columns_desktop": 4,
-            "columns_mobile": 3
-          }
-        },
-        "collection_pyEAwD": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "columns_desktop": 4,
-            "columns_mobile": 3
-          }
-        },
-        "collection_FCNBry": {
+        "collection_kBCfYf": {
           "type": "collection",
           "settings": {
             "collection": "pokemon-boxes",
             "columns_desktop": 4,
             "columns_mobile": 3
           }
-        },
-        "collection_EKk3nA": {
-          "type": "collection",
-          "settings": {
-            "collection": "coffee",
-            "columns_desktop": 4,
-            "columns_mobile": 3
-          }
-        },
-        "collection_VGKdPh": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "columns_desktop": 4,
-            "columns_mobile": 3
-          }
         }
       },
       "block_order": [
-        "collection_6jYnjJ",
-        "collection_pyEAwD",
-        "collection_FCNBry",
-        "collection_EKk3nA",
-        "collection_VGKdPh"
+        "collection_kBCfYf"
       ],
       "settings": {
-        "products_per_page": 16,
-        "columns_mobile": 2,
-        "columns_desktop": 4,
         "bg_color": "brewdacity-bg-color"
       }
     }
   },
   "order": [
-    "collection_page_R69U7K"
+    "collection_featured_8H8dVf"
   ]
 }
