@@ -1,0 +1,84 @@
+<div class="collection-template">
+  <div class="sidebar">
+    <!-- Collections Dropdown -->
+    <form id="CollectionForm" method="get">
+      <label for="CollectionSelect">Select Collection: </label>
+      <select name="collection" id="CollectionSelect">
+        <option value="">Select a collection</option>
+        {% for collection in collections %}
+          <option value="{{ collection.handle }}" {% if collection.handle == request.params.collection %}selected{% endif %}>
+            {{ collection.title }}
+          </option>
+        {% endfor %}
+      </select>
+    </form>
+  </div>
+
+  <div class="main-content">
+    <div id="collection-content">
+      <!-- Collection will be loaded here -->
+    </div>
+  </div>
+</div>
+
+<style>
+  .collection-template {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .sidebar {
+    flex: 1;
+    max-width: 250px;
+  }
+
+  .main-content {
+    flex: 3;
+  }
+
+  #collection-content {
+    display: grid;
+    gap: 20px;
+  }
+
+  @media (max-width: 749px) {
+    #collection-content {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 750px) {
+    #collection-content {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Dynamic Collection Display",
+  "settings": [
+    {
+      "type": "select",
+      "id": "default_collection",
+      "label": "Default Collection",
+      "options": [
+        {
+          "value": "collection-handle-1",
+          "label": "Collection 1"
+        },
+        {
+          "value": "collection-handle-2",
+          "label": "Collection 2"
+        },
+        {
+          "value": "collection-handle-3",
+          "label": "Collection 3"
+        }
+      ],
+      "default": "collection-handle-1"
+    }
+  ]
+}
+{% endschema %}
