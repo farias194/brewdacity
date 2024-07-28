@@ -1,0 +1,14 @@
+{
+    "sections": {
+      "collection-dynamic": {
+        "type": "collection-dynamic",
+        "settings": {
+          "default_collection": "collection-handle-1"
+        }
+      }
+    },
+    "order": [
+      "collection-dynamic"
+    ]
+  }
+  
