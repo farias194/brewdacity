@@ -1,7 +1,67 @@
-<div>
+<!-- sections/list-collections.liquid -->
+<div class="list-collections">
+  <h1>{{ section.settings.title }}</h1>
+  <div class="collections-grid">
+    {% for collection in collections %}
+      <div class="collection-item">
+        <a href="{{ collection.url }}">
+          <img src="{{ collection.image | img_url: 'medium' }}" alt="{{ collection.title }}">
+          <h2>{{ collection.title }}</h2>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
 
-hi</div>
-{% schema  %}
-    
-    
+{% schema %}
+{
+  "name": "List Collections",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "All Collections"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Default",
+      "category": "Custom"
+    }
+  ]
+}
 {% endschema %}
+
+<style>
+  .collections-grid {
+    display: grid;
+    gap: 20px;
+  }
+
+  @media (min-width: 768px) {
+    .collections-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 767px) {
+    .collections-grid {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  .collection-item {
+    text-align: center;
+  }
+
+  .collection-item img {
+    width: 100%;
+    height: auto;
+  }
+
+  .collection-item h2 {
+    font-size: 1.25rem;
+    margin-top: 10px;
+  }
+</style>
