@@ -1,0 +1,50 @@
+<div class="collection-container">
+  {% if section.blocks.size > 0 %}
+    {% for block in section.blocks %}
+      <div class="collection">
+        {% if block.settings.collection %}
+          <h2>{{ collections[block.settings.collection].title }}</h2>
+          {% for product in collections[block.settings.collection].products %}
+            <div class="product">
+              <a href="{{ product.url }}">
+                <img class="product-image" src="{{ product.featured_image | image_url: 'large' }}" alt="{{ product.title }}">
+                <h3>{{ product.title }}</h3>
+                <p>{{ product.price | money }}</p>
+              </a>
+            </div>
+          {% endfor %}
+        {% else %}
+          <p>No collection selected</p>
+        {% endif %}
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>No collections added</p>
+  {% endif %}
+</div>
+
+{% schema %} 
+{
+  "name": "Collection",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Select a collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
