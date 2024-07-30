@@ -7,7 +7,11 @@
           {% for product in collections[block.settings.collection].products %}
             <div class="product">
               <a href="{{ product.url }}">
-                <img class="product-image" src="{{ product.featured_image | image_url: 'large' }}" alt="{{ product.title }}">
+                {% if product.featured_image %}
+                  <img class="product-image" src="{{ product.featured_image | image_url: 'large' }}" alt="{{ product.title }}">
+                {% else %}
+                  <p>No image available</p>
+                {% endif %}
                 <h3>{{ product.title }}</h3>
                 <p>{{ product.price | money }}</p>
               </a>
