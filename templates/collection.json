@@ -15,7 +15,7 @@
         "blocks":{
 
           "type": "collection",
-          "name":"collection",
+          "name":"Collection",
           "settings":[
             {
               "type":"collection",
