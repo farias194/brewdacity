@@ -9,7 +9,7 @@
             <div class="product">
               <a href="{{ product.url }}">
                 {% if product.featured_image %}
-                  <img class="product-image" width="300" height="300" src="{{ product.featured_image | image_url: 'medium' }}" alt="{{ product.title }}">
+                  <img class="product-image" width="300" height="300" src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
                 {% else %}
                   <p>No image available</p>
                 {% endif %}
