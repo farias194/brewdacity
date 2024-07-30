@@ -44,8 +44,8 @@
           "nav_link_8erhyH": {
             "type": "nav_link",
             "settings": {
-              "navlink": "pokemon cards",
-              "link_url": "shopify:\/\/collections\/pokemon-cards"
+              "navlink": "pokemon boxes",
+              "link_url": "shopify:\/\/collections\/pokemon-boxes"
             }
           }
         },
