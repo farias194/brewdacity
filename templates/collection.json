@@ -12,7 +12,20 @@
     "main": {
       "type": "collection",
       "settings": {
+        "blocks":{
+
+          "type": "collection",
+          "name":"collection",
+          "settings":[
+            {
+              "type":"collection",
+              "id": "collection",
+              "label": "Which Collection?"
+            }
+          ]
+        }
       }
+
     }
   },
   "order": [
