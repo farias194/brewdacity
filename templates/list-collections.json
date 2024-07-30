@@ -14,9 +14,39 @@
       "settings": {
         "title": "All Collections"
       }
+    },
+    "collection_6my7Bb": {
+      "type": "collection",
+      "settings": {
+      }
+    },
+    "collection_WCmYYn": {
+      "type": "collection",
+      "blocks": {
+        "collection_mFFhdT": {
+          "type": "collection",
+          "settings": {
+            "collection": "pokemon-boxes"
+          }
+        },
+        "collection_J9fpWN": {
+          "type": "collection",
+          "settings": {
+            "collection": "pokemon-cards"
+          }
+        }
+      },
+      "block_order": [
+        "collection_mFFhdT",
+        "collection_J9fpWN"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "collection_6my7Bb",
+    "collection_WCmYYn"
   ]
 }
