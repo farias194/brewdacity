@@ -31,7 +31,7 @@
             "type": "nav_link",
             "settings": {
               "navlink": "collections",
-              "link_url": "shopify:\/\/pages\/collections"
+              "link_url": "shopify:\/\/collections"
             }
           },
           "nav_link_LGdMq3": {
