@@ -11,6 +11,17 @@
   "sections": {
     "main": {
       "type": "collection",
+      "blocks": {
+        "collection_YP3jky": {
+          "type": "collection",
+          "settings": {
+            "collection": "pokemon-boxes"
+          }
+        }
+      },
+      "block_order": [
+        "collection_YP3jky"
+      ],
       "settings": {
       }
     }
