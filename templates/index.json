@@ -92,14 +92,7 @@
         "collection_8XraH7"
       ],
       "settings": {
-        "bg_color": "brewdacity-alternate-bg-color-warm"
-      }
-    },
-    "product-details": {
-      "type": "product-details",
-      "settings": {
-        "title": "Insert Product details here",
-        "price": "$10.00"
+        "bg_color": "brewdacity-alternate-bg-color"
       }
     },
     "drink-menu-section": {
@@ -147,7 +140,6 @@
     "hero",
     "about-section",
     "collection-featured",
-    "product-details",
     "drink-menu-section",
     "footer"
   ]
