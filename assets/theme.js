@@ -34,3 +34,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
   
+  function updateCartImage(){
+    const cartImage = document.querySelector('.cartImage')
+  }
