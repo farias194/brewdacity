@@ -17,44 +17,30 @@
             "type": "nav_link",
             "settings": {
               "navlink": "cards",
-              "link_url": "shopify:\/\/collections\/pokemon-cards"
-            }
-          },
-          "nav_link_c9jfqE": {
-            "type": "nav_link",
-            "settings": {
-              "navlink": "coffee",
-              "link_url": "\/"
-            }
-          },
-          "nav_link_zMPYDL": {
-            "type": "nav_link",
-            "settings": {
-              "navlink": "collections",
-              "link_url": "shopify:\/\/collections"
+              "link_url": "shopify:\/\/collections\/pokemon-cards",
+              "has_dropdown": true
             }
           },
           "nav_link_LGdMq3": {
             "type": "nav_link",
             "settings": {
               "navlink": "home",
-              "link_url": "\/"
+              "link_url": "\/",
+              "has_dropdown": false
             }
           },
-          "nav_link_8erhyH": {
-            "type": "nav_link",
+          "dropdown_link_F46nzp": {
+            "type": "dropdown_link",
             "settings": {
-              "navlink": "pokemon boxes",
-              "link_url": "shopify:\/\/collections\/pokemon-boxes"
+              "dropdown_link_text": "Sublink",
+              "dropdown_link_url": "shopify:\/\/products\/elite-trainer-box"
             }
           }
         },
         "block_order": [
           "nav_link_aCtCwL",
-          "nav_link_c9jfqE",
-          "nav_link_zMPYDL",
           "nav_link_LGdMq3",
-          "nav_link_8erhyH"
+          "dropdown_link_F46nzp"
         ],
         "settings": {
           "nav_title": "Brewdacity"
