@@ -10,7 +10,6 @@
     </head>
     <body>
         {% render 'header' %}
-        {%section 'navbar'%}
         {% section 'main-nav' %}
 {{content_for_layout}}
 {{ 'dynamic-collection.js' | asset_url |  script_tag }}
