@@ -1,102 +1,124 @@
-<style>
-  .navbar {
-    z-index: 2;
-    color: #7b56ea;
-    font-family: sans-serif;
-    padding: 1rem;
-    display: flex;
-    max-width: 100%;
-    flex-direction: row;
-  }
-
-  .nav_title {
-    max-width: 25%;
-  }
-
-  .nav-links {
-    list-style: none;
-    width: 75%;
-    display: flex;
-    justify-content: flex-end;
-    padding: 0;
-  }
-
-  .nav-links li {
-    margin-right: 10px;
-    position: relative; /* Required for dropdown positioning */
-  }
-
-  .nav-links li a {
-    color: #7b56ea;
-    text-decoration: none;
-    font-size: 1rem;
-  }
-
-  .dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #ffffff;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    min-width: 160px;
-    z-index: 1;
-  }
-
-  .dropdown a {
-    color: #333;
-    text-decoration: none;
-    display: block;
-    padding: 8px 16px;
-  }
-
-  .dropdown a:hover {
-    background-color: #f1f1f1;
-  }
-
-  .nav-links li:hover .dropdown {
-    display: block;
-  }
-</style>
-
-<nav class="navbar">
-  <div class="nav_title">
-    <h1>{{ section.settings.nav_title }}</h1>
-  </div>
-  <ul class="nav-links">
-    {% for link in linklists.main-menu.links %}
-      <li>
-        <a href="{{ link.url }}">{{ link.title }}</a>
-        {% if link.links.size > 0 %}
-          <ul class="dropdown">
-            {% for sublink in link.links %}
-              <li><a href="{{ sublink.url }}">{{ sublink.title }}</a></li>
-            {% endfor %}
-          </ul>
-        {% endif %}
+{% schema %}
+    {
+      "name": "Navbar",
+      "tag": "section",
+      "settings": [
+        {
+          "id": "nav_title",
+          "type": "text",
+          "label": "Navigation Title",
+          "default": "Brewdacity"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Default",
+          "category": "Custom"
+        }
+      ]
+    }
+  {% endschema %}
+  
+  <style>
+    .navbar {
+      z-index: 2;
+      color: #7b56ea;
+      font-family: sans-serif;
+      padding: 1rem;
+      display: flex;
+      max-width: 100%;
+      flex-direction: row;
+    }
+  
+    .nav_title {
+      max-width: 25%;
+    }
+  
+    .nav-links {
+      list-style: none;
+      width: 75%;
+      display: flex;
+      justify-content: flex-end;
+      padding: 0;
+    }
+  
+    .nav-links li {
+      margin-right: 10px;
+      position: relative; /* Required for dropdown positioning */
+    }
+  
+    .nav-links li a {
+      color: #7b56ea;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+  
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #ffffff;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      min-width: 160px;
+      z-index: 1;
+    }
+  
+    .dropdown a {
+      color: #333;
+      text-decoration: none;
+      display: block;
+      padding: 8px 16px;
+    }
+  
+    .dropdown a:hover {
+      background-color: #f1f1f1;
+    }
+  
+    .nav-links li:hover .dropdown {
+      display: block;
+    }
+  </style>
+  
+  <nav class="navbar">
+    <div class="nav_title">
+      <h1>{{ section.settings.nav_title }}</h1>
+    </div>
+    <ul class="nav-links">
+      {% for link in linklists.main-menu.links %}
+        <li>
+          <a href="{{ link.url }}">{{ link.title }}</a>
+          {% if link.links.size > 0 %}
+            <ul class="dropdown">
+              {% for sublink in link.links %}
+                <li><a href="{{ sublink.url }}">{{ sublink.title }}</a></li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </li>
+      {% endfor %}
+  
+      <!-- Add Shopping Cart Link -->
+      <li class="cart-link">
+        <a href="/cart">
+          <!-- Cart SVG and item count -->
+          <svg fill="#000000" version="1.1" xmlns="http://www.w3.org/2000/svg" 
+          width="20px" height="20px" viewBox="0 0 902.86 902.86">
+            <g>
+              <path d="M671.504,577.829l110.485-432.609H902.86v-68H729.174L703.128,179.2L0,178.697l74.753,399.129h596.751V577.829z
+                      M685.766,247.188l-67.077,262.64H131.199L81.928,246.756L685.766,247.188z"/>
+              <path d="M578.418,825.641c59.961,0,108.743-48.783,108.743-108.744s-48.782-108.742-108.743-108.742H168.717
+                      c-59.961,0-108.744,48.781-108.744,108.742s48.782,108.744,108.744,108.744c59.962,0,108.743-48.783,108.743-108.744
+                      c0-14.4-2.821-28.152-7.927-40.742h208.069c-5.107,12.59-7.928,26.342-7.928,40.742
+                      C469.675,776.858,518.457,825.641,578.418,825.641z M209.46,716.897c0,22.467-18.277,40.744-40.743,40.744
+                      c-22.466,0-40.744-18.277-40.744-40.744c0-22.465,18.277-40.742,40.744-40.742C191.183,676.155,209.46,694.432,209.46,716.897z
+                      M619.162,716.897c0,22.467-18.277,40.744-40.743,40.744s-40.743-18.277-40.743-40.744c0-22.465,18.277-40.742,40.743-40.742
+                      S619.162,694.432,619.162,716.897z"/>
+            </g>
+          </svg>
+          <span class="cart-count">{{ cart.item_count }}</span>
+        </a>
       </li>
-    {% endfor %}
-
-    <!-- Add Shopping Cart Link -->
-    <li class="cart-link">
-      <a href="/cart">
-        <!-- Cart SVG and item count -->
-        <svg fill="#000000" version="1.1" xmlns="http://www.w3.org/2000/svg" 
-        width="20px" height="20px" viewBox="0 0 902.86 902.86">
-          <g>
-            <path d="M671.504,577.829l110.485-432.609H902.86v-68H729.174L703.128,179.2L0,178.697l74.753,399.129h596.751V577.829z
-                    M685.766,247.188l-67.077,262.64H131.199L81.928,246.756L685.766,247.188z"/>
-            <path d="M578.418,825.641c59.961,0,108.743-48.783,108.743-108.744s-48.782-108.742-108.743-108.742H168.717
-                    c-59.961,0-108.744,48.781-108.744,108.742s48.782,108.744,108.744,108.744c59.962,0,108.743-48.783,108.743-108.744
-                    c0-14.4-2.821-28.152-7.927-40.742h208.069c-5.107,12.59-7.928,26.342-7.928,40.742
-                    C469.675,776.858,518.457,825.641,578.418,825.641z M209.46,716.897c0,22.467-18.277,40.744-40.743,40.744
-                    c-22.466,0-40.744-18.277-40.744-40.744c0-22.465,18.277-40.742,40.744-40.742C191.183,676.155,209.46,694.432,209.46,716.897z
-                    M619.162,716.897c0,22.467-18.277,40.744-40.743,40.744s-40.743-18.277-40.743-40.744c0-22.465,18.277-40.742,40.743-40.742
-                    S619.162,694.432,619.162,716.897z"/>
-          </g>
-        </svg>
-        <span class="cart-count">{{ cart.item_count }}</span>
-      </a>
-    </li>
-  </ul>
-</nav>
+    </ul>
+  </nav>
+  
