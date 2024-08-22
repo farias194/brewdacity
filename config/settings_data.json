@@ -122,6 +122,12 @@
         "settings": {
           "color_scheme": "accent"
         }
+      },
+      "main-nav": {
+        "type": "main-nav",
+        "settings": {
+          "nav_title": "BREWDACITY"
+        }
       }
     },
     "content_for_index": [
