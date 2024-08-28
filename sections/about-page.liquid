@@ -38,7 +38,7 @@
                     <h1 class="about-text">{{ block.settings.about_text }}</h1>
                 {% endif %}
                 {% if block.type == 'about_hero_image' %}
-                    <img src="{{ block.settings.about_hero_image | img_url: 'master' }}" width="200px" height="200px" alt="About Image" class="about-image">
+                    <img src="{{ block.settings.about_hero_image | img_url: 'master' }}" alt="About Image" class="about-image">
                 {% endif %}
             {% endfor %}
         {% endif %}
