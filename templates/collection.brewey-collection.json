@@ -15,7 +15,9 @@
         "collection_YP3jky": {
           "type": "collection",
           "settings": {
-            "collection": "pokemon-boxes"
+            "collection": "pokemon-cards",
+            "columns_desktop": 3,
+            "columns_mobile": 3
           }
         }
       },
