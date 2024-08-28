@@ -3,7 +3,18 @@
 {% schema %}
     {
         "name": "header",
-        "settings": [],
+        "settings": [
+            {
+                "type": "select",
+                "id": "background-color",
+                "label": "Background Color",
+                "options": [
+                    {"value": "default" ,"label": "--brewdacity-bgcolor "},
+                    {"value": "light", "label": "--brewdacity-alternate-bg-color"},
+                    {"value": "dark", "label": "--brewdacity-alternate-bg-color-warm"}
+                ]
+            }
+        ],
         "blocks": [
             {
                 "type": "about_text",
@@ -36,10 +47,10 @@
     max-width: 100%;
     object-fit: contain;
  }
-      
+    
     </style>
     
-    <div class="about-page-container">
+    <div class="about-page-container" style="background-color: var({{section.settings.background_color}}) ;">
         {% if section.blocks.size > 0 %}
             {% for block in section.blocks %}
                 {% if block.type == 'about_text' %}
