@@ -1,5 +1,6 @@
 <div class="drink-menu-container"> 
-  <h1>our drinks</h1>
+  <h2 class="menu-title">{{ section.settings.menu_title }}</h2>
+  <p class="menu-desc">{{ section.settings.menu_desc }}</p>
   {% if section.blocks.size > 0 %}
     {% for block in section.blocks %}
       {% if block.type == 'drink_item' %}
@@ -42,7 +43,19 @@
 {% schema %} 
 {
   "name": "menu",
-  "settings": [],
+  "settings": [
+    
+    {
+      "type": "text",
+      "label": "Menu Title",
+      "id": "menu_title"
+    },
+    {
+      "type": "text",
+      "label": "Menu Desc",
+      "id": "menu_desc"
+    }
+  ],
   "blocks": [
     {
       "type": "drink_item",
