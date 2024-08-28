@@ -9,9 +9,9 @@
                 "id": "background-color",
                 "label": "Background Color",
                 "options": [
-                    {"label": "default" ,"value": "--brewdacity-bgcolor "},
-                    {"label": "light", "value": "--brewdacity-alternate-bg-color"},
-                    {"label": "dark", "value": "--brewdacity-alternate-bg-color-warm"}
+                    {"label": "default" ,"value": "brewdacity-bgcolor "},
+                    {"label": "light", "value": "brewdacity-alternate-bg-color"},
+                    {"label": "dark", "value": "brewdacity-alternate-bg-color-warm"}
                 ]
             }
         ],
@@ -50,7 +50,7 @@
     
     </style>
     
-    <div class="about-page-container" style="background-color: var({{section.settings.background_color}}) ;">
+    <div class="about-page-container" style="background-color: var(--{{section.settings.background_color}}) ;">
         {% if section.blocks.size > 0 %}
             {% for block in section.blocks %}
                 {% if block.type == 'about_text' %}
