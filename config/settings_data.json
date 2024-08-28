@@ -120,7 +120,7 @@
       "footer": {
         "type": "footer",
         "settings": {
-          "color_scheme": "accent"
+          "color_scheme": "dark"
         }
       },
       "main-nav": {
