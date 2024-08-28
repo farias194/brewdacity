@@ -24,6 +24,11 @@
                         "type": "text",
                         "id": "about_text",
                         "label": "About Text"
+                    },
+                    {
+                        "type": "color",
+                        "id": "text_color",
+                        "label":" Text Color"
                     }
                 ]
             },
@@ -54,7 +59,7 @@
         {% if section.blocks.size > 0 %}
             {% for block in section.blocks %}
                 {% if block.type == 'about_text' %}
-                    <h1 class="about-text">{{ block.settings.about_text }}</h1>
+                    <h1 style="color: {{block.settings.text_color}};" class="about-text">{{ block.settings.about_text }}</h1>
                 {% endif %}
                 {% if block.type == 'about_hero_image' %}
                     <img src="{{ block.settings.about_hero_image | img_url: 'master' }}" alt="About Image" class="about-image">
