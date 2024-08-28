@@ -5,7 +5,11 @@
         {% if block.settings.collection %}
           <h2>{{ collections[block.settings.collection].title }}</h2>
           {% for product in collections[block.settings.collection].products %}
-            <div class="product">
+            <div class='product-grid'>
+              {% assign columns_desktop = block.settings.columns_desktop %}
+              {% assign columns_mobile = block.settings.columns_mobile %}           
+              
+              <div class="product">
               <a href="{{ product.url }}">
                 {% if product.featured_image %}
                   <img class="product-image" width="300" height="300" src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
@@ -15,6 +19,7 @@
                 <h3>{{ product.title }}</h3>
                 <p>{{ product.price | money }}</p>
               </a>
+            </div>
             </div>
           {% endfor %}
         {% else %}
@@ -27,10 +32,30 @@
   {% endif %}
 </div>
 
+
+<style>
+
+@media (min-width: 768px) {
+                .products-grid {
+                  grid-template-columns: repeat({{ columns_desktop }}, 1fr);
+                }
+              }
+
+              @media (max-width: 767px) {
+                .products-grid {
+                  grid-template-columns: repeat({{ columns_mobile }}, 1fr);
+                }
+              }
+</style>
 {% schema %} 
 {
   "name": "Collection",
-  "settings": [],
+  "settings": [
+    {
+      
+
+    }
+  ],
   "blocks": [
     {
       "type": "collection",
@@ -40,6 +65,22 @@
           "type": "collection",
           "id": "collection",
           "label": "Select a collection"
+        },
+        {
+          "type": "range",
+          "id": "columns_desktop",
+          "label": "Columns on Desktop",
+          "min": 1,
+          "max": 6,
+          "default": 4
+        },
+        {
+          "type": "range",
+          "id": "columns_mobile",
+          "label": "Columns on Mobile",
+          "min": 3,
+          "max": 9,
+          "default": 3
         }
       ]
     }
