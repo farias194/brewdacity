@@ -9,26 +9,20 @@
 */
 {
   "sections": {
+    "list_collections_tqAyC9": {
+      "type": "list-collections",
+      "settings": {
+        "title": "All Collections"
+      }
+    },
     "main": {
       "type": "collection",
       "settings": {
-        "blocks":{
-
-          "type": "collection",
-          "name":"Collection",
-          "settings":[
-            {
-              "type":"collection",
-              "id": "collection",
-              "label": "Which Collection?"
-            }
-          ]
-        }
       }
-
     }
   },
   "order": [
+    "list_collections_tqAyC9",
     "main"
   ]
 }
