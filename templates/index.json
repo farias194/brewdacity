@@ -45,7 +45,7 @@
           "type": "header",
           "settings": {
             "header": "About Us",
-            "color": "#e5dfdf"
+            "color": "#393535"
           }
         },
         "text_tpdJYq": {
@@ -63,7 +63,7 @@
       "settings": {
         "header": "about us",
         "header_color": "#313131",
-        "alignment": "center",
+        "alignment": "left",
         "bg_color": "brewdacity-alternate-bg-color"
       }
     },
