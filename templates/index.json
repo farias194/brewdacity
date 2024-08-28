@@ -98,6 +98,20 @@
     "drink-menu-section": {
       "type": "drink-menu-section",
       "blocks": {
+        "menu_title_JmU7hK": {
+          "type": "menu_title",
+          "settings": {
+            "menu_title": "Drink Menu",
+            "title_alignment": "center"
+          }
+        },
+        "menu_desc_6pBnNh": {
+          "type": "menu_desc",
+          "settings": {
+            "menu_description": "we understand that gamers need to take a break and refresh every once in a while. we offer premium coffee blends from all over the world, ethically sourced.",
+            "desc_alignment": "left"
+          }
+        },
         "drink_item_dFAw8C": {
           "type": "drink_item",
           "settings": {
@@ -121,13 +135,13 @@
         }
       },
       "block_order": [
+        "menu_title_JmU7hK",
+        "menu_desc_6pBnNh",
         "drink_item_dFAw8C",
         "drink_item_W68egA",
         "drink_item_M6KqXm"
       ],
       "settings": {
-        "menu_title": "Drink Menu",
-        "menu_desc": "we understand that gamers need to take a break and refresh every once in a while. we offer premium coffee blends from all over the world, ethically sourced."
       }
     },
     "footer": {
