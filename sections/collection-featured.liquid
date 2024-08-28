@@ -3,7 +3,7 @@
 <div class="collection-featured" style="background-color: var(--{{ section.settings.bg_color }});">
   {% if section.blocks.size > 0 %}
     {% for block in section.blocks %}
-      <div class="collection">
+    <div class="collection">
         {% if block.settings.collection %}
           <h2>Featured Collection :</h2>
           <h2>{{ collections[block.settings.collection].title }}</h2>
