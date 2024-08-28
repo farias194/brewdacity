@@ -136,14 +136,6 @@
     "collection-featured": {
       "type": "collection-featured",
       "blocks": {
-        "collection_jJWdND": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "columns_desktop": 4,
-            "columns_mobile": 3
-          }
-        },
         "collection_8XraH7": {
           "type": "collection",
           "settings": {
@@ -154,7 +146,6 @@
         }
       },
       "block_order": [
-        "collection_jJWdND",
         "collection_8XraH7"
       ],
       "settings": {
