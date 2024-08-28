@@ -44,8 +44,7 @@
                 }
               }
             </style>
-                        {% assign featured_products = collections[block.settings.collection].products | slice: 0, 4 %}
-            {% for product in collections[block.settings.collection].products %}
+            {% for product in collections[block.settings.collection].products limit: 4 %}
               <div class="product">
                 <a href="{{ product.url }}">
                   <img class ="product-image" src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.title }}">
