@@ -141,7 +141,8 @@
           "about_text_Lra6pb": {
             "type": "about_text",
             "settings": {
-              "about_text": "“we understand the importance of great coffee to fuel your gaming sessions. That's why we offer a delightful selection of premium coffee blends, meticulously prepared to elevate your taste buds and enhance your gaming prowess. Sip on our carefully crafted brews as you embark on your gaming journey, invigorating your senses and keeping you in the zone.”"
+              "about_text": "“we understand the importance of great coffee to fuel your gaming sessions. That's why we offer a delightful selection of premium coffee blends, meticulously prepared to elevate your taste buds and enhance your gaming prowess. Sip on our carefully crafted brews as you embark on your gaming journey, invigorating your senses and keeping you in the zone.”",
+              "text_color": "#1d1c1c"
             }
           }
         },
@@ -150,6 +151,7 @@
           "about_text_Lra6pb"
         ],
         "settings": {
+          "background-color": "brewdacity-alternate-bg-color"
         }
       }
     },
