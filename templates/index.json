@@ -132,6 +132,20 @@
             "drink_name": "hi",
             "drink_price": "7000"
           }
+        },
+        "drink_item_kqUmjF": {
+          "type": "drink_item",
+          "settings": {
+            "drink_name": "americano",
+            "drink_price": "10000"
+          }
+        },
+        "drink_item_QbfGYA": {
+          "type": "drink_item",
+          "settings": {
+            "drink_name": "cappucino",
+            "drink_price": "2000"
+          }
         }
       },
       "block_order": [
@@ -139,7 +153,9 @@
         "menu_desc_6pBnNh",
         "drink_item_dFAw8C",
         "drink_item_W68egA",
-        "drink_item_M6KqXm"
+        "drink_item_M6KqXm",
+        "drink_item_kqUmjF",
+        "drink_item_QbfGYA"
       ],
       "settings": {
       }
