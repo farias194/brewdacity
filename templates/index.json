@@ -126,6 +126,8 @@
         "drink_item_M6KqXm"
       ],
       "settings": {
+        "menu_title": "Drink Menu",
+        "menu_desc": "we understand that gamers need to take a break and refresh every once in a while. we offer premium coffee blends from all over the world, ethically sourced."
       }
     },
     "footer": {
