@@ -1,7 +1,41 @@
 
+
+{% schema %}
+{
+    "name": "header",
+ 
+    "settings": [],
+    "blocks": [
+        {
+        "name":"about_text",
+        "type":"text",
+        "label": "About Text"
+
+        },
+        {
+            "name":"about_hero_image",
+            "type":"image_picker",
+            "label": "Image"
+
+        }
+    ]
+}
+{% endschema %}
 <div class="about-page-container">
+    {%if section.blocks.size > 0 %}
+        {%for block in section.blocks%}
+{%if block.type== 'about_text'%}
+    <h1 class = 'about-text'>{{ block.settings.about_text }}</h1>
+    {%endif%}
+    {%if block.type == 'about_hero_image'%}
+        <img src="{{block.settings.about_hero_image | img_url: 'master'}}" width = 200px height=200px alt="About Image" class="about-image">
+        {%endif%}
+            {% endfor %}
+            {% endif %}
   <h1>{{ page.title }}</h1>
+
   <div class="about-content">
     {{ page.content }} <!-- This will display the content added via the admin panel -->
   </div>
   </div>
+
