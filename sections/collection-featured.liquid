@@ -5,7 +5,8 @@
     {% for block in section.blocks %}
     <div class="collection">
         {% if block.settings.collection %}
-          <h2>{{ collections[block.settings.collection].title }}</h2>
+          <h2>Featured collection</h2>
+          <h4>{{ collections[block.settings.collection].title }}</h4>
           <div class="products-grid">
             {% assign columns_desktop = block.settings.columns_desktop %}
             {% assign columns_mobile = block.settings.columns_mobile %}
