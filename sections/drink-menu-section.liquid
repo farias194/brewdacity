@@ -7,6 +7,7 @@
       {% if block.type == 'menu_desc' %}
         <p class="menu-desc" style="text-align: {{ block.settings.desc_alignment }};">{{ block.settings.menu_description }}</p>
       {% endif %}
+
       {% if block.type == 'drink_item' %}
         <div class="drink-item">
           <div class="drink-name">{{ block.settings.drink_name }}</div>
@@ -36,6 +37,7 @@
 .drink-item {
   flex-direction: row;
   display: flex;
+  width: auto;
 padding: 3rem 10rem 0 10rem;
 border-bottom: 2px solid black;
   justify-content: space-between;
