@@ -1,4 +1,4 @@
-<div class="drink-menu-container"> 
+<div class="drink-menu-container" style="background-color: var(--{{section.settings.color_scheme}};"> 
   {% if section.blocks.size > 0 %}
     {% for block in section.blocks %}
       {% if block.type == 'menu_title' %}
@@ -53,7 +53,27 @@ border-bottom: 2px solid black;
 {% schema %} 
 {
   "name": "menu",
-  "settings": [],
+  "settings": [
+    {
+      "type": "select",
+      "label": "Color Scheme",
+      "id": "color_scheme",
+      "options": [{
+            "value": "brewdacity-bg-color",
+            "label": "Default Color"
+          },
+          {
+            "value": "brewdacity-alternate-bg-color",
+            "label": "Alternate Color"
+          },
+          {
+            "value": "brewdacity-alternate-bg-color-warm",
+            "label": "Alternate Color Warm"
+          }]
+        
+
+    }
+  ],
   "blocks": [
     {
       "type": "menu_title",
