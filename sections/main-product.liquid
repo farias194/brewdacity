@@ -45,7 +45,7 @@
               <input type="number" name="quantity" value="1" min="1" class="quantity-selector">
 
               <div class="buttons" style="display: flex; flex-direction: row; gap: 10px;">
-                <button type="submit" class="buy-button">Add to Cart</button>
+                <button type="submit" class="add-to-cart">Add to Cart</button>
                 <button type="submit" class="buy-button-page">Buy Now</button>
               </div>
             </div>
@@ -69,14 +69,19 @@
     padding: 20px;
   }
 
-  .buy-button, .buy-button-page {
+  .add-to-cart, .buy-button {
     flex: 1;
-    background-color: var(--button-color-0);
+    
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
   }
-
+  .buy-button{
+    background-color: var(--button-color-0);
+  }
+.add-to-cart{
+  .background-color:var(--button-color-1);
+}
   .quantity-selector {
     margin-top: 10px;
     width: 60px;
