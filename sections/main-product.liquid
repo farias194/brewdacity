@@ -1,45 +1,87 @@
 <div id="product-wrapper" class="flex-container">
-  <h1>hello</h1>
   <form id="add-to-cart-form" action="/cart/add.js" method="post">
-    {% for block in section.blocks %}
-      {% if block.type == 'text' %}
-        <div class="product-title">
-          {{ block.settings.title_text }}
-        </div>
-      {% elsif block.type == 'price' %}
-        <div class="product-price">
-          {{ product.price | money }}
-        </div>
-      {% elsif block.type == 'buy-button' %}
-        <div class="product-buy">
-          <!-- Variant Selector -->
-          {% if product.variants.size > 1 %}
-            <select name="id">
-              {% for variant in product.variants %}
-                <option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
-              {% endfor %}
-            </select>
-          {% else %}
-            <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+    <div class="product-wrapper" style="display: flex; flex-direction: row;">
+      <!-- Image Div -->
+      {% for block in section.blocks %}
+        {% if block.type == 'image' %}
+          {% if product.featured_image %}
+            <div class="image-div">
+              <img src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.title }}">
+            </div>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+
+      <!-- Product Info Div -->
+      <div class="product-info" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <!-- Title -->
+        {% for block in section.blocks %}
+          {% if block.type == 'text' %}
+            <div class="product-title">
+              {{ block.settings.title_text }}
+            </div>
           {% endif %}
 
-          <!-- Quantity Selector -->
-          <input type="number" name="quantity" value="1" min="1" class="quantity-selector">
+          <!-- Price -->
+          {% if block.type == 'price' %}
+            <div class="product-price">
+              {{ product.price | money }}
+            </div>
+          {% endif %}
 
-          <!-- Buy Button -->
-          <button type="submit" class="buy-button">Add to Cart</button>
-          <button type = 'submit' class="buy-button-page">Buy Now</button>
-        </div>
-      {% elsif block.type == 'image' %}
-        {% if product.featured_image %}
-          <div class="product-image">
-            <img src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.title }}">
-          </div>
-        {% endif %}
-      {% endif %}
-    {% endfor %}
+          <!-- Variant Selector and Buttons -->
+          {% if block.type == 'buy-button' %}
+            <div class="product-buy">
+              {% if product.variants.size > 1 %}
+                <select name="id">
+                  {% for variant in product.variants %}
+                    <option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+                  {% endfor %}
+                </select>
+              {% else %}
+                <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+              {% endif %}
+
+              <input type="number" name="quantity" value="1" min="1" class="quantity-selector">
+
+              <div class="buttons" style="display: flex; flex-direction: row; gap: 10px;">
+                <button type="submit" class="buy-button">Add to Cart</button>
+                <button type="submit" class="buy-button-page">Buy Now</button>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
   </form>
 </div>
+
+<style>
+  .image-div img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .product-info {
+    padding: 20px;
+  }
+
+  .buy-button, .buy-button-page {
+    flex: 1;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .quantity-selector {
+    margin-top: 10px;
+    width: 60px;
+  }
+
+  .buttons {
+    margin-top: 20px;
+  }
+</style>
 
 {% schema %}
 {
