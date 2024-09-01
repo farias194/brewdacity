@@ -119,8 +119,21 @@
       },
       "footer": {
         "type": "footer",
+        "blocks": {
+          "text_dTBURx": {
+            "type": "text",
+            "settings": {
+              "footer-text": "",
+              "footer-header-text": "brewdacity",
+              "footer-text-weight": "bold"
+            }
+          }
+        },
+        "block_order": [
+          "text_dTBURx"
+        ],
         "settings": {
-          "color_scheme": "dark"
+          "color_scheme": "default"
         }
       },
       "main-nav": {
