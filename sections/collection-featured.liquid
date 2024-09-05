@@ -15,8 +15,8 @@
               <div class="product">
                 <a href="{{ product.url }}">
                   <img class ="product-image" src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.title }}">
-                  <h4>{{ product.title }}</h4>
-                  <p>{{ product.price | money }}</p>
+                  <h4 class="'product-title'">{{ product.title }}</h4>
+                  <p class="product-price">{{ product.price | money }}</p>
                 </a>
                 <div class="buttons">
                 <button type="submit" class="add-to-cart">Add to Cart</button>
@@ -108,7 +108,13 @@
     margin-left: 1rem;
     padding: 0.5rem 1rem 0.5rem 1rem;
 
-  }           
+  }
+
+  .product-price{
+    font-size: 2rem;
+    font-family: arial;
+    color: rgb(25, 25, 25)
+  }
   .buy-now-button{
     background-color:var(--button-color-1) ;
 
