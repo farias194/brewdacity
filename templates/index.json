@@ -38,6 +38,55 @@
         "hero_video": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/a835937f023744a793fdb932eaf5a33d.mp4"
       }
     },
+    "about-section": {
+      "type": "about-section",
+      "blocks": {
+        "header_rxj7LJ": {
+          "type": "header",
+          "settings": {
+            "header": "About Us",
+            "color": "#393535"
+          }
+        },
+        "text_tpdJYq": {
+          "type": "text",
+          "settings": {
+            "paragraph": "Located in North Jersey, Brewdacity is a hobby shop cafe where gamers unite. We offer a variety of trading card and taple top games for you to get together with friends. We also sell a variety of trading cards",
+            "color": "#292727"
+          }
+        }
+      },
+      "block_order": [
+        "header_rxj7LJ",
+        "text_tpdJYq"
+      ],
+      "disabled": true,
+      "settings": {
+        "header": "about us",
+        "header_color": "#313131",
+        "alignment": "left",
+        "bg_color": "brewdacity-alternate-bg-color"
+      }
+    },
+    "collection-featured": {
+      "type": "collection-featured",
+      "blocks": {
+        "collection_8XraH7": {
+          "type": "collection",
+          "settings": {
+            "collection": "pokemon-cards",
+            "columns_desktop": 4,
+            "columns_mobile": 1
+          }
+        }
+      },
+      "block_order": [
+        "collection_8XraH7"
+      ],
+      "settings": {
+        "bg_color": "brewdacity-alternate-bg-color"
+      }
+    },
     "drink-menu-section": {
       "type": "drink-menu-section",
       "blocks": {
@@ -104,55 +153,6 @@
         "color_scheme": "brewdacity-alternate-bg-color"
       }
     },
-    "about-section": {
-      "type": "about-section",
-      "blocks": {
-        "header_rxj7LJ": {
-          "type": "header",
-          "settings": {
-            "header": "About Us",
-            "color": "#393535"
-          }
-        },
-        "text_tpdJYq": {
-          "type": "text",
-          "settings": {
-            "paragraph": "Located in North Jersey, Brewdacity is a hobby shop cafe where gamers unite. We offer a variety of trading card and taple top games for you to get together with friends. We also sell a variety of trading cards",
-            "color": "#292727"
-          }
-        }
-      },
-      "block_order": [
-        "header_rxj7LJ",
-        "text_tpdJYq"
-      ],
-      "disabled": true,
-      "settings": {
-        "header": "about us",
-        "header_color": "#313131",
-        "alignment": "left",
-        "bg_color": "brewdacity-alternate-bg-color"
-      }
-    },
-    "collection-featured": {
-      "type": "collection-featured",
-      "blocks": {
-        "collection_8XraH7": {
-          "type": "collection",
-          "settings": {
-            "collection": "pokemon-cards",
-            "columns_desktop": 4,
-            "columns_mobile": 1
-          }
-        }
-      },
-      "block_order": [
-        "collection_8XraH7"
-      ],
-      "settings": {
-        "bg_color": "brewdacity-alternate-bg-color"
-      }
-    },
     "footer": {
       "type": "footer",
       "disabled": true,
@@ -163,9 +163,9 @@
   },
   "order": [
     "hero",
-    "drink-menu-section",
     "about-section",
     "collection-featured",
+    "drink-menu-section",
     "footer"
   ]
 }
