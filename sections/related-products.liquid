@@ -28,6 +28,16 @@
   {%- endif -%}
 </div>
 
+<style>
+.product-recommendations{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: var(--brewdacity-alternate-bg-color);
+}
+</style>
+
 {% javascript %}
   const handleIntersection = (entries, observer) => {
     if (!entries[0].isIntersecting) return;
@@ -64,3 +74,4 @@
     "settings": []
   }
 {% endschema %}
+
