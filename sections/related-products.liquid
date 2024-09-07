@@ -9,7 +9,7 @@
       <h2>Pair it with</h2>
     {% endif %}
 
-    <ul>
+    <ul class="product-list">
       {%- for product in recommendations.products -%}
         <li class="product">
           <a href="{{ product.url }}">
@@ -35,6 +35,10 @@
   flex-wrap: wrap;
   width: 100%;
   background-color: var(--brewdacity-alternate-bg-color);
+}
+.product-list li{
+  text-decoration: none;
+  list-style-type: none;
 }
 </style>
 
