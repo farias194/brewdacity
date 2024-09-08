@@ -3,7 +3,7 @@
     {% for block in section.blocks %}
       <div class="collection">
         {% if block.settings.collection %}
-          <h2>{{ collections[block.settings.collection].title }}</h2>
+          <h2 class="collection-title">{{ collections[block.settings.collection].title }}</h2>
           <div class='products-grid'>
             {% assign columns_desktop = block.settings.columns_desktop %}
             {% assign columns_mobile = block.settings.columns_mobile %}  
@@ -35,6 +35,10 @@
 
 
 <style>
+  .collection-title{
+    font-family: arial;
+    color: grey;
+  }
 .collection-container{
   background-color: #f7d9b6;
   padding: 10rem;
