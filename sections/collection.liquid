@@ -17,8 +17,8 @@
                 {% else %}
                   <p>No image available</p>
                 {% endif %}
-                <h3>{{ product.title }}</h3>
-                <p>{{ product.price | money }}</p>
+                <h3 class="product-title">{{ product.title }}</h3>
+                <p class="product-price">{{ product.price | money }}</p>
               </a>
             </div>
           {% endfor %}
@@ -40,6 +40,14 @@
     text-align: center;
     color: grey;
     font-size: 2rem;
+  }
+  .product a{
+    text-decoration: none;
+    color: grey;
+  }
+  .product-title{
+    text-decoration: none;
+    color: grey;
   }
 .collection-container{
   background-color: #f7d9b6;
