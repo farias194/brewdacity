@@ -16,7 +16,7 @@
           "type": "collection",
           "settings": {
             "collection": "pokemon-cards",
-            "columns_desktop": 5,
+            "columns_desktop": 3,
             "columns_mobile": 2
           }
         }
