@@ -33,8 +33,7 @@
         "button_YL33FB"
       ],
       "settings": {
-        "hero_media_type": "image",
-        "hero_image": "shopify:\/\/shop_images\/person-stands-on-rocks-poking-out-of-the-ocean-shoreline.jpg",
+        "hero_media_type": "video",
         "hero_video": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/a835937f023744a793fdb932eaf5a33d.mp4"
       }
     },
