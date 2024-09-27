@@ -90,11 +90,16 @@
     .nav-links li:hover .dropdown {
       display: block;
     }
+    .cart-link a{
+      color: black;
+      font-size: 1rem;
+    }
   </style>
   
   <nav class="navbar">
     <div class="nav_title">
-      <h1>{{ section.settings.nav_title }}</h1>
+      <div>
+      <h1>{{ section.settings.nav_title }}</h1></div>
       <div class="cart-link">
         <a href="/cart">
           <!-- Cart SVG and item count -->
