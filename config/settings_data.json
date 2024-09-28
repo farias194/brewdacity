@@ -17,7 +17,7 @@
             "type": "nav_link",
             "settings": {
               "navlink": "cards",
-              "link_url": "shopify:\/\/collections\/pokemon-cards",
+              "link_url": "shopify://collections/pokemon-cards",
               "has_dropdown": true
             }
           },
@@ -25,7 +25,7 @@
             "type": "nav_link",
             "settings": {
               "navlink": "home",
-              "link_url": "\/",
+              "link_url": "/",
               "has_dropdown": false
             }
           },
@@ -33,7 +33,7 @@
             "type": "dropdown_link",
             "settings": {
               "dropdown_link_text": "Sublink",
-              "dropdown_link_url": "shopify:\/\/products\/elite-trainer-box"
+              "dropdown_link_url": "shopify://products/elite-trainer-box"
             }
           }
         },
@@ -60,7 +60,7 @@
           "button_NTdPeG": {
             "type": "button",
             "settings": {
-              "button_link": "shopify:\/\/collections\/coffee",
+              "button_link": "shopify://collections/coffee",
               "button_text": "coffee"
             }
           }
@@ -139,7 +139,7 @@
       "main-nav": {
         "type": "main-nav",
         "settings": {
-          "nav_title": "brewdacity"
+          "nav_title": "BREWDACITY"
         }
       },
       "about-page": {
@@ -148,7 +148,7 @@
           "about_hero_image_tKEmb3": {
             "type": "about_hero_image",
             "settings": {
-              "about_hero_image": "shopify:\/\/shop_images\/pexels-cottonbro-6963326.jpg"
+              "about_hero_image": "shopify://shop_images/pexels-cottonbro-6963326.jpg"
             }
           },
           "about_text_Lra6pb": {
