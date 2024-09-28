@@ -23,7 +23,7 @@
         "button_YL33FB": {
           "type": "button",
           "settings": {
-            "button_link": "shopify:\/\/collections\/pokemon-boxes",
+            "button_link": "shopify://collections/pokemon-boxes",
             "button_text": "shop cards"
           }
         }
@@ -34,7 +34,8 @@
       ],
       "settings": {
         "hero_media_type": "video",
-        "hero_video": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/a835937f023744a793fdb932eaf5a33d.mp4"
+        "hero_image": "shopify://shop_images/406413398_122121749132085412_2246772913711179953_n.jpg",
+        "hero_video": "https://cdn.shopify.com/videos/c/o/v/a835937f023744a793fdb932eaf5a33d.mp4"
       }
     },
     "about-section": {
