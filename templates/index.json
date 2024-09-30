@@ -163,6 +163,7 @@
   },
   "order": [
     "hero",
+    "explainer-section",
     "about-section",
     "collection-featured",
     "drink-menu-section",
