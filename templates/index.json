@@ -56,7 +56,7 @@
         "header": "",
         "header_color": "#313131",
         "alignment": "left",
-        "bg_color": "brewdacity-alternate-bg-color"
+        "bg_color": "dark-color"
       }
     },
     "collection-featured": {
