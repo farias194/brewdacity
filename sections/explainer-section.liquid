@@ -5,7 +5,7 @@
     "blocks": [
       {
         "type": "textarea",
-        "name": "explainer-text",
+        "name": "explainer_text",
         "settings": [
           {
             "type": "textarea",
@@ -28,17 +28,19 @@
         ]
       }
     ]
-  
   }
 {% endschema %}
 
-<div class="explainer-section" style="background-color: {{ block.settings.background_color }};">
-  <h2>{{ block.settings.explainer-text }}</h2>
+<div class="explainer-section" style="background-color: {{ section.settings.background_color }};">
+  {% for block in section.blocks %}
+    {% if block.type == 'textarea' %}
+      <h2>{{ block.settings.explainer_text }}</h2>
+    {% endif %}
+  {% endfor %}
 </div>
 
 <style>
   .explainer-section {
-    font-size: 5rem;
     font-family: 'Dela-Gothic-One';
     color: #aae682;
   }
