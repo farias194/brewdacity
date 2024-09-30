@@ -1,6 +1,44 @@
 {% schema %}
   {
-    "name": "Section name",
-    "settings": []
+    "name": "Explainer Section",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "textarea",
+        "name": "explainer_text",
+        "settings": [
+          {
+            "type": "textarea",
+            "label": "Explainer text",
+            "id": "explainer_text",
+            "default": "Insert text here"
+          }
+        ]
+      },
+      {
+        "type": "color",
+        "name": "background",
+        "settings": [
+          {
+            "type": "color",
+            "label": "Background color",
+            "id": "background_color",
+            "default": "#262626"
+          }
+        ]
+      }
+    ]
   }
 {% endschema %}
+
+<div class="explainer-section" style="background-color: {{ block.settings.background_color }};">
+  <h2>{{ block.settings.explainer_text }}</h2>
+</div>
+
+<style>
+  .explainer-section {
+    font-size: 5rem;
+    font-family: 'Dela-Gothic-One';
+    color: #aae682;
+  }
+</style>
