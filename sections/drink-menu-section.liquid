@@ -7,20 +7,28 @@
       {% if block.type == 'menu_desc' %}
         <p class="menu-desc" style="text-align: {{ block.settings.desc_alignment }};">{{ block.settings.menu_description }}</p>
       {% endif %}
-
+       <div class="drink-item-container"> 
       {% if block.type == 'drink_item' %}
+
         <div class="drink-item">
           <div class="drink-name">{{ block.settings.drink_name }}</div>
           <div class="drink-price">{{ block.settings.drink_price | money }}</div>
         </div>
       {% endif %}
+      </div>
     {% endfor %}
   {% else %}
     <p>No items added to the menu.</p>
   {% endif %}
+  
 </div>
 
 <style>
+  .drink-item-container{
+    display: flex ;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
   .menu-title{
     margin: 20px;
   }
@@ -36,6 +44,7 @@
   gap: 1rem; /* Optional: Adds spacing between items */
 }
 .drink-item {
+  width: 50%;
   flex-direction: row;
   display: flex;
   font-size: var(4rem);
