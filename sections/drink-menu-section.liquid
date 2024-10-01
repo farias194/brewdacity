@@ -67,3 +67,98 @@
     align-self: flex-end;
   }
 </style>
+
+{% schema %} 
+{
+  "name": "menu",
+  "settings": [
+    {
+      "type": "select",
+      "label": "Color Scheme",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "brewdacity-bg-color",
+          "label": "Default Color"
+        },
+        {
+          "value": "brewdacity-alternate-bg-color",
+          "label": "Alternate Color"
+        },
+        {
+          "value": "brewdacity-alternate-bg-color-warm",
+          "label": "Alternate Color Warm"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "menu_title",
+      "name": "Menu Title",
+      "settings": [
+        {
+          "type": "text",
+          "id": "menu_title",
+          "label": "Menu Title"
+        },
+        {
+          "type": "select",
+          "id": "title_alignment",
+          "label": "Menu Title Alignment",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "right", "label": "Right" },
+            { "value": "center", "label": "Center" }
+          ],
+          "default": "center"
+        }
+      ]
+    },
+    {
+      "type": "menu_desc",
+      "name": "Menu Description",
+      "settings": [
+        {
+          "type": "text",
+          "id": "menu_description",
+          "label": "Menu Description"
+        },
+        {
+          "type": "select",
+          "id": "desc_alignment",
+          "label": "Menu Description Alignment",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "right", "label": "Right" },
+            { "value": "center", "label": "Center" }
+          ],
+          "default": "center"
+        }
+      ]
+    },
+    {
+      "type": "drink_item",
+      "name": "Drink Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "drink_name",
+          "label": "Drink Name"
+        },
+        {
+          "type": "text",
+          "id": "drink_price",
+          "label": "Drink Price",
+          "default": "10"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Drink Menu"
+    }
+  ]
+}
+{% endschema %}
