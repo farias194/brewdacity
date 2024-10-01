@@ -7,156 +7,63 @@
       {% if block.type == 'menu_desc' %}
         <p class="menu-desc" style="text-align: {{ block.settings.desc_alignment }};">{{ block.settings.menu_description }}</p>
       {% endif %}
-       <div class="drink-item-container"> 
-      {% if block.type == 'drink_item' %}
-
-        <div class="drink-item">
-          <div class="drink-name">{{ block.settings.drink_name }}</div>
-          <div class="drink-price">{{ block.settings.drink_price | money }}</div>
-        </div>
-      {% endif %}
-      </div>
     {% endfor %}
+
+    <!-- Separate container for drink items -->
+    <div class="drink-item-container">
+      {% for block in section.blocks %}
+        {% if block.type == 'drink_item' %}
+          <div class="drink-item">
+            <div class="drink-name">{{ block.settings.drink_name }}</div>
+            <div class="drink-price">{{ block.settings.drink_price | money }}</div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
   {% else %}
     <p>No items added to the menu.</p>
   {% endif %}
-  
 </div>
 
 <style>
-  .drink-item-container{
-    display: flex ;
+  .drink-menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: sans-serif;
+    padding: 10rem;
+    gap: 1rem; /* Optional: Adds spacing between items */
+  }
+
+  .menu-title, .menu-desc {
+    margin: 20px;
+  }
+
+  .drink-item-container {
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2rem;
   }
-  .menu-title{
-    margin: 20px;
+
+  .drink-item {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 2rem;
+    margin-top: 1rem;
+    border-bottom: 2px solid black;
+    width: 90%;
   }
-  .menu-desc{
-    margin: 20px;
+
+  .drink-name, .drink-price {
+    color: rgb(245, 172, 63);
+    font-size: 4rem;
   }
-.drink-menu-container {
-  display: flex;
-  align-items: center;
-  font-family: sans-serif;
-  padding: 10rem;
-  flex-direction: column;
-  gap: 1rem; /* Optional: Adds spacing between items */
-}
-.drink-item {
-  width: 50%;
-  flex-direction: row;
-  display: flex;
-  font-size: var(4rem);
 
-  margin-top: 1rem;
-  width: 90%;
-border-bottom: 2px solid black;
-  justify-content: space-between;
-}
-
-.drink-price {
-  align-self: flex-end;
-}
-
-.drink-name, .drink-price {
-  color: rgb(245, 172, 63);
-  font-size: 4rem
-}
+  .drink-price {
+    align-self: flex-end;
+  }
 </style>
-
-{% schema %} 
-{
-  "name": "menu",
-  "settings": [
-    {
-      "type": "select",
-      "label": "Color Scheme",
-      "id": "color_scheme",
-      "options": [{
-            "value": "brewdacity-bg-color",
-            "label": "Default Color"
-          },
-          {
-            "value": "brewdacity-alternate-bg-color",
-            "label": "Alternate Color"
-          },
-          {
-            "value": "brewdacity-alternate-bg-color-warm",
-            "label": "Alternate Color Warm"
-          }]
-        
-
-    }
-  ],
-  "blocks": [
-    {
-      "type": "menu_title",
-      "name": "Menu Title",
-      "settings": [
-        {
-          "type": "text",
-          "id": "menu_title",
-          "label": "Menu Title"
-        },
-        {
-          "type": "select",
-          "id": "title_alignment",
-          "label": "Menu Title Alignment",
-          "options": [
-            { "value": "left", "label": "Left" },
-            { "value": "right", "label": "Right" },
-            { "value": "center", "label": "Center" }
-          ],
-          "default": "center"
-        }
-      ]
-    },
-    {
-      "type": "menu_desc",
-      "name": "Menu Description",
-      "settings": [
-        {
-          "type": "text",
-          "id": "menu_description",
-          "label": "Menu Description"
-        },
-        {
-          "type": "select",
-          "id": "desc_alignment",
-          "label": "Menu Description Alignment",
-          "options": [
-            { "value": "left", "label": "Left" },
-            { "value": "right", "label": "Right" },
-            { "value": "center", "label": "Center" }
-          ],
-          "default": "center"
-        }
-      ]
-    },
-    {
-      "type": "drink_item",
-      "name": "Drink Item",
-      "settings": [
-        {
-          "type": "text",
-          "id": "drink_name",
-          "label": "Drink Name"
-        },
-        {
-          "type": "text",
-          "id": "drink_price",
-          "label": "Drink Price",
-          "default": "10"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Drink Menu"
-    }
-  ]
-}
-{% endschema %}
-
