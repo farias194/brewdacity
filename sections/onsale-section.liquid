@@ -1,21 +1,19 @@
 {% schema %}
-{
-    "name": "On Sale Section",
-    "tag": "section",
-    "settings": [
     {
-        "id": "sale-section",
-        "type": "text",
-        "label": "sale section",
-        "default": "On Sale Section"
+        "name": "On Sale Section",
+        "tag": "section",
+        "settings": [
+        {
+            "id": "sale-section",
+            "type": "text",
+            "label": "sale section",
+            "default": "On Sale Section"
+        }
+        ]
     }
-    ]
-}
-
-
-{% endschema %}
-
-<div>
-
-<h1>hello</h1>
-</div>
+    {% endschema %}
+    
+    <div>
+        <h1>{{ section.settings.sale-section }}</h1>
+    </div>
+    
