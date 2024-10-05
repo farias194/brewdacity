@@ -26,8 +26,12 @@
       ],
       "settings": {
       }
+    },
+    "onsale-section":{
+      "type": "section"
     }
   },
+ 
   "order": [
     "main",
     "onsale-section"
