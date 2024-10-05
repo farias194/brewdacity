@@ -1,12 +1,12 @@
 <!-- sections/list-collections.liquid -->
 <div class="list-collections">
-  <h1>{{ section.settings.title }}</h1>
+  <h1 class="section-title">{{ section.settings.title }}</h1>
   <div class="collections-grid">
     {% for collection in collections %}
       <div class="collection-item">
         <a href="{{ collection.url }}">
           <img width='200' height = '200' src="{{ collection.image | img_url: 'medium' }}" alt="{{ collection.title }}">
-          <h2>{{ collection.title }}</h2>
+          <h2 class="collection-title">{{ collection.title }}</h2>
         </a>
       </div>
     {% endfor %}
@@ -34,6 +34,12 @@
 {% endschema %}
 
 <style>
+  .collection-title{
+    font-size: 2rem;
+    text-decoration: none;
+    color: black;
+    font-family: 'Dela-Gothic-One';
+  }
   .collections-grid {
     display: grid;
     background-color: #FBFFF1;
