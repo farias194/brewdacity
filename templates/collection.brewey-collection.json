@@ -29,6 +29,7 @@
     }
   },
   "order": [
-    "main"
+    "main",
+    "onsale-section"
   ]
 }
