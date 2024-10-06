@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "hero": {
@@ -135,8 +144,8 @@
         "color_scheme": "brewdacity-alternate-bg-color"
       }
     },
-    "event-section": {
-      "type": "event-section",
+    "events-section": {
+      "type": "events-section",
       "settings": {
         "event_date": "October 20, 2024",
         "event_name": "Magic: The Gathering Tournament",
@@ -156,7 +165,7 @@
     "about-section",
     "collection-featured",
     "drink-menu-section",
-    "event-section",
+    "events-section",
     "footer"
   ]
 }
