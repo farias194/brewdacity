@@ -4,9 +4,9 @@
     "settings": [
       {
         "id": "event_date",
-        "type": "date",
+        "type": "text",  // Keeping it as text
         "label": "Event Date",
-        "default": "2024-10-15"
+        "default": "2024-10-15"  // Default date in YYYY-MM-DD format
       },
       {
         "id": "event_name",
@@ -26,7 +26,7 @@
   
   <div class="event-section-container">
     <div class="event-date-container">
-      {% assign event_date = section.settings.event_date | date: "%Y-%m-%d" %}
+      {% assign event_date = section.settings.event_date %}
       {% assign event_day = event_date | date: "%d" %}
       {% assign event_month = event_date | date: "%B" %}
       {% assign event_year = event_date | date: "%Y" %}
