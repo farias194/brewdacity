@@ -1,50 +1,83 @@
 {% schema %}
-    {
-      "name": "Event Section",
-      "settings": [
-        {
-          "id": "event_date",
-          "type": "text",
-          "label": "Event Date",
-          "default": "October 15, 2024"
-        },
-        {
-          "id": "event_name",
-          "type": "text",
-          "label": "Event Name",
-          "default": "Game Night"
-        },
-        {
-          "id": "event_description",
-          "type": "textarea",
-          "label": "Event Description",
-          "default": "Join us for an exciting game night with friends and family!"
-        }
-      ]
-    }
-    {% endschema %}
-    
-    <div class="event-section-container">
+  {
+    "name": "Event Section",
+    "settings": [
+      {
+        "id": "event_date",
+        "type": "date",
+        "label": "Event Date",
+        "default": "2024-10-15"
+      },
+      {
+        "id": "event_name",
+        "type": "text",
+        "label": "Event Name",
+        "default": "Game Night"
+      },
+      {
+        "id": "event_description",
+        "type": "textarea",
+        "label": "Event Description",
+        "default": "Join us for an exciting game night with friends and family!"
+      }
+    ]
+  }
+  {% endschema %}
+  
+  <div class="event-section-container">
+    <div class="event-date-container">
+      {% assign event_date = section.settings.event_date | date: "%Y-%m-%d" %}
+      {% assign event_day = event_date | date: "%d" %}
+      {% assign event_month = event_date | date: "%B" %}
+      {% assign event_year = event_date | date: "%Y" %}
+      
       <div class="event-date">
-        <strong>Date:</strong> {{ section.settings.event_date }}
-      </div>
-      <div class="event-name">
-        <strong>Event:</strong> {{ section.settings.event_name }}
-      </div>
-      <div class="event-description">
-        <strong>Description:</strong> {{ section.settings.event_description }}
+        <span class="event-month">{{ event_month }}</span>
+        <span class="event-day">{{ event_day }}</span>
+        <span class="event-year">{{ event_year }}</span>
       </div>
     </div>
+    <div class="event-name">
+      <strong>Event:</strong> {{ section.settings.event_name }}
+    </div>
+    <div class="event-description">
+      <strong>Description:</strong> {{ section.settings.event_description }}
+    </div>
+  </div>
+  
+  <style>
+    .event-section-container {
+      border: 1px solid #ddd;
+      padding: 20px;
+      color: whitesmoke;
+      font-size: 2rem;
+      background-color: #1a1a1a;
+    }
     
-    <style>
-      .event-section-container {
-        border: 1px solid #ddd;
-        padding: 20px;
-        color: whitesmoke;
-        font-size: 2rem;
-        background-color: #1a1a1a;
-      }
-      .event-date, .event-name, .event-description {
-        margin-bottom: 10px;
-      }
-    </style>
+    .event-date-container {
+      border: 1px solid #ccc; /* Add border to the date container */
+      padding: 5rem; /* Padding of 5rem */
+      text-align: center; /* Center the text */
+      margin-bottom: 10px; /* Space below the date container */
+    }
+    
+    .event-month {
+      font-size: 1rem; /* Font size for the month */
+      display: block; /* Ensures the month is on top */
+    }
+    
+    .event-day {
+      font-size: 3rem; /* Font size for the day */
+      display: block; /* Ensures the day is centered */
+    }
+    
+    .event-year {
+      font-size: 1rem; /* Font size for the year */
+      display: block; /* Ensures the year is below the day */
+    }
+  
+    .event-name, .event-description {
+      margin-bottom: 10px;
+    }
+  </style>
+  
