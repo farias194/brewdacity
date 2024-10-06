@@ -144,8 +144,8 @@
         "color_scheme": "brewdacity-alternate-bg-color"
       }
     },
-    "events-section": {
-      "type": "events-section",
+    "event-section": {
+      "type": "event-section",
       "settings": {
         "event_date": "October 20, 2024",
         "event_name": "Magic: The Gathering Tournament",
@@ -165,7 +165,7 @@
     "about-section",
     "collection-featured",
     "drink-menu-section",
-    "events-section",
+    "event-section",
     "footer"
   ]
 }
