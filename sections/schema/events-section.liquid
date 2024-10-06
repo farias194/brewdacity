@@ -1,0 +1,49 @@
+{% schema %}
+    {
+      "name": "Event Section",
+      "settings": [
+        {
+          "id": "event_date",
+          "type": "text",
+          "label": "Event Date",
+          "default": "October 15, 2024"
+        },
+        {
+          "id": "event_name",
+          "type": "text",
+          "label": "Event Name",
+          "default": "Game Night"
+        },
+        {
+          "id": "event_description",
+          "type": "textarea",
+          "label": "Event Description",
+          "default": "Join us for an exciting game night with friends and family!"
+        }
+      ]
+    }
+    {% endschema %}
+    
+    <div class="event-section-container">
+      <div class="event-date">
+        <strong>Date:</strong> {{ section.settings.event_date }}
+      </div>
+      <div class="event-name">
+        <strong>Event:</strong> {{ section.settings.event_name }}
+      </div>
+      <div class="event-description">
+        <strong>Description:</strong> {{ section.settings.event_description }}
+      </div>
+    </div>
+    
+    <style>
+      .event-section-container {
+        border: 1px solid #ddd;
+        padding: 20px;
+        margin: 20px 0;
+        background-color: #f9f9f9;
+      }
+      .event-date, .event-name, .event-description {
+        margin-bottom: 10px;
+      }
+    </style>
