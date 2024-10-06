@@ -3,32 +3,34 @@
         "name": "On Sale Section",
         "tag": "section",
         "settings": [
-        {
-            "id": "sale-section",
-            "type": "text",
-            "label": "sale section",
-            "default": "On Sale Section"
-        }
-        
+            {
+                "id": "sale-section",
+                "type": "text",
+                "label": "Sale Section Heading",
+                "default": "On Sale Section"
+            }
         ],
         "blocks": [
             {
-                "name": "product-columns",
-                "type": "select",                
-            },
-            {
-          "type": "range",
-          "id": "columns_mobile",
-          "label": "Columns on Mobile",
-          "min": 1,
-          "max": 4,
-          "default": 1
-        }
+                "type": "product-columns",
+                "name": "Product Columns",
+                "settings": [
+                    {
+                        "type": "range",
+                        "id": "columns",
+                        "label": "Columns",
+                        "min": 1,
+                        "max": 4,
+                        "default": 1
+                    }
+                ]
+            }
         ]
     }
     {% endschema %}
     
     <div>
         <h1>{{ section.settings.sale-section }}</h1>
+        <p>Mobile Columns: {{ block.settings.columns_mobile }}</p>
     </div>
     
