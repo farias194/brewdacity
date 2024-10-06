@@ -30,18 +30,20 @@
       {% assign event_day = event_date | date: "%d" %}
       {% assign event_month = event_date | date: "%B" %}
       {% assign event_year = event_date | date: "%Y" %}
-      
       <div class="event-date">
         <span class="event-month">{{ event_month }}</span>
         <span class="event-day">{{ event_day }}</span>
         <span class="event-year">{{ event_year }}</span>
       </div>
+      <div class="event-info">
+
     </div>
     <div class="event-name">
       <strong>Event:</strong> {{ section.settings.event_name }}
     </div>
     <div class="event-description">
       <strong>Description:</strong> {{ section.settings.event_description }}
+    </div>
     </div>
   </div>
   
@@ -53,12 +55,20 @@
       font-size: 2rem;
       background-color: #1a1a1a;
     }
-    
+    .event-info{
+      display: flex;
+      flex-direction: column;
+    }
     .event-date-container {
+      display: flex;
+      flex-direction: row;
       border: 1px solid #ccc; /* Add border to the date container */
       padding: 5rem; /* Padding of 5rem */
       text-align: center; /* Center the text */
       margin-bottom: 10px; /* Space below the date container */
+    }.event-date{
+      display: flex;
+      flex-direction: column;
     }
     
     .event-month {
