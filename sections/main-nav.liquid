@@ -104,9 +104,9 @@
     .nav-links li:hover .dropdown {
       display: block;
     }
-    .nav-links li:hover ::marker{
-      display: none;
-    }
+    ul li.dropdown > a::after {
+    content: none;
+}
     .cart-link a{
       color: black;
       font-size: 1rem;
