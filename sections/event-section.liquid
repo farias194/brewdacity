@@ -35,9 +35,9 @@
     ]
   }
   {% endschema %}
-  <div>
-  <div>Events</div>
   <div class="event-section-container">
+    <div>Events</div>
+
     {% for block in section.blocks %}
       <div class="event-date-container">
         {% assign event_date = block.settings.event_date %}
@@ -63,7 +63,6 @@
     {% endfor %}
   </div>
   
-  </div>
   <style>
     .event-section-container {
       color: whitesmoke;
