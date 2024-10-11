@@ -62,3 +62,51 @@
     {% endfor %}
   </div>
   
+  
+  <style>
+    .event-section-container {
+      padding: 20px;
+      color: whitesmoke;
+      font-size: 2rem;
+      background-color: #1a1a1a;
+    }
+    .event-info{
+      display: flex;
+      flex-direction: column;
+      align-items: first baseline;
+    }
+    .event-date-container {
+      justify-content: space-around;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      padding: 5rem; /* Padding of 5rem */
+      text-align: center; /* Center the text */
+      margin-bottom: 10px; /* Space below the date container */
+    }.event-date{
+      display: flex;
+      flex-direction: column;
+      border: 1px solid white;
+      padding: 5rem;
+    }
+    
+    .event-month {
+      font-size: 1rem; /* Font size for the month */
+      display: block; /* Ensures the month is on top */
+    }
+    
+    .event-day {
+      font-size: 3rem; /* Font size for the day */
+      display: block; /* Ensures the day is centered */
+    }
+    
+    .event-year {
+      font-size: 1rem; /* Font size for the year */
+      display: block; /* Ensures the year is below the day */
+    }
+  
+    .event-name, .event-description {
+      margin-bottom: 10px;
+    }
+  </style>
+  
