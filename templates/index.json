@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -146,10 +146,29 @@
     },
     "event-section": {
       "type": "event-section",
+      "blocks": {
+        "event_MczHG6": {
+          "type": "event",
+          "settings": {
+            "event_date": "2024-10-15",
+            "event_name": "Game Night",
+            "event_description": "Join us for an exciting game night with friends and family!"
+          }
+        },
+        "event_BWAFkN": {
+          "type": "event",
+          "settings": {
+            "event_date": "2024-8-23",
+            "event_name": "Tournament",
+            "event_description": "Pokemon tournament"
+          }
+        }
+      },
+      "block_order": [
+        "event_MczHG6",
+        "event_BWAFkN"
+      ],
       "settings": {
-        "event_date": "November      20       2024",
-        "event_name": "Magic: The Gathering Tournament",
-        "event_description": "Come join us for a thrilling tournament of Magic: The Gathering!"
       }
     },
     "footer": {
