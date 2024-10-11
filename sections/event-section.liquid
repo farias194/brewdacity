@@ -1,96 +1,64 @@
 {% schema %}
   {
     "name": "Event Section",
-    "settings": [
+    "blocks": [
       {
-        "id": "event_date",
-        "type": "text",  // Keeping it as text
-        "label": "Event Date",
-        "default": "2024-10-15"  // Default date in YYYY-MM-DD format
-      },
+        "type": "event",
+        "name": "Event",
+        "settings": [
+          {
+            "id": "event_date",
+            "type": "text",
+            "label": "Event Date",
+            "default": "2024-10-15"
+          },
+          {
+            "id": "event_name",
+            "type": "text",
+            "label": "Event Name",
+            "default": "Game Night"
+          },
+          {
+            "id": "event_description",
+            "type": "textarea",
+            "label": "Event Description",
+            "default": "Join us for an exciting game night with friends and family!"
+          }
+        ]
+      }
+    ],
+    "presets": [
       {
-        "id": "event_name",
-        "type": "text",
-        "label": "Event Name",
-        "default": "Game Night"
-      },
-      {
-        "id": "event_description",
-        "type": "textarea",
-        "label": "Event Description",
-        "default": "Join us for an exciting game night with friends and family!"
+        "name": "Event Section",
+        "category": "Custom"
       }
     ]
   }
   {% endschema %}
   
   <div class="event-section-container">
-    <div class="event-date-container">
-      {% assign event_date = section.settings.event_date %}
-      {% assign event_day = event_date | date: "%d" %}
-      {% assign event_month = event_date | date: "%B" %}
-      {% assign event_year = event_date | date: "%Y" %}
-      <div class="event-date">
-        <span class="event-month">{{ event_month }}</span>
-        <span class="event-day">{{ event_day }}</span>
-        <span class="event-year">{{ event_year }}</span>
+    {% for block in section.blocks %}
+      <div class="event-date-container">
+        {% assign event_date = block.settings.event_date %}
+        {% assign event_day = event_date | date: "%d" %}
+        {% assign event_month = event_date | date: "%B" %}
+        {% assign event_year = event_date | date: "%Y" %}
+        
+        <div class="event-date">
+          <span class="event-month">{{ event_month }}</span>
+          <span class="event-day">{{ event_day }}</span>
+          <span class="event-year">{{ event_year }}</span>
+        </div>
+        
+        <div class="event-info">
+          <div class="event-name">
+            <strong>Event:</strong> {{ block.settings.event_name }}
+          </div>
+          <div class="event-description">
+            <strong>Description:</strong> {{ block.settings.event_description }}
+          </div>
+        </div>
       </div>
-      <div class="event-info">
-
-    
-    <div class="event-name">
-      <strong>Event:</strong> {{ section.settings.event_name }}
-    </div>
-    <div class="event-description">
-      <strong>Description:</strong> {{ section.settings.event_description }}
-    </div>
-    </div>
+    {% endfor %}
   </div>
-  
-  <style>
-    .event-section-container {
-      padding: 20px;
-      color: whitesmoke;
-      font-size: 2rem;
-      background-color: #1a1a1a;
-    }
-    .event-info{
-      display: flex;
-      flex-direction: column;
-      align-items: first baseline;
-    }
-    .event-date-container {
-      justify-content: space-around;
-      display: flex;
-      align-items: center;
-      flex-direction: row;
-      padding: 5rem; /* Padding of 5rem */
-      text-align: center; /* Center the text */
-      margin-bottom: 10px; /* Space below the date container */
-    }.event-date{
-      display: flex;
-      flex-direction: column;
-      border: 1px solid white;
-      padding: 5rem;
-    }
-    
-    .event-month {
-      font-size: 1rem; /* Font size for the month */
-      display: block; /* Ensures the month is on top */
-    }
-    
-    .event-day {
-      font-size: 3rem; /* Font size for the day */
-      display: block; /* Ensures the day is centered */
-    }
-    
-    .event-year {
-      font-size: 1rem; /* Font size for the year */
-      display: block; /* Ensures the year is below the day */
-    }
-  
-    .event-name, .event-description {
-      margin-bottom: 10px;
-    }
-  </style>
   
