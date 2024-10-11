@@ -36,7 +36,7 @@
   }
   {% endschema %}
   <div class="event-section-container">
-    <div>Events</div>
+    <div class="title">Events</div>
 
     {% for block in section.blocks %}
       <div class="event-date-container">
@@ -64,6 +64,11 @@
   </div>
   
   <style>
+    .title{
+      font-family: 'Dela-Gothic-One';
+      font-size: 3rem;
+      text-align: center;
+    }
     .event-section-container {
       color: whitesmoke;
       display: flex;
