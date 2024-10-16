@@ -1,7 +1,8 @@
 <!-- sections/list-collections.liquid -->
 <div class="list-collections">
-  <h1 class="section-title">{{ section.settings.title }}</h1>
   <div class="collections-grid">
+    <h1 class="section-title">{{ section.settings.title }}</h1>
+
     {% for collection in collections %}
       <div class="collection-item">
         <a href="{{ collection.url }}">
