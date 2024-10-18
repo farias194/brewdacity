@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
     "sections": {
@@ -127,10 +127,19 @@
               "footer-header-text": "brewdacity",
               "footer-text-weight": "bold"
             }
+          },
+          "text_L7wRNL": {
+            "type": "text",
+            "settings": {
+              "footer-text": "brewdacity is ownedby brewdacity llc",
+              "footer-header-text": "Thanks for coming to our store",
+              "footer-text-weight": "normal"
+            }
           }
         },
         "block_order": [
-          "text_dTBURx"
+          "text_dTBURx",
+          "text_L7wRNL"
         ],
         "settings": {
           "color_scheme": "default"
