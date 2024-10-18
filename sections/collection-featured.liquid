@@ -4,8 +4,12 @@
     {% for block in section.blocks %}
     <div class="collection">
       {% if block.settings.collection %}
-        <h2 class="featured-collection-header">Featured collection</h2>
-        <h2 class="collection-title">{{ collections[block.settings.collection].title }}</h2>
+        <h2 class="featured-collection-header" style="text-align: {{ block.settings.header_alignment }};">
+          Featured Collection
+        </h2>
+        <h2 class="collection-title" style="text-align: {{ block.settings.header_alignment }};">
+          {{ collections[block.settings.collection].title }}
+        </h2>
         <div class="products-grid">
           {% assign columns_desktop = block.settings.columns_desktop %}
           {% assign columns_mobile = block.settings.columns_mobile %}
@@ -45,18 +49,9 @@
       "label": "Background Color",
       "default": "brewdacity-bg-color",
       "options": [
-        {
-          "value": "brewdacity-bg-color",
-          "label": "Default Color"
-        },
-        {
-          "value": "brewdacity-alternate-bg-color",
-          "label": "Alternate Color"
-        },
-        {
-          "value": "brewdacity-alternate-bg-color-warm",
-          "label": "Alternate Color Warm"
-        }
+        { "value": "brewdacity-bg-color", "label": "Default Color" },
+        { "value": "brewdacity-alternate-bg-color", "label": "Alternate Color" },
+        { "value": "brewdacity-alternate-bg-color-warm", "label": "Alternate Color Warm" }
       ]
     }
   ],
@@ -85,6 +80,17 @@
           "min": 1,
           "max": 4,
           "default": 1
+        },
+        {
+          "type": "select",
+          "id": "header_alignment",
+          "label": "Header Alignment",
+          "default": "center",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" }
+          ]
         }
       ]
     }
@@ -102,14 +108,12 @@
   .featured-collection-header {
     font-family: 'Dela-Gothic-One';
     font-size: 2rem;
-    color: orange;
-    align-self: center;
+    color: #E6844E;
   }
 
   .collection-title {
     font-size: 1rem;
     font-family: 'Dela-Gothic-One';
-    text-align: center;
   }
 
   .buttons {
@@ -123,27 +127,6 @@
     background-color: gray;
   }
 
-  .product-price {
-    font-size: 2rem;
-    font-family: Arial, sans-serif;
-    color: rgb(25, 25, 25);
-    margin: 0;
-  }
-
-  .add-to-cart {
-    background-color: #E6EE87;
-  }
-
-  .buy-button {
-    background-color: var(--button-color-1);
-  }
-
-  .collection {
-    margin-top: -50px;
-    display: flex;
-    flex-direction: column;
-  }
-
   .product {
     display: flex;
     flex-direction: column;
@@ -152,22 +135,34 @@
     border-radius: 2%;
     padding: 1rem;
     margin: 0;
-    min-height: 400px; /* Ensure consistent height across products */
+    min-height: 400px;
   }
 
   .product img {
     border-radius: 5%;
     padding: 1rem;
-    width: 100%; /* Make the image take up the full width of the container */
-    max-width: 300px; /* Optional: Limit max size */
-    height: auto; /* Maintain aspect ratio */
-    object-fit: contain; /* Avoid cropping important parts */
-}
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    object-fit: contain;
+  }
 
   .product-title {
     font-size: 1.5rem;
     text-align: center;
     color: #E6844E;
+  }
+
+  .product-price {
+    font-size: 2rem;
+    font-family: 'Dela-Gothic-One';
+    color: #333;
+    margin-bottom: 1rem; /* Adds spacing below the price */
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit; /* Inherits text color to avoid underlining */
   }
 
   .products-grid {
@@ -176,8 +171,7 @@
     gap: 2rem;
     padding: 5rem;
     width: fit-content;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    align-items: start; /* Align products at the top */
+    align-items: start;
   }
 
   .see-more {
