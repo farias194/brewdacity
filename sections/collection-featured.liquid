@@ -157,11 +157,11 @@
   .product img {
     border-radius: 5%;
     padding: 1rem;
-    max-width: 80%;
-    height: 250px; /* Fixed height for images */
-    object-fit: cover; /* Prevent distortion */
-    overflow: hidden;
-  }
+    width: 100%; /* Make the image take up the full width of the container */
+    max-width: 300px; /* Optional: Limit max size */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Avoid cropping important parts */
+}
 
   .product-title {
     font-size: 1.5rem;
