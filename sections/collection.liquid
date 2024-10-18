@@ -4,24 +4,27 @@
       <div class="collection">
         {% if block.settings.collection %}
           <h2 class="collection-title">{{ collections[block.settings.collection].title }}</h2>
+          
+          {% if block.settings.collection_description != blank %}
+            <p class="collection-description">{{ block.settings.collection_description }}</p>
+          {% endif %}
+          
           <div class='products-grid'>
             {% assign columns_desktop = block.settings.columns_desktop %}
             {% assign columns_mobile = block.settings.columns_mobile %}  
-          {% for product in collections[block.settings.collection].products %}
-                 
-              
+            {% for product in collections[block.settings.collection].products %}
               <div class="product">
-              <a href="{{ product.url }}">
-                {% if product.featured_image %}
-                  <img class="product-image"  src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
-                {% else %}
-                  <p>No image available</p>
-                {% endif %}
-                <h3 class="product-title">{{ product.title }}</h3>
-                <p class="product-price">{{ product.price | money }}</p>
-              </a>
-            </div>
-          {% endfor %}
+                <a href="{{ product.url }}">
+                  {% if product.featured_image %}
+                    <img class="product-image" src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+                  {% else %}
+                    <p>No image available</p>
+                  {% endif %}
+                  <h3 class="product-title">{{ product.title }}</h3>
+                  <p class="product-price">{{ product.price | money }}</p>
+                </a>
+              </div>
+            {% endfor %}
           </div>
         {% else %}
           <p>No collection selected</p>
@@ -33,66 +36,78 @@
   {% endif %}
 </div>
 
-
 <style>
-  .collection-title{
+  .collection-title {
     font-family: 'Dela-Gothic-One';
     text-align: center;
     color: #EF6F12;
-    
     font-size: 3rem;
   }
-  .product-image{
+
+  .collection-description {
+    font-family: 'Dela-Gothic-One';
+    color: #555;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .product-image {
     border-radius: 5%;
   }
-  .product a{
+
+  .product a {
     text-decoration: none;
     color: grey;
   }
-  .product-title{
+
+  .product-title {
     font-size: 1rem;
-    
     text-decoration: none;
     font-family: 'Dela-Gothic-One';
     color: orange;
   }
-  .product-price{
+
+  .product-price {
     font-family: 'Dela-Gothic-One';
   }
-.collection-container{
-  background-color: var(--brewdacity-alternate-bg-color);
-  padding: 1rem 2rem 1rem 2rem;
-}
-.product-image{
-  width: 100%;
-}
-.products-grid {
-  gap: 2rem;
-  padding: 1rem;
-  display: grid;
-  max-width: 100%;
-}
-.product{
-  padding: 2rem;
-}
-@media (min-width: 768px) {
-                .products-grid {
-                  grid-template-columns: repeat({{ columns_desktop }}, 1fr);
-                }
-              }
 
-              @media (max-width: 767px) {
-                .products-grid {
-                  grid-template-columns: repeat({{ columns_mobile }}, 1fr);
-                }
-              }
+  .collection-container {
+    background-color: var(--brewdacity-alternate-bg-color);
+    padding: 1rem 2rem 1rem 2rem;
+  }
+
+  .product-image {
+    width: 100%;
+  }
+
+  .products-grid {
+    gap: 2rem;
+    padding: 1rem;
+    display: grid;
+    max-width: 100%;
+  }
+
+  .product {
+    padding: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .products-grid {
+      grid-template-columns: repeat({{ columns_desktop }}, 1fr);
+    }
+  }
+
+  @media (max-width: 767px) {
+    .products-grid {
+      grid-template-columns: repeat({{ columns_mobile }}, 1fr);
+    }
+  }
 </style>
-{% schema %} 
+
+{% schema %}
 {
   "name": "Collection",
-  "settings": [
-
-  ],
+  "settings": [],
   "blocks": [
     {
       "type": "collection",
@@ -118,6 +133,11 @@
           "min": 1,
           "max": 4,
           "default": 1
+        },
+        {
+          "type": "textarea",
+          "id": "collection_description",
+          "label": "Collection Description"
         }
       ]
     }
