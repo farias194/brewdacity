@@ -1,65 +1,64 @@
 <!-- sections/collection-featured.liquid -->
-
 <div class="collection-featured" style="background-color: var(--{{ section.settings.bg_color }});">
   {% if section.blocks.size > 0 %}
     {% for block in section.blocks %}
     <div class="collection">
-        {% if block.settings.collection %}
-          <h2 class="featured-collection-header">Featured collection</h2>
-          <h2 class="collection-title">{{ collections[block.settings.collection].title }}</h2>
-          <div class="products-grid">
-            {% assign columns_desktop = block.settings.columns_desktop %}
-            {% assign columns_mobile = block.settings.columns_mobile %}
-            
-    {% for product in collections[block.settings.collection].products%}
-              <div class="product">
-                <a href="{{ product.url }}">
-                  <img class ="product-image" src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.title }}">
-                  <h4 class="product-title">{{ product.title }}</h4>
-                  <p class="product-price">{{ product.price | money }}</p>
-                  <div class="buttons">
-                    <button type="submit" class="add-to-cart">Add to Cart</button>
-                    <button type="submit" class="buy-button">Buy Now</button>
-                    </div>
-                </a>
-              
-              </div>
-            {% endfor %}
-          </div>
-        {% else %}
-          <p>No collection selected</p>
-        {% endif %}
-      </div>
+      {% if block.settings.collection %}
+        <h2 class="featured-collection-header">Featured collection</h2>
+        <h2 class="collection-title">{{ collections[block.settings.collection].title }}</h2>
+        <div class="products-grid">
+          {% assign columns_desktop = block.settings.columns_desktop %}
+          {% assign columns_mobile = block.settings.columns_mobile %}
+          
+          {% for product in collections[block.settings.collection].products %}
+            <div class="product">
+              <a href="{{ product.url }}">
+                <img class="product-image" src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.title }}">
+                <h4 class="product-title">{{ product.title }}</h4>
+                <p class="product-price">{{ product.price | money }}</p>
+                <div class="buttons">
+                  <button type="submit" class="add-to-cart">Add to Cart</button>
+                  <button type="submit" class="buy-button">Buy Now</button>
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      {% else %}
+        <p>No collection selected</p>
+      {% endif %}
+    </div>
     {% endfor %}
   {% else %}
     <p>No collections added</p>
-{% endif %}
-<div><button class="see-more">See More</button></div>
+  {% endif %}
+  <div><button class="see-more">See More</button></div>
 </div>
 
 {% schema %}
-
 {
   "name": "Collection Feature",
   "settings": [
     {
-          "type": "select",
-          "id": "bg_color",
-          "label": "Background Color",
-          "default": "brewdacity-bg-color",
-          "options": [{
-            "value": "brewdacity-bg-color",
-            "label": "Default Color"
-          },
-          {
-            "value": "brewdacity-alternate-bg-color",
-            "label": "Alternate Color"
-          },
-          {
-            "value": "brewdacity-alternate-bg-color-warm",
-            "label": "Alternate Color Warm"
-          }]
-}
+      "type": "select",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "brewdacity-bg-color",
+      "options": [
+        {
+          "value": "brewdacity-bg-color",
+          "label": "Default Color"
+        },
+        {
+          "value": "brewdacity-alternate-bg-color",
+          "label": "Alternate Color"
+        },
+        {
+          "value": "brewdacity-alternate-bg-color-warm",
+          "label": "Alternate Color Warm"
+        }
+      ]
+    }
   ],
   "blocks": [
     {
@@ -100,87 +99,76 @@
 {% endschema %}
 
 <style>
-  .featured-collection-header{
+  .featured-collection-header {
     font-family: 'Dela-Gothic-One';
     font-size: 2rem;
-    color:orange
+    color: orange;
   }
-  .collection-title{
+
+  .collection-title {
     font-size: 1rem;
     font-family: 'Dela-Gothic-One';
+    text-align: center;
   }
-  .buttons{
-  justify-content: space-between;
-    display: flex;  
-    flex-direction: row;
 
+  .buttons {
+    display: flex;
+    justify-content: space-between;
     width: 80%;
   }
-  
+
   .buttons > * {
     margin-right: 10px;
     background-color: gray;
-
   }
 
-  .product-price{
+  .product-price {
     font-size: 2rem;
-    font-family: arial;
-    color: rgb(25, 25, 25)
+    font-family: Arial, sans-serif;
+    color: rgb(25, 25, 25);
+    margin: 0;
   }
-  .buy-now-button{
-    background-color:var(--button-color-1) ;
 
-  }
-  .add-to-cart{
+  .add-to-cart {
     background-color: #E6EE87;
-
   }
-  .collection{
+
+  .buy-button {
+    background-color: var(--button-color-1);
+  }
+
+  .collection {
     margin-top: -50px;
     display: flex;
     flex-direction: column;
   }
-  .product img{
-    border-radius: 5%;
-    padding: 1rem 1rem 1rem 1rem;
-    max-width: 80%;
-height: auto;
-  }
-  .product{
+
+  .product {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    border-radius: 2%;
-    padding: 0 1rem 0 1rem;
-    margin: 0;
+    justify-content: space-between;
     align-items: center;
-   
-  }
-  .product h2{
-    margin: 0px
-  }
-  .product-title{
-    font-size: 2rem;
-    color: #E6844E;
-  }
-  .product p {
-    margin: 0px;
-  }
-.product a {
-  max-width: 100%;
-    color: rgb(35, 34, 34); /* Change link color to white */
-    text-decoration: none; /* Remove underline */
+    border-radius: 2%;
+    padding: 1rem;
+    margin: 0;
+    min-height: 400px; /* Ensure consistent height across products */
   }
 
-  .product a:hover {
-    color: rgb(53, 53, 53); /* Optional: Change link color on hover */
+  .product img {
+    border-radius: 5%;
+    padding: 1rem;
+    max-width: 80%;
+    height: 250px; /* Fixed height for images */
+    object-fit: cover; /* Prevent distortion */
+    overflow: hidden;
   }
-  .collection h2{
-color: #E6844E;
-text-align: center;
+
+  .product-title {
+    font-size: 1.5rem;
+    text-align: center;
+    color: #E6844E;
   }
- 
+
   .products-grid {
     display: grid;
     max-width: 100%;
@@ -188,8 +176,10 @@ text-align: center;
     padding: 5rem;
     width: fit-content;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    align-items: start; /* Align products at the top */
   }
-  .see-more{
+
+  .see-more {
     padding: 2rem;
     border: none;
     background-color: orange;
