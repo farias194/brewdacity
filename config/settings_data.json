@@ -124,7 +124,6 @@
             "type": "text",
             "settings": {
               "footer-text": "",
-              "footer-header-text": "brewdacity",
               "footer-text-weight": "bold"
             }
           },
@@ -132,7 +131,6 @@
             "type": "text",
             "settings": {
               "footer-text": "brewdacity is ownedby brewdacity llc",
-              "footer-header-text": "Thanks for coming to our store",
               "footer-text-weight": "normal"
             }
           }
