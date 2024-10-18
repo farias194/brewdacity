@@ -67,7 +67,8 @@
           "settings": {
             "collection": "pokemon-cards",
             "columns_desktop": 4,
-            "columns_mobile": 1
+            "columns_mobile": 1,
+            "header_alignment": "center"
           }
         }
       },
@@ -173,6 +174,19 @@
     },
     "footer": {
       "type": "footer",
+      "blocks": {
+        "text_fTryX9": {
+          "type": "text",
+          "settings": {
+            "footer-text": "brewdacity is owned by brewdacity llc",
+            "footer-header-text": "Thanks for coming to our store",
+            "footer-text-weight": "normal"
+          }
+        }
+      },
+      "block_order": [
+        "text_fTryX9"
+      ],
       "disabled": true,
       "settings": {
         "color_scheme": "light"
