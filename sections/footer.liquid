@@ -8,7 +8,7 @@
         <div class="footer-text" style="font-size: {{ block.settings['footer-font-size'] }}; text-align: {{ block.settings['footer-text-alignment'] }};">
           {{ block.settings['footer-text'] }}
         </div>
-      {% else if block.type == 'footer-link' %}
+      {% else if block.type == 'footer_link' %}
         <div class="footer-links-wrapper" style="display: flex; flex-direction: {{ block.settings['footer-link-direction'] }};">
           <a href="{{ block.settings['footer-link-url'] }}" class="footer-link">
             {{ block.settings['footer-link-text'] }}
@@ -150,14 +150,14 @@
       ]
     },
     {
-      "type": "footer-link",
+      "type": "footer_link",
       "name": "Footer Link",
       "settings": [
         {
           "type": "url",
           "label": "Footer Link URL",
           "id": "footer-link-url",
-          "default": "#"
+          "default": "/"
         },
         {
           "type": "text",
@@ -187,18 +187,4 @@
 }
 {% endschema %}
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const toggleOrder = "{{ section.settings.toggle_order }}";
-    const footerTextBlock = document.querySelector('.footer-text-block');
-    const footerLinksWrapper = document.querySelector('.footer-links-wrapper');
 
-    if (toggleOrder === 'text-first') {
-      footerTextBlock.style.order = 0;
-      footerLinksWrapper.style.order = 1;
-    } else {
-      footerTextBlock.style.order = 1;
-      footerLinksWrapper.style.order = 0;
-    }
-  });
-</script>
