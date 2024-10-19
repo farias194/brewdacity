@@ -5,12 +5,14 @@
         <div class="footer-header" style="font-weight: {{ block.settings['footer-text-weight'] }}">
           {{ block.settings['footer-header-text'] }}
         </div>
-        <div class="footer-text" style="font-weight: {{ block.settings['footer-text-weight'] }}">
+        <div class="footer-text" style="font-size: {{ block.settings['footer-font-size'] }}; text-align: {{ block.settings['footer-text-alignment'] }};">
           {{ block.settings['footer-text'] }}
         </div>
-      {% else if block.type == 'textarea' %}
-        <div class="footer-textarea" style="font-weight: {{ block.settings['footer-textarea-weight'] }}">
-          {{ block.settings['footer-textarea-content'] }}
+      {% else if block.type == 'footer-link' %}
+        <div class="footer-links-wrapper" style="display: flex; flex-direction: {{ block.settings['footer-link-direction'] }};">
+          <a href="{{ block.settings['footer-link-url'] }}" class="footer-link">
+            {{ block.settings['footer-link-text'] }}
+          </a>
         </div>
       {% endif %}
     {% endfor %}
@@ -20,14 +22,9 @@
 </div>
 
 <style>
-  .footer-text{
+  .footer-text {
     font-size: 1.5rem;
-    font-family: sans-serif;
-
   }
- .description{
-  font-family: sans-serifs;
- }
   .footer-container {
     align-items: center;
     padding: 2rem;
@@ -38,22 +35,28 @@
     background-color: whitesmoke;
     color: rgb(39, 39, 39);
   }
-
   .footer-container[data-color-scheme="default"] {
     background-color: #A3A190;
     color: rgb(242, 239, 239);
   }
-
   .footer-container[data-color-scheme="dark"] {
     background-color: rgb(23, 23, 23);
     color: whitesmoke;
   }
-
   .footer-header {
     align-self: center;
   }
-
- 
+  .footer-text {
+    /* Footer text styles */
+  }
+  .footer-links-wrapper {
+    display: flex;
+    gap: 10px;
+  }
+  .footer-link {
+    text-decoration: none;
+    color: inherit;
+  }
 </style>
 
 {% schema %}
@@ -94,6 +97,42 @@
         },
         {
           "type": "select",
+          "label": "Font Size",
+          "id": "footer-font-size",
+          "default": "1.2rem",
+          "options": [
+            {
+              "value": "1.2rem",
+              "label": "Default"
+            },
+            {
+              "value": "2rem",
+              "label": "Large"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "label": "Text Alignment",
+          "id": "footer-text-alignment",
+          "default": "center",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        },
+        {
+          "type": "select",
           "label": "Font Weight",
           "id": "footer-text-weight",
           "default": "normal",
@@ -111,28 +150,34 @@
       ]
     },
     {
-      "type": "textarea",
-      "name": "footer-textarea",
+      "type": "footer-link",
+      "name": "Footer Link",
       "settings": [
         {
-          "type": "textarea",
-          "label": "Footer Textarea",
-          "id": "footer-textarea-content",
-          "default": "Insert additional text here"
+          "type": "url",
+          "label": "Footer Link URL",
+          "id": "footer-link-url",
+          "default": "#"
+        },
+        {
+          "type": "text",
+          "label": "Footer Link Text",
+          "id": "footer-link-text",
+          "default": "Link Text"
         },
         {
           "type": "select",
-          "label": "Font Weight",
-          "id": "footer-textarea-weight",
-          "default": "normal",
+          "label": "Link Alignment",
+          "id": "footer-link-direction",
+          "default": "horizontal",
           "options": [
             {
-              "value": "normal",
-              "label": "Normal"
+              "value": "horizontal",
+              "label": "Horizontal"
             },
             {
-              "value": "bold",
-              "label": "Bold"
+              "value": "vertical",
+              "label": "Vertical"
             }
           ]
         }
@@ -141,3 +186,19 @@
   ]
 }
 {% endschema %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const toggleOrder = "{{ section.settings.toggle_order }}";
+    const footerTextBlock = document.querySelector('.footer-text-block');
+    const footerLinksWrapper = document.querySelector('.footer-links-wrapper');
+
+    if (toggleOrder === 'text-first') {
+      footerTextBlock.style.order = 0;
+      footerLinksWrapper.style.order = 1;
+    } else {
+      footerTextBlock.style.order = 1;
+      footerLinksWrapper.style.order = 0;
+    }
+  });
+</script>
