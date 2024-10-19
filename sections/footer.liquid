@@ -8,6 +8,10 @@
         <div class="footer-text" style="font-weight: {{ block.settings['footer-text-weight'] }}">
           {{ block.settings['footer-text'] }}
         </div>
+      {% elseif block.type == 'textarea' %}
+        <div class="footer-textarea" style="font-weight: {{ block.settings['footer-textarea-weight'] }}">
+          {{ block.settings['footer-textarea-content'] }}
+        </div>
       {% endif %}
     {% endfor %}
   {% else %}
@@ -17,37 +21,42 @@
 
 <style>
   .footer-text{
-
     font-size: 1.5rem;
   }
-    .footer-container {
-      align-items: center;
-        padding: 2rem;
-        font-size: 3rem;
-        font-family: 'Dela-Gothic-One';
-    }
-.footer-container[data-color-scheme="light"] {
-  background-color: whitesmoke;
-  color: rgb(39, 39, 39);
-}
+  .footer-textarea {
+    font-size: 1.5rem;
+  }
+  .footer-container {
+    align-items: center;
+    padding: 2rem;
+    font-size: 3rem;
+    font-family: 'Dela-Gothic-One';
+  }
+  .footer-container[data-color-scheme="light"] {
+    background-color: whitesmoke;
+    color: rgb(39, 39, 39);
+  }
 
-.footer-container[data-color-scheme="default"] {
-  background-color: #A3A190;
-  color: rgb(242, 239, 239);
-}
+  .footer-container[data-color-scheme="default"] {
+    background-color: #A3A190;
+    color: rgb(242, 239, 239);
+  }
 
-.footer-container[data-color-scheme="dark"] {
-  background-color: rgb(23, 23, 23);
-  color: whitesmoke;
-}
+  .footer-container[data-color-scheme="dark"] {
+    background-color: rgb(23, 23, 23);
+    color: whitesmoke;
+  }
 
-.footer-header {
- align-self: center;
-}
+  .footer-header {
+    align-self: center;
+  }
 
-.footer-text {
-  /* Add your footer text styles here */
-}
+  .footer-text {
+    /* Add your footer text styles here */
+  }
+  .footer-textarea {
+    /* Add your textarea styles here */
+  }
 </style>
 
 {% schema %}
@@ -86,12 +95,38 @@
           "id": "footer-text",
           "default": "Insert your footer text here"
         },
-        
-    
         {
           "type": "select",
           "label": "Font Weight",
           "id": "footer-text-weight",
+          "default": "normal",
+          "options": [
+            {
+              "value": "normal",
+              "label": "Normal"
+            },
+            {
+              "value": "bold",
+              "label": "Bold"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "textarea",
+      "name": "footer-textarea",
+      "settings": [
+        {
+          "type": "textarea",
+          "label": "Footer Textarea",
+          "id": "footer-textarea-content",
+          "default": "Insert additional text here"
+        },
+        {
+          "type": "select",
+          "label": "Font Weight",
+          "id": "footer-textarea-weight",
           "default": "normal",
           "options": [
             {
