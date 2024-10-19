@@ -124,12 +124,42 @@
             "type": "text",
             "settings": {
               "footer-text": "brewdacity",
+              "footer-font-size": "1.2rem",
+              "footer-text-alignment": "left",
               "footer-text-weight": "bold"
+            }
+          },
+          "text_W9TFyF": {
+            "type": "text",
+            "settings": {
+              "footer-text": "brewdacity is a cool spot to hang out with friends new and old. stop by !",
+              "footer-font-size": "1.2rem",
+              "footer-text-alignment": "left",
+              "footer-text-weight": "normal"
+            }
+          },
+          "footer_link_HfKmYH": {
+            "type": "footer_link",
+            "settings": {
+              "footer-link-url": "shopify://collections",
+              "footer-link-text": "collections",
+              "footer-link-direction": "horizontal"
+            }
+          },
+          "footer_link_DP6YNr": {
+            "type": "footer_link",
+            "settings": {
+              "footer-link-url": "shopify://pages/about",
+              "footer-link-text": "About",
+              "footer-link-direction": "vertical"
             }
           }
         },
         "block_order": [
-          "text_HKXLK3"
+          "text_HKXLK3",
+          "text_W9TFyF",
+          "footer_link_HfKmYH",
+          "footer_link_DP6YNr"
         ],
         "settings": {
           "color_scheme": "default"
