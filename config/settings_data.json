@@ -120,32 +120,16 @@
       "footer": {
         "type": "footer",
         "blocks": {
-          "text_dTBURx": {
+          "text_HKXLK3": {
             "type": "text",
             "settings": {
-              "footer-text": "",
+              "footer-text": "brewdacity",
               "footer-text-weight": "bold"
-            }
-          },
-          "text_NFXc68": {
-            "type": "text",
-            "settings": {
-              "footer-text": "hi hello hi",
-              "footer-text-weight": "normal"
-            }
-          },
-          "text_L7wRNL": {
-            "type": "text",
-            "settings": {
-              "footer-text": "brewdacity is ownedby brewdacity llc",
-              "footer-text-weight": "normal"
             }
           }
         },
         "block_order": [
-          "text_dTBURx",
-          "text_NFXc68",
-          "text_L7wRNL"
+          "text_HKXLK3"
         ],
         "settings": {
           "color_scheme": "default"
