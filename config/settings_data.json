@@ -127,6 +127,13 @@
               "footer-text-weight": "bold"
             }
           },
+          "text_NFXc68": {
+            "type": "text",
+            "settings": {
+              "footer-text": "hi hello hi",
+              "footer-text-weight": "normal"
+            }
+          },
           "text_L7wRNL": {
             "type": "text",
             "settings": {
@@ -137,6 +144,7 @@
         },
         "block_order": [
           "text_dTBURx",
+          "text_NFXc68",
           "text_L7wRNL"
         ],
         "settings": {
