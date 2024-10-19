@@ -8,7 +8,7 @@
         <div class="footer-text" style="font-weight: {{ block.settings['footer-text-weight'] }}">
           {{ block.settings['footer-text'] }}
         </div>
-      {% elseif block.type == 'textarea' %}
+      {% else if block.type == 'textarea' %}
         <div class="footer-textarea" style="font-weight: {{ block.settings['footer-textarea-weight'] }}">
           {{ block.settings['footer-textarea-content'] }}
         </div>
