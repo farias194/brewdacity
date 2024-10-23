@@ -9,17 +9,15 @@
           {{ block.settings['footer-text'] }}
         </div>
       {% endif %}
-    {% endfor %}
 
-    <div class="footer-links-wrapper" style="display: flex; flex-direction: {{ section.settings['footer-link-direction'] }};">
-      {% for block in section.blocks %}
-        {% if block.type == 'footer_link' %}
-          <a href="{{ block.settings['footer-link-url'] }}" class="footer-link">
-            {{ block.settings['footer-link-text'] }}
-          </a>
-        {% endif %}
-      {% endfor %}
-    </div>
+      {% if block.type == 'nav_links' %}
+        <div class="footer-links-wrapper" style="display: flex; flex-direction: {{ block.settings['nav-link-direction'] }};">
+          {% for link in block.settings.links %}
+            <a href="{{ link.link_url }}" class="footer-link">{{ link.link_text }}</a>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endfor %}
   {% else %}
     <p>No footer content added.</p>
   {% endif %}
@@ -89,28 +87,12 @@
           "label": "Dark"
         }
       ]
-    },
-    {
-      "type": "select",
-      "label": "Link Alignment",
-      "id": "footer-link-direction",
-      "default": "horizontal",
-      "options": [
-        {
-          "value": "horizontal",
-          "label": "Horizontal"
-        },
-        {
-          "value": "vertical",
-          "label": "Vertical"
-        }
-      ]
     }
   ],
   "blocks": [
     {
       "type": "text",
-      "name": "footer-text",
+      "name": "Footer Text",
       "settings": [
         {
           "type": "textarea",
@@ -173,20 +155,43 @@
       ]
     },
     {
-      "type": "footer_link",
-      "name": "Footer Link",
+      "type": "nav_links",
+      "name": "Navigation Links",
       "settings": [
         {
-          "type": "url",
-          "label": "Footer Link URL",
-          "id": "footer-link-url",
-          "default": "/"
+          "type": "select",
+          "label": "Link Alignment",
+          "id": "nav-link-direction",
+          "default": "horizontal",
+          "options": [
+            {
+              "value": "horizontal",
+              "label": "Horizontal"
+            },
+            {
+              "value": "vertical",
+              "label": "Vertical"
+            }
+          ]
         },
         {
-          "type": "text",
-          "label": "Footer Link Text",
-          "id": "footer-link-text",
-          "default": "Link Text"
+          "type": "list",
+          "id": "links",
+          "label": "Navigation Links",
+          "settings": [
+            {
+              "type": "text",
+              "id": "link_text",
+              "label": "Link Text",
+              "default": "Link Text"
+            },
+            {
+              "type": "url",
+              "id": "link_url",
+              "label": "Link URL",
+              "default": "/"
+            }
+          ]
         }
       ]
     }
