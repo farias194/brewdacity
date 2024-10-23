@@ -1,18 +1,30 @@
 <div class="footer-container" data-color-scheme="{{ section.settings.color_scheme }}">
   {% if section.blocks.size > 0 %}
-    <div class="footer-links-wrapper" style="display: flex; flex-direction: {{ section.settings.nav_link_direction }}; gap: 10px;">
-      {% for block in section.blocks %}
-        {% if block.type == 'nav_link' %}
-          <a href="{{ block.settings.link_url }}" class="footer-link">{{ block.settings.link_text }}</a>
-        {% endif %}
-      {% endfor %}
-    </div>
+    {% for block in section.blocks %}
+      {% if block.type == 'text' %}
+        <div class="footer-header" style="font-weight: {{ block.settings['footer-text-weight'] }}">
+          {{ block.settings['footer-header-text'] }}
+        </div>
+        <div class="footer-text" style="font-size: {{ block.settings['footer-font-size'] }}; text-align: {{ block.settings['footer-text-alignment'] }};">
+          {{ block.settings['footer-text'] }}
+        </div>
+      {% else if block.type == 'footer_link' %}
+        <div class="footer-links-wrapper" style="display: flex; flex-direction: {{ block.settings['footer-link-direction'] }};">
+          <a href="{{ block.settings['footer-link-url'] }}" class="footer-link">
+            {{ block.settings['footer-link-text'] }}
+          </a>
+        </div>
+      {% endif %}
+    {% endfor %}
   {% else %}
-    <p>No footer links added.</p>
+    <p>No footer content added.</p>
   {% endif %}
 </div>
 
 <style>
+  .footer-text {
+    font-size: 1.5rem;
+  }
   .footer-container {
     align-items: center;
     padding: 2rem;
@@ -31,6 +43,11 @@
     background-color: rgb(23, 23, 23);
     color: whitesmoke;
   }
+  .footer-header {
+    align-self: center;
+  }
+  .footer-text {
+font-family: sans-serif;  }
   .footer-links-wrapper {
     display: flex;
     gap: 10px;
@@ -45,7 +62,7 @@
 
 {% schema %}
 {
-  "name": "Navigation Links",
+  "name": "Footer",
   "settings": [
     {
       "type": "select",
@@ -66,48 +83,106 @@
           "label": "Dark"
         }
       ]
-    },
-    {
-      "type": "select",
-      "label": "Link Alignment",
-      "id": "nav_link_direction",
-      "default": "horizontal",
-      "options": [
-        {
-          "value": "horizontal",
-          "label": "Horizontal"
-        },
-        {
-          "value": "vertical",
-          "label": "Vertical"
-        }
-      ]
     }
   ],
   "blocks": [
     {
-      "type": "nav_link",
-      "name": "Link",
+      "type": "text",
+      "name": "footer-text",
       "settings": [
         {
+          "type": "textarea",
+          "label": "Footer Text",
+          "id": "footer-text",
+          "default": "Insert your footer text here"
+        },
+        {
+          "type": "select",
+          "label": "Font Size",
+          "id": "footer-font-size",
+          "default": "1.2rem",
+          "options": [
+            {
+              "value": "1.2rem",
+              "label": "Default"
+            },
+            {
+              "value": "2rem",
+              "label": "Large"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "label": "Text Alignment",
+          "id": "footer-text-alignment",
+          "default": "center",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "label": "Font Weight",
+          "id": "footer-text-weight",
+          "default": "normal",
+          "options": [
+            {
+              "value": "normal",
+              "label": "Normal"
+            },
+            {
+              "value": "bold",
+              "label": "Bold"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "footer_link",
+      "name": "Footer Link",
+      "settings": [
+        {
+          "type": "url",
+          "label": "Footer Link URL",
+          "id": "footer-link-url",
+          "default": "/"
+        },
+        {
           "type": "text",
-          "id": "link_text",
-          "label": "Link Text",
+          "label": "Footer Link Text",
+          "id": "footer-link-text",
           "default": "Link Text"
         },
         {
-          "type": "url",
-          "id": "link_url",
-          "label": "Link URL",
-          "default": "/"
+          "type": "select",
+          "label": "Link Alignment",
+          "id": "footer-link-direction",
+          "default": "horizontal",
+          "options": [
+            {
+              "value": "horizontal",
+              "label": "Horizontal"
+            },
+            {
+              "value": "vertical",
+              "label": "Vertical"
+            }
+          ]
         }
       ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Navigation Links",
-      "category": "Footer"
     }
   ]
 }
