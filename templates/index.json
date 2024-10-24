@@ -188,41 +188,13 @@
           "type": "footer_link",
           "settings": {
             "footer-link-url": "/",
-            "footer-link-text": "Link Text",
-            "footer-link-direction": "horizontal"
-          }
-        },
-        "footer_link_aUqgCA": {
-          "type": "footer_link",
-          "settings": {
-            "footer-link-url": "/",
-            "footer-link-text": "Link Text",
-            "footer-link-direction": "horizontal"
-          }
-        },
-        "footer_link_ghUXhJ": {
-          "type": "footer_link",
-          "settings": {
-            "footer-link-url": "shopify://collections/all",
-            "footer-link-text": "Link Text",
-            "footer-link-direction": "horizontal"
-          }
-        },
-        "footer_link_YaHXzg": {
-          "type": "footer_link",
-          "settings": {
-            "footer-link-url": "shopify://pages/collections",
-            "footer-link-text": "jjjj",
-            "footer-link-direction": "horizontal"
+            "footer-link-text": "Link Text"
           }
         }
       },
       "block_order": [
         "text_fTryX9",
-        "footer_link_NciMxd",
-        "footer_link_aUqgCA",
-        "footer_link_ghUXhJ",
-        "footer_link_YaHXzg"
+        "footer_link_NciMxd"
       ],
       "disabled": true,
       "settings": {
