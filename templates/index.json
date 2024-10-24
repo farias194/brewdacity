@@ -179,13 +179,41 @@
           "type": "text",
           "settings": {
             "footer-text": "brewdacity is owned by brewdacity llc",
-            "footer-header-text": "Thanks for coming to our store",
+            "footer-font-size": "1.2rem",
+            "footer-text-alignment": "center",
             "footer-text-weight": "normal"
+          }
+        },
+        "footer_link_NciMxd": {
+          "type": "footer_link",
+          "settings": {
+            "footer-link-url": "/",
+            "footer-link-text": "Link Text",
+            "footer-link-direction": "horizontal"
+          }
+        },
+        "footer_link_aUqgCA": {
+          "type": "footer_link",
+          "settings": {
+            "footer-link-url": "/",
+            "footer-link-text": "Link Text",
+            "footer-link-direction": "horizontal"
+          }
+        },
+        "footer_link_ghUXhJ": {
+          "type": "footer_link",
+          "settings": {
+            "footer-link-url": "shopify://collections/all",
+            "footer-link-text": "Link Text",
+            "footer-link-direction": "horizontal"
           }
         }
       },
       "block_order": [
-        "text_fTryX9"
+        "text_fTryX9",
+        "footer_link_NciMxd",
+        "footer_link_aUqgCA",
+        "footer_link_ghUXhJ"
       ],
       "disabled": true,
       "settings": {
