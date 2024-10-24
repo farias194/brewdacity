@@ -1,5 +1,6 @@
 <div class="footer-container" data-color-scheme="{{ section.settings.color_scheme }}">
   {% if section.blocks.size > 0 %}
+    
     {% for block in section.blocks %}
       {% if block.type == 'text' %}
         <div class="footer-header" style="font-weight: {{ block.settings['footer-text-weight'] }}">
@@ -8,19 +9,24 @@
         <div class="footer-text" style="font-size: {{ block.settings['footer-font-size'] }}; text-align: {{ block.settings['footer-text-alignment'] }};">
           {{ block.settings['footer-text'] }}
         </div>
-        <div class="footer-link-wrapper"> 
-      {% else if block.type == 'footer_link' %}
-        <div class="footer-links">
+      {% endif %}
+    {% endfor %}
+
+    <!-- Start footer-links-wrapper before the loop -->
+    <div class="footer-links-wrapper">
+      {% for block in section.blocks %}
+        {% if block.type == 'footer_link' %}
           <a href="{{ block.settings['footer-link-url'] }}" class="footer-link">
             {{ block.settings['footer-link-text'] }}
           </a>
-        </div>
-      {% endif %}
-    {% endfor %}
+        {% endif %}
+      {% endfor %}
+    </div>
+    <!-- End footer-links-wrapper after the loop -->
+    
   {% else %}
     <p>No footer content added.</p>
   {% endif %}
-  </div>
 </div>
 
 <style>
@@ -49,7 +55,8 @@
     align-self: center;
   }
   .footer-text {
-font-family: sans-serif;  }
+    font-family: sans-serif;
+  }
   .footer-links-wrapper {
     display: flex;
     flex-direction: row;
