@@ -9,7 +9,7 @@
           {{ block.settings['footer-text'] }}
         </div>
       {% else if block.type == 'footer_link' %}
-        <div class="footer-links-wrapper" style="display: flex; flex-direction: {{ block.settings['footer-link-direction'] }};">
+        <div class="footer-links-wrapper">
           <a href="{{ block.settings['footer-link-url'] }}" class="footer-link">
             {{ block.settings['footer-link-text'] }}
           </a>
