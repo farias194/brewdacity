@@ -12,7 +12,7 @@
       {% endif %}
     {% endfor %}
 
-    <!-- Start footer-links-wrapper before the loop -->
+    <!-- Start footer-links-wrapper before the loop for links -->
     <div class="footer-links-wrapper">
       {% for block in section.blocks %}
         {% if block.type == 'footer_link' %}
@@ -22,7 +22,7 @@
         {% endif %}
       {% endfor %}
     </div>
-    <!-- End footer-links-wrapper after the loop -->
+    <!-- End footer-links-wrapper after the loop for links -->
     
   {% else %}
     <p>No footer content added.</p>
@@ -175,27 +175,15 @@
           "label": "Footer Link Text",
           "id": "footer-link-text",
           "default": "Link Text"
-        },
-        {
-          "type": "select",
-          "label": "Link Alignment",
-          "id": "footer-link-direction",
-          "default": "horizontal",
-          "options": [
-            {
-              "value": "horizontal",
-              "label": "Horizontal"
-            },
-            {
-              "value": "vertical",
-              "label": "Vertical"
-            }
-          ]
         }
       ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer",
+      "category": "Footer"
     }
   ]
 }
 {% endschema %}
-
-
