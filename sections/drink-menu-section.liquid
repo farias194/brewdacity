@@ -27,93 +27,59 @@
 </div>
 
 <style>
-  /* Overall container styles */
   .drink-menu-container {
-    font-family: 'Dela-Gothic-One', sans-serif;
+    font-family: 'Dela-Gothic-One';
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 4rem 2rem;
-    gap: 2rem; /* Space between elements */
-    background-color: var(--{{section.settings.color_scheme}});
-    color: #333;
+    padding: 5rem;
+    gap: 1rem; /* Optional: Adds spacing between items */
   }
 
-  /* Title and description */
-  .menu-title {
-    font-size: 2.5rem;
+  .menu-title, .menu-desc {
     color: #E6844E;
-    margin-bottom: 1rem;
-  }
 
-  .menu-desc {
+    margin: 20px;
+  }
+  .menu-desc{
     font-family: sans-serif;
     font-size: 1.2rem;
-    color: #666;
-    max-width: 800px;
-    text-align: center;
-    margin-bottom: 2rem;
   }
 
-  /* Drink item container styles */
   .drink-item-container {
+
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center; /* Centers drink items */
-    width: 100%;
-    gap: 2rem;
-    padding-top: 2rem;
-    border-top: 2px solid rgba(230, 132, 78, 0.3);
-  }
-
-  /* Individual drink items */
-  .drink-item {
-    background-color: #fdfdfd;
-    width: 300px;
-    padding: 1.5rem;
-    display: flex;
     justify-content: space-between;
-    align-items: center;
-    font-size: 1.5rem;
+    width: 100%;
+    margin-top: 2rem;
+  }
+
+  .drink-item {
+    width: 40%;
+    display: flex;
+    padding: 2rem;
+    justify-content: space-between;
+    font-size: 2rem;
+    margin-top: 1rem;
     color: #DE81B5;
-    border: 1px solid #E6844E;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
+    border-bottom: 2px solid rgb(245, 172, 63);
+;
   }
 
-  /* Hover effect for drink items */
-  .drink-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
-  }
-
-  /* Drink name and price styles */
   .drink-name {
     color: #E6844E;
-    font-weight: bold;
   }
-
+.drink-price{
+  color: green;
+}
   .drink-price {
-    color: #28A745;
-    font-size: 1.5rem;
-  }
-
-  /* Responsive styles */
-  @media (max-width: 768px) {
-    .drink-item-container {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .drink-item {
-      width: 100%;
-    }
+    align-self: flex-end;
   }
 </style>
 
-{% schema %}
+{% schema %} 
 {
   "name": "menu",
   "settings": [
