@@ -3,17 +3,17 @@
     
     {% for block in section.blocks %}
       {% if block.type == 'text' %}
-        <div class="footer-header" style="font-weight: {{ block.settings['footer-text-weight'] }}">
+        <div class="footer-header" style="font-weight: {{ block.settings['footer-text-weight'] }}; padding: 1rem 0;">
           {{ block.settings['footer-header-text'] }}
         </div>
-        <div class="footer-text" style="font-size: {{ block.settings['footer-font-size'] }}; text-align: {{ block.settings['footer-text-alignment'] }};">
+        <div class="footer-text" style="font-size: {{ block.settings['footer-font-size'] }}; text-align: {{ block.settings['footer-text-alignment'] }}; padding: 1rem;">
           {{ block.settings['footer-text'] }}
         </div>
       {% endif %}
     {% endfor %}
 
     <!-- Start footer-links-wrapper before the loop for links -->
-    <div class="footer-links-wrapper">
+    <div class="footer-links-wrapper" style="padding: 2rem 0;">
       {% for block in section.blocks %}
         {% if block.type == 'footer_link' %}
           <a href="{{ block.settings['footer-link-url'] }}" class="footer-link">
@@ -25,19 +25,19 @@
     <!-- End footer-links-wrapper after the loop for links -->
     
   {% else %}
-    <p>No footer content added.</p>
+    <p style="padding: 1rem;">No footer content added.</p>
   {% endif %}
 </div>
 
 <style>
   .footer-text {
-    padding: 2rem 1rem 1rem 2rem ;
+    padding: 1rem;
     font-size: 1.5rem;
   }
   .footer-container {
     align-items: center;
-    padding: 5rem 1rem 1rem 5rem;
-        font-size: 3rem;
+    padding: 4rem 2rem;
+    font-size: 3rem;
     font-family: 'Dela-Gothic-One';
   }
   .footer-container[data-color-scheme="light"] {
@@ -54,22 +54,33 @@
   }
   .footer-header {
     align-self: center;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
   .footer-text {
     font-family: sans-serif;
+    margin-bottom: 1.5rem;
   }
   .footer-links-wrapper {
     display: flex;
     flex-direction: row;
-    gap: 10px;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    gap: 15px;
+    justify-content: center;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
   }
   .footer-link {
     text-decoration: none;
     font-size: 1.5rem;
     font-family: sans-serif;
     color: inherit;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+  }
+  .footer-link:hover {
+    color: #0073e6;
   }
 </style>
 
