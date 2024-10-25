@@ -3,9 +3,7 @@
     
     {% for block in section.blocks %}
       {% if block.type == 'text' %}
-        <div class="footer-header" style="font-weight: {{ block.settings['footer-text-weight'] }}; padding: 1rem 0;">
-          {{ block.settings['footer-header-text'] }}
-        </div>
+       
         <div class="footer-text" style="font-size: {{ block.settings['footer-font-size'] }}; text-align: {{ block.settings['footer-text-alignment'] }}; padding: 1rem;">
           {{ block.settings['footer-text'] }}
         </div>
