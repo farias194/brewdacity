@@ -1,43 +1,42 @@
+<!-- sections/collection-featured.liquid -->
 <div class="collection-featured" style="background-color: var(--{{ section.settings.bg_color }});">
   {% if section.blocks.size > 0 %}
     {% for block in section.blocks %}
-      <div class="collection">
-        {% if block.settings.collection %}
-          <h2 class="featured-collection-header" style="text-align: {{ block.settings.header_alignment }};">
-            Featured Collection
-          </h2>
-          <h2 class="collection-title" style="text-align: {{ block.settings.header_alignment }};">
-            {{ collections[block.settings.collection].title }}
-          </h2>
-          <div class="products-grid">
-            {% assign columns_desktop = block.settings.columns_desktop %}
-            {% assign columns_mobile = block.settings.columns_mobile %}
-            
-            {% for product in collections[block.settings.collection].products %}
-              <div class="product">
-                <a href="{{ product.url }}">
-                  <img class="product-image" src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.title }}">
-                  <h4 class="product-title">{{ product.title }}</h4>
-                  <p class="product-price">{{ product.price | money }}</p>
-                  <div class="buttons">
-                    <button type="submit" class="add-to-cart">Add to Cart</button>
-                    <button type="submit" class="buy-button">Buy Now</button>
-                  </div>
-                </a>
-              </div>
-            {% endfor %}
-          </div>
-        {% else %}
-          <p>No collection selected</p>
-        {% endif %}
-      </div>
+    <div class="collection">
+      {% if block.settings.collection %}
+        <h2 class="featured-collection-header" style="text-align: {{ block.settings.header_alignment }};">
+          Featured Collection
+        </h2>
+        <h2 class="collection-title" style="text-align: {{ block.settings.header_alignment }};">
+          {{ collections[block.settings.collection].title }}
+        </h2>
+        <div class="products-grid">
+          {% assign columns_desktop = block.settings.columns_desktop %}
+          {% assign columns_mobile = block.settings.columns_mobile %}
+          
+          {% for product in collections[block.settings.collection].products %}
+            <div class="product">
+              <a href="{{ product.url }}">
+                <img class="product-image" src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.title }}">
+                <h4 class="product-title">{{ product.title }}</h4>
+                <p class="product-price">{{ product.price | money }}</p>
+                <div class="buttons">
+                  <button type="submit" class="add-to-cart">Add to Cart</button>
+                  <button type="submit" class="buy-button">Buy Now</button>
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      {% else %}
+        <p>No collection selected</p>
+      {% endif %}
+    </div>
     {% endfor %}
   {% else %}
     <p>No collections added</p>
   {% endif %}
-  <div class="see-more-container">
-    <button class="see-more">See More</button>
-  </div>
+  <div><button class="see-more">See More</button></div>
 </div>
 
 {% schema %}
@@ -106,121 +105,94 @@
 {% endschema %}
 
 <style>
-  /* Header Styling */
   .featured-collection-header {
-    font-family: 'Dela-Gothic-One', sans-serif;
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
+    font-family: 'Dela-Gothic-One';
+    font-size: 2rem;
+    margin: 0px;
     color: #E6844E;
   }
 
   .collection-title {
-    font-size: 1.75rem;
-    font-family: 'Dela-Gothic-One', sans-serif;
-    color: #333;
-    margin-bottom: 2rem;
-  }
-
-  /* Product Grid Styling */
-  .products-grid {
-    display: grid;
-    gap: 2rem;
-    padding: 2rem 0;
-    justify-content: center;
-    max-width: 100%;
-  }
-
-  .product {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .product:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  }
-
-  .product img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    margin-bottom: 1rem;
-    border-radius: 8px;
-  }
-
-  .product-title {
-    font-size: 1.5rem;
-    color: #E6844E;
-    margin-bottom: 0.5rem;
-  }
-
-  .product-price {
-    font-size: 1.25rem;
-    color: #333;
-    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-family: 'Dela-Gothic-One';
   }
 
   .buttons {
     display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
+    justify-content: space-between;
+    width: 80%;
+    font-family: bold;
   }
 
-  .add-to-cart, .buy-button {
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  .buttons > * {
+    margin-right: 10px;
+    background-color: gray;
   }
 
-  .add-to-cart {
-    background-color: #E6EE87;
-    color: #333;
-  }
-
-  .buy-button {
-    background-color: #677ef8;
-    color: white;
-  }
-
-  .add-to-cart:hover {
-    background-color: #d4dc76;
-  }
-
-  .buy-button:hover {
-    background-color: #576ddb;
-  }
-
-  /* See More Button */
-  .see-more-container {
+  .product {
     display: flex;
-    justify-content: center;
-    padding-top: 2rem;
+    flex-direction: column;
+    
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 2%;
+    padding: 1rem;
+    margin: 0;
+    min-height: 400px;
+  }
+
+  .product img {
+    border-radius: 5%;
+    padding: 1rem;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .product-title {
+    font-size: 1.5rem;
+    text-align: center;
+    color: #E6844E;
+    font-family: 'Dela-Gothic-One';
+  }
+
+  .product-price {
+    font-size: 2rem;
+    font-family: 'Dela-Gothic-One';
+    color: #333;
+    margin-bottom: 1rem; /* Adds spacing below the price */
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit; /* Inherits text color to avoid underlining */
+  }
+
+  .products-grid {
+    display: grid;
+    max-width: 100%;
+    gap: 2rem;
+    padding: 5rem;
+    width: fit-content;
+    align-items: start;
   }
 
   .see-more {
-    background-color: #FFA500;
-    color: white;
-    padding: 1rem 2rem;
+    align-self: center;
+    padding: 2rem;
+    margin-left: -80%;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    background-color: orange;
     font-size: 1rem;
-    transition: background-color 0.3s ease;
   }
-
-  .see-more:hover {
-    background-color: #e69500;
+  .add-to-cart{
+    padding: 1rem;
+    background-color: #E6EE87
   }
-
-  /* Responsive Grid */
+.buy-button{
+  background-color: #677ef8;
+}
   @media (min-width: 768px) {
     .products-grid {
       grid-template-columns: repeat({{ columns_desktop }}, 1fr);
