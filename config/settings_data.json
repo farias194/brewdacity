@@ -156,7 +156,21 @@
             "type": "footer_link",
             "settings": {
               "footer-link-url": "shopify://products/outlaws-of-thunder-junction",
-              "footer-link-text": "Link Text"
+              "footer-link-text": "outlaws"
+            }
+          },
+          "footer_link_TyLLBW": {
+            "type": "footer_link",
+            "settings": {
+              "footer-link-url": "shopify://collections/all",
+              "footer-link-text": "products"
+            }
+          },
+          "footer_link_DYGFFK": {
+            "type": "footer_link",
+            "settings": {
+              "footer-link-url": "/",
+              "footer-link-text": ""
             }
           }
         },
@@ -165,7 +179,9 @@
           "text_W9TFyF",
           "footer_link_HfKmYH",
           "footer_link_DP6YNr",
-          "footer_link_YUFQqm"
+          "footer_link_YUFQqm",
+          "footer_link_TyLLBW",
+          "footer_link_DYGFFK"
         ],
         "settings": {
           "color_scheme": "default"
