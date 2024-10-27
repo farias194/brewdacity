@@ -120,13 +120,13 @@
       "footer": {
         "type": "footer",
         "blocks": {
-          "text_HKXLK3": {
-            "type": "text",
+          "footer_header_yFNVKP": {
+            "type": "footer_header",
             "settings": {
-              "footer-text": "brewdacity",
-              "footer-font-size": "1.2rem",
-              "footer-text-alignment": "left",
-              "footer-text-weight": "bold"
+              "footer-header-text": "brewdacity",
+              "footer-header-font-size": "3rem",
+              "footer-header-font-weight": "normal",
+              "footer-header-alignment": "left"
             }
           },
           "text_W9TFyF": {
@@ -175,7 +175,7 @@
           }
         },
         "block_order": [
-          "text_HKXLK3",
+          "footer_header_yFNVKP",
           "text_W9TFyF",
           "footer_link_HfKmYH",
           "footer_link_DP6YNr",
