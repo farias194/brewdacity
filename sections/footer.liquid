@@ -1,9 +1,15 @@
 <div class="footer-container" data-color-scheme="{{ section.settings.color_scheme }}">
   {% if section.blocks.size > 0 %}
-    
+    {% for block in section.blocks %}
+      {% if block.type == 'footer_header' %}
+        <div class="footer-header" style="font-size: {{ block.settings['footer-header-font-size'] }}; font-weight: {{ block.settings['footer-header-font-weight'] }}; text-align: {{ block.settings['footer-header-alignment'] }}; padding: 1rem;">
+          {{ block.settings['footer-header-text'] }}
+        </div>
+      {% endif %}
+    {% endfor %}
+
     {% for block in section.blocks %}
       {% if block.type == 'text' %}
-       
         <div class="footer-text" style="font-size: {{ block.settings['footer-font-size'] }}; text-align: {{ block.settings['footer-text-alignment'] }}; padding: 1rem;">
           {{ block.settings['footer-text'] }}
         </div>
@@ -21,7 +27,7 @@
       {% endfor %}
     </div>
     <!-- End footer-links-wrapper after the loop for links -->
-    
+
   {% else %}
     <p style="padding: 1rem;">No footer content added.</p>
   {% endif %}
@@ -51,11 +57,11 @@
     color: whitesmoke;
   }
   .footer-header {
-    align-self: center;
-    padding-bottom: 1rem;
     font-family: 'Dela-Gothic-One';
     margin-bottom: 1rem;
-    font-size: 1.5rem;
+    font-size: 2rem; /* Default size */
+    font-weight: bold; /* Default weight */
+    text-align: center;
   }
   .footer-text {
     font-family: sans-serif;
@@ -109,8 +115,72 @@
   ],
   "blocks": [
     {
+      "type": "footer_header",
+      "name": "Footer Header",
+      "settings": [
+        {
+          "type": "text",
+          "label": "Footer Header Text",
+          "id": "footer-header-text",
+          "default": "brewdacity"
+        },
+        {
+          "type": "select",
+          "label": "Font Size",
+          "id": "footer-header-font-size",
+          "default": "2rem",
+          "options": [
+            {
+              "value": "2rem",
+              "label": "Large"
+            },
+            {
+              "value": "3rem",
+              "label": "Extra Large"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "label": "Font Weight",
+          "id": "footer-header-font-weight",
+          "default": "bold",
+          "options": [
+            {
+              "value": "bold",
+              "label": "Bold"
+            },
+            {
+              "value": "normal",
+              "label": "Normal"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "label": "Text Alignment",
+          "id": "footer-header-alignment",
+          "default": "center",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "type": "text",
-      "name": "footer-text",
+      "name": "Footer Text",
       "settings": [
         {
           "type": "textarea",
