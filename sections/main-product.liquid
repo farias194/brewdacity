@@ -1,130 +1,161 @@
 <div id="product-wrapper" class="flex-container">
   <form id="add-to-cart-form" action="/cart/add.js" method="post">
-    <div class="product-wrapper" style="display: flex; flex-direction: row; gap: 30px;">
-      
-      <!-- Image Thumbnail and Main Image Div -->
-      <div class="image-section" style="flex-basis: 50%;">
-        <div class="image-thumbnails" style="display: flex; flex-direction: column; gap: 10px;">
-          {% for image in product.images %}
-            <img src="{{ image | img_url: 'thumb' }}" alt="{{ product.title }}" style="width: 80px; height: auto; cursor: pointer;" onclick="document.getElementById('main-image').src='{{ image | img_url: 'large' }}'">
-          {% endfor %}
-        </div>
-        <div class="main-image" style="margin-top: 20px;">
-          <img id="main-image" src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.title }}" style="width: 100%; height: auto;">
-        </div>
-      </div>
+    <div class="product-wrapper" style="display: flex; flex-direction: row;">
+      <!-- Image Div -->
+      {% for block in section.blocks %}
+        {% if block.type == 'image' %}
+          {% if product.featured_image %}
+            <div class="image-div">
+              <img src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.title }}">
+            </div>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
 
       <!-- Product Info Div -->
-      <div class="product-info" style="flex-basis: 50%; display: flex; flex-direction: column; justify-content: space-between;">
-        
+      <div class="product-info" style="display: flex; flex-direction: column; justify-content: space-between;">
         <!-- Title -->
-        <h1 style="font-size: 36px; font-weight: 600; color: #333; font-family: 'Arial, sans-serif';">
-          {{ product.title }}
-        </h1>
-        
-        <!-- Price -->
-        <div class="product-price" style="font-size: 24px; color: #333; margin-top: 10px;">
-          <span style="text-decoration: line-through; color: #888;">{{ product.compare_at_price | money }}</span>
-          <span style="color: #e60000; margin-left: 10px;">{{ product.price | money }}</span>
-        </div>
-
-        <!-- Variant Selector and Buttons -->
-        <div class="product-buy" style="margin-top: 20px;">
-          {% if product.variants.size > 1 %}
-            <label for="variant-selector" style="display: block; margin-bottom: 10px;">Choose your size:</label>
-            <select id="variant-selector" name="id" style="width: 100%; padding: 10px; border: 1px solid #ccc;">
-              {% for variant in product.variants %}
-                <option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
-              {% endfor %}
-            </select>
-          {% else %}
-            <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+        {% for block in section.blocks %}
+          {% if block.type == 'text' %}
+            <div class="product-title">
+             <h1> {{ product.title}}</h1>
+            </div>
           {% endif %}
 
-          <div class="quantity-and-buttons" style="margin-top: 20px;">
-            <input type="number" name="quantity" value="1" min="1" class="quantity-selector" style="width: 60px; padding: 5px; margin-right: 10px;">
-            <div style="display: flex; gap: 15px;">
-              <button type="submit" class="add-to-cart" style="flex: 1; padding: 10px 20px; background-color: #000; color: #fff; border: none; cursor: pointer; font-size: 16px;">
-                Add to Cart
-              </button>
-              <button type="submit" class="buy-button" style="flex: 1; padding: 10px 20px; background-color: #ffcc00; color: #000; border: none; cursor: pointer; font-size: 16px;">
-                Buy Now
-              </button>
+          <!-- Price -->
+          {% if block.type == 'price' %}
+            <div class="product-price">
+              {{ product.price | money }}
             </div>
-          </div>
-        </div>
+          {% endif %}
 
-        <!-- Product Description -->
-        <div class="product-description" style="margin-top: 30px; font-size: 16px; color: #555;">
-          <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 10px;">Description</h4>
-          <p>{{ product.description }}</p>
-        </div>
+          <!-- Variant Selector and Buttons -->
+          {% if block.type == 'buy-button' %}
+            <div class="product-buy">
+              {% if product.variants.size > 1 %}
+                <select name="id">
+                  {% for variant in product.variants %}
+                    <option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+                  {% endfor %}
+                </select>
+              {% else %}
+                <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+              {% endif %}
 
+              <input type="number" name="quantity" value="1" min="1" class="quantity-selector">
+
+              <div class="buttons" style="display: flex; flex-direction: row; gap: 10px;">
+                <button type="submit" class="add-to-cart">Add to Cart</button>
+                <button type="submit" class="buy-button">Buy Now</button>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
       </div>
     </div>
   </form>
 </div>
 
-<!-- Updated Styles -->
 <style>
-  #product-wrapper {
-    margin: 0;
-    padding: 40px;
-    background-color: #fff;
+  #product-wrapper{
+    margin: 0px;
+    background-color: #F9F1E6;
   }
+  .product-wrapper{
 
-  .product-wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
+    display: flex;
+    padding: 5rem;
+    justify-content: space-between;
+  }
+  .image-div img {
+    max-width: 100%;
+    height: auto;
+  }
+.image-div{
+  width: 70%;
+}
+  .product-info {
     padding: 20px;
-  }
-
-  .image-thumbnails img {
-    cursor: pointer;
-    border: 1px solid #ccc;
   }
 
   .add-to-cart, .buy-button {
     flex: 1;
+    
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
   }
-
-  .add-to-cart {
-    background-color: #000;
-    color: #fff;
+  .buy-button{
+    background-color: #E6EE87;
   }
-
-  .buy-button {
-    background-color: #ffcc00;
-    color: #000;
-  }
-
+.add-to-cart{
+  .background-color:var(--button-color-1);
+}
   .quantity-selector {
-    width: 60px;
-    padding: 5px;
-  }
-
-  .product-title {
-    font-size: 36px;
-    font-weight: 600;
-  }
-
-  .product-price {
-    font-size: 24px;
-    color: #333;
     margin-top: 10px;
+    width: 60px;
   }
 
-  .product-description {
-    margin-top: 30px;
-    font-size: 16px;
-    color: #555;
+  .buttons {
+    margin-top: 20px;
   }
+  .product-title{
+    font-size: var(--header-size-fontSize);
+    font-family: 'Dela-Gothic-One';
+    color:  #E6844E;
 
-  .product-description h4 {
-    font-size: 18px;
-    font-weight: 600;
+  }
+  .product-price{
+    font-size: 2rem;
+    color: grey;
+    margin: 0px;
+    font-family: arial;
+  }.product-info{
+    width: auto;
   }
 </style>
+
+{% schema %}
+{
+  "name": "main-product",
+  "tag": "section",
+  "class": "section",
+  "blocks": [
+    {
+      "name": "title",
+      "type": "text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title_text",
+          "label": "Title Text",
+          "default": "Product Title"
+        }
+      ]
+    },
+    {
+      "name": "price",
+      "type": "price"
+    },
+    {
+      "name": "buy-button",
+      "type": "buy-button"
+    },
+    {
+      "name": "image",
+      "type": "image"
+    }
+  ],
+  "settings": [
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "Columns",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 2
+    }
+  ]
+}
+{% endschema %}
