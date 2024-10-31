@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -32,13 +32,20 @@
           "type": "image",
           "settings": {
           }
+        },
+        "product_description_eiUgnV": {
+          "type": "product-description",
+          "settings": {
+            "description_text": "this is a propduct description for a main product in this situation that main product is for mew pokemon box"
+          }
         }
       },
       "block_order": [
         "title",
         "price",
         "buy-button",
-        "image_eMCeen"
+        "image_eMCeen",
+        "product_description_eiUgnV"
       ],
       "settings": {
         "columns": 2
