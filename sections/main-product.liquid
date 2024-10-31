@@ -18,7 +18,14 @@
         {% for block in section.blocks %}
           {% if block.type == 'text' %}
             <div class="product-title">
-             <h1> {{ product.title}}</h1>
+             <h1>{{ product.title }}</h1>
+            </div>
+          {% endif %}
+
+          <!-- Description -->
+          {% if block.type == 'description' %}
+            <div class="product-description">
+              <p>{{ block.settings.description_text }}</p>
             </div>
           {% endif %}
 
@@ -57,63 +64,70 @@
 </div>
 
 <style>
-  #product-wrapper{
+  #product-wrapper {
     margin: 0px;
     background-color: #FBFFF1;
     padding: 2rem 5rem 2rem 5rem;
   }
-  .product-wrapper{
-
+  
+  .product-wrapper {
     display: flex;
     padding: 5rem;
     justify-content: space-between;
     align-items: flex-start;
   }
+  
   .image-div img {
     max-width: 100%;
     height: auto;
   }
-.image-div{
-  width: 70%;
-}
+
+  .image-div {
+    width: 70%;
+  }
+  
   .product-info {
     padding: 20px;
   }
 
+  .product-title {
+    font-size: var(--header-size-fontSize);
+    font-family: 'Dela-Gothic-One';
+    color: #E6844E;
+  }
+
+  .product-description {
+    font-size: 1.2rem;
+    color: #333;
+    margin-top: 10px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .product-price {
+    font-size: 2rem;
+    color: grey;
+    margin: 0px;
+    font-family: Arial;
+  }
+  
   .add-to-cart, .buy-button {
     flex: 1;
-    
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
   }
-  .buy-button{
+  
+  .buy-button {
     background-color: #E6EE87;
   }
-.add-to-cart{
-  .background-color:var(--button-color-1);
-}
+  
   .quantity-selector {
     margin-top: 10px;
     width: 60px;
   }
-
+  
   .buttons {
     margin-top: 20px;
-  }
-  .product-title{
-    font-size: var(--header-size-fontSize);
-    font-family: 'Dela-Gothic-One';
-    color:  #E6844E;
-
-  }
-  .product-price{
-    font-size: 2rem;
-    color: grey;
-    margin: 0px;
-    font-family: arial;
-  }.product-info{
-    width: auto;
   }
 </style>
 
@@ -132,6 +146,18 @@
           "id": "title_text",
           "label": "Title Text",
           "default": "Product Title"
+        }
+      ]
+    },
+    {
+      "name": "description",
+      "type": "text",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "description_text",
+          "label": "Product Description",
+          "default": "Enter the product description here."
         }
       ]
     },
