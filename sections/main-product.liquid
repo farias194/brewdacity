@@ -6,7 +6,7 @@
         {% if block.type == 'image' %}
           {% if product.featured_image %}
             <div class="image-div">
-              <img src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.title }}">
+              <img width = '900px' src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.title }}">
             </div>
           {% endif %}
         {% endif %}
