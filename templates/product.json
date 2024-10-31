@@ -18,6 +18,12 @@
             "title_text": "Product Title"
           }
         },
+        "product_description_eiUgnV": {
+          "type": "product-description",
+          "settings": {
+            "description_text": "this is a propduct description for a main product in this situation that main product is for mew pokemon box"
+          }
+        },
         "price": {
           "type": "price",
           "settings": {
@@ -32,20 +38,14 @@
           "type": "image",
           "settings": {
           }
-        },
-        "product_description_eiUgnV": {
-          "type": "product-description",
-          "settings": {
-            "description_text": "this is a propduct description for a main product in this situation that main product is for mew pokemon box"
-          }
         }
       },
       "block_order": [
         "title",
+        "product_description_eiUgnV",
         "price",
         "buy-button",
-        "image_eMCeen",
-        "product_description_eiUgnV"
+        "image_eMCeen"
       ],
       "settings": {
         "columns": 2
