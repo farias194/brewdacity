@@ -16,7 +16,7 @@
           "type": "collection",
           "settings": {
             "collection": "pokemon-cards",
-            "columns_desktop": 5,
+            "columns_desktop": 3,
             "columns_mobile": 1,
             "collection_description": "gotta catch em all! we gout all the pokemon cards come here and check em! out"
           }
