@@ -66,7 +66,7 @@
           "type": "collection",
           "settings": {
             "collection": "pokemon-cards",
-            "columns_desktop": 4,
+            "columns_desktop": 3,
             "columns_mobile": 1,
             "header_alignment": "center"
           }
