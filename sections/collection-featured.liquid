@@ -204,13 +204,13 @@
   padding: 1rem;
   background-color: #677ef8;
 }
-  @media only screen and (min-width: 768px) {
+  @media (min-width: 768px) {
     .products-grid {
       grid-template-columns: repeat({{ columns_desktop }}, 1fr) !important;
     }
   }
 
-  @media only screen and (max-width: 767px) {
+  @media (max-width: 767px) {
     .products-grid {
       grid-template-columns: repeat({{ columns_mobile }}, 1fr) !important;
     }
