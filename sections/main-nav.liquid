@@ -148,6 +148,17 @@
   <nav class="navbar">
     <div class="nav_title">
       <div>
+        <div class="mobile-menu-icon" onclick="toggleMenu()"><svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect y="4" width="24" height="2" fill="currentColor" />
+        <rect y="11" width="24" height="2" fill="currentColor" />
+        <rect y="18" width="24" height="2" fill="currentColor" />
+      </svg></div>
       <h1 class="store-name">{{ section.settings.nav_title }}</h1></div>
       <div class="cart-link">
         <a href="/cart">
@@ -170,17 +181,7 @@
         </a>
       </div>
     </div>
-    <div class="mobile-menu-icon" onclick="toggleMenu()"><svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <rect y="4" width="24" height="2" fill="currentColor" />
-    <rect y="11" width="24" height="2" fill="currentColor" />
-    <rect y="18" width="24" height="2" fill="currentColor" />
-  </svg></div>
+
     <ul class="nav-links">
       {% for link in linklists.main-menu.links %}
         <li>
