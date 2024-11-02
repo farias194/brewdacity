@@ -118,7 +118,32 @@
       color: #2b2b2c;
       margin: 0px;
     }
+.mobile-menu-icon{
+  display: hidden;
+}
+    @media (max-width : 600px){
+
+    .nav-links{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      align-content: center;
+
+    }
+    .mobile-menu-icon{
+      display: block;
+    }
+    
+    }
   </style>
+
+  <script>
+  function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+  }
+
+  </script>
   
   <nav class="navbar">
     <div class="nav_title">
@@ -145,7 +170,7 @@
         </a>
       </div>
     </div>
-    <div class="mobile-menu-icon"><svg
+    <div class="mobile-menu-icon" onclick="toggleMenu()"><svg
     width="24"
     height="24"
     viewBox="0 0 24 24"
