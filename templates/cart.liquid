@@ -26,7 +26,7 @@
             </td>
             <td class="quantity-row">
               <button class="decrease" onclick="changeValue({{ item.id }}, -1)" type="button">-</button>
-              <input id="number-{{ item.id }}" type="number" name="updates[{{ item.id }}]" value="{{ item.quantity }}" min="1" />
+              <input class = 'number-input' id="number-{{ item.id }}" type="number" name="updates[{{ item.id }}]" value="{{ item.quantity }}" min="1" />
               <button class="increase" onclick="changeValue({{ item.id }}, 1)" type="button">+</button>
             </td>
             <td class="item-price-row">{{ item.price | money }}</td>
@@ -69,6 +69,10 @@ function changeValue(itemId, amount) {
     margin: 0;
   }
 
+  input[type='number']{
+    text-align: center;
+    max-width: 120px;
+  }
   input[type="number"] {
     -moz-appearance: textfield;
   }
