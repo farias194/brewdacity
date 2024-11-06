@@ -20,8 +20,8 @@
           <tr>
             <td>
               <a href="{{ item.url }}">
+                <p> {{ item.title }}</p>
                 <img src="{{ item.image | img_url: 'small' }}" alt="{{ item.title }}" />
-                {{ item.title }}
               </a>
             </td>
             <td class="quantity-row">
