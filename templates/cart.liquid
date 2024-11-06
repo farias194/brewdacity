@@ -26,10 +26,13 @@
             </td>
             <td class="quantity-row">
               <p>Qty :</p>
+              <div class="qty-buttons">
               <button class="decrease" onclick="changeValue({{ item.id }}, -1, {{ item.price }})" type="button">-</button>
               <input class="number-input" id="number-{{ item.id }}" type="number" name="updates[{{ item.id }}]" value="{{ item.quantity }}" min="1" onchange="updateTotal({{ item.id }}, {{ item.price }})" />
               <button class="increase" onclick="changeValue({{ item.id }}, 1, {{ item.price }})" type="button">+</button>
+              </div>
             </td>
+
             <td class="item-price-row">
               <p>Price</p>
               <p>{{ item.price | money }}</p>
@@ -97,6 +100,10 @@
 
 <style>
   /* General Styles */
+  .qty-buttons{
+    display: flex;
+    flex-direction: row;
+  }
   form {
     background-color: #E6EE87;
     margin: 0px;
