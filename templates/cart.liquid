@@ -25,12 +25,12 @@
               </a>
             </td>
             <td class="quantity-row">
-              <button class="decrease" onclick="changeValue({{ item.id }}, -1)" type="button">-</button>
-              <input class="number-input" id="number-{{ item.id }}" type="number" name="updates[{{ item.id }}]" value="{{ item.quantity }}" min="1" />
-              <button class="increase" onclick="changeValue({{ item.id }}, 1)" type="button">+</button>
+              <button class="decrease" onclick="changeValue({{ item.id }}, -1, {{ item.price }})" type="button">-</button>
+              <input class="number-input" id="number-{{ item.id }}" type="number" name="updates[{{ item.id }}]" value="{{ item.quantity }}" min="1" onchange="updateTotal({{ item.id }}, {{ item.price }})" />
+              <button class="increase" onclick="changeValue({{ item.id }}, 1, {{ item.price }})" type="button">+</button>
             </td>
             <td class="item-price-row">{{ item.price | money }}</td>
-            <td class="total-price-row">{{ item.line_price | money }}</td>
+            <td class="total-price-row" id="total-{{ item.id }}">{{ item.line_price | money }}</td>
             <td>
               <button type="submit" name="updates[{{ item.id }}]" value="0">Remove</button>
             </td>
@@ -41,7 +41,7 @@
 
     <!-- Bottom Cart Summary and Actions -->
     <div class="bottom-cart">
-      <p>Total: {{ cart.total_price | money }}</p>
+      <p id="cart-total">Total: {{ cart.total_price | money }}</p>
       <button type="submit" name="update">Update Cart</button>
       <button type="submit" name="checkout">Checkout</button>
     </div>
@@ -49,12 +49,45 @@
 {% endform %}
 
 <script>
-  function changeValue(itemId, amount) {
+  function changeValue(itemId, amount, price) {
     let input = document.getElementById('number-' + itemId);
     let newValue = Number(input.value) + amount;
     if (newValue >= 1) {
       input.value = newValue;
+      updateTotal(itemId, price);  // Update total after changing quantity
     }
+  }
+
+  function updateTotal(itemId, price) {
+    // Calculate new total for this item
+    let quantity = document.getElementById('number-' + itemId).value;
+    let itemTotal = quantity * price;
+    
+    // Update item's total display
+    document.getElementById('total-' + itemId).innerText = formatMoney(itemTotal);
+
+    // Recalculate and update cart total
+    updateCartTotal();
+  }
+
+  function updateCartTotal() {
+    let cartTotal = 0;
+    
+    // Loop through each item and add up the totals
+    document.querySelectorAll('.total-price-row').forEach((element) => {
+      let itemTotal = parseFloat(element.innerText.replace(/[^0-9.-]+/g, ""));
+      cartTotal += itemTotal;
+    });
+
+    // Update cart total display
+    document.getElementById('cart-total').innerText = 'Total: ' + formatMoney(cartTotal);
+  }
+
+  function formatMoney(amount) {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    }).format(amount / 100);  // Assuming prices are in cents
   }
 </script>
 
