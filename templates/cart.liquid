@@ -36,7 +36,7 @@
         </tbody>
       </table>
   
-      <div>
+      <div class="bottom-cart">
         <p>Total: {{ cart.total_price | money }}</p>
         <button type="submit" name="update">Update Cart</button>
         <button type="submit" name="checkout">Checkout</button>
@@ -45,6 +45,10 @@
   {% endform %}
 
   <style>
+    .bottom-car{
+      font-family: 'Dela-Gothic-One';
+      font-size: 1rem
+    }
     .cart-table {
   font-family: 'Dela-Gothic-One';
   font-size: 1rem;
