@@ -1,3 +1,63 @@
+{% form 'cart', cart %}
+  <div class="cart-wrapper"></div>
+  <h1 class="cart-title">Cart</h1>
+
+  {% if cart.item_count == 0 %}
+    <p>Your cart is empty.</p>
+  {% else %}
+    <table class="cart-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Total</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in cart.items %}
+          <tr class="product-row">
+            <td class="product-details">
+              <a href="{{ item.url }}">
+                <p>{{ item.title }}</p>
+                <img src="{{ item.image | img_url: 'medium' }}" alt="{{ item.title }}" />
+              </a>
+            </td>
+            <td class="quantity-row">
+              <button class="decrease" onclick="changeValue({{ item.id }}, -1)" type="button">-</button>
+              <input class="number-input" id="number-{{ item.id }}" type="number" name="updates[{{ item.id }}]" value="{{ item.quantity }}" min="1" />
+              <button class="increase" onclick="changeValue({{ item.id }}, 1)" type="button">+</button>
+            </td>
+            <td class="item-price-row">{{ item.price | money }}</td>
+            <td class="total-price-row">{{ item.line_price | money }}</td>
+            <td>
+              <button type="submit" name="updates[{{ item.id }}]" value="0">Remove</button>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <!-- Bottom Cart Summary and Actions -->
+    <div class="bottom-cart">
+      <p>Total: {{ cart.total_price | money }}</p>
+      <button type="submit" name="update">Update Cart</button>
+      <button type="submit" name="checkout">Checkout</button>
+    </div>
+  {% endif %}
+{% endform %}
+
+<script>
+  function changeValue(itemId, amount) {
+    let input = document.getElementById('number-' + itemId);
+    let newValue = Number(input.value) + amount;
+    if (newValue >= 1) {
+      input.value = newValue;
+    }
+  }
+</script>
+
 <style>
   /* General Styles */
   form {
@@ -60,6 +120,22 @@
     justify-content: space-around;
   }
 
+  /* Bottom Cart */
+  .bottom-cart {
+    font-family: 'Dela-Gothic-One';
+    padding: 2rem;
+    font-size: 1rem;
+    text-align: right;
+  }
+
+  .bottom-cart p {
+    font-size: 1.2rem;
+  }
+
+  .bottom-cart button {
+    margin-top: 1rem;
+  }
+
   /* Responsive Adjustments */
   @media (max-width: 768px) {
     /* Hide table headers */
@@ -86,59 +162,53 @@
       max-width: 100px;
       margin-bottom: 0.5rem;
     }
+
+    /* Bottom cart alignment for small screens */
+    .bottom-cart {
+      text-align: center;
+    }
+
+    .bottom-cart p {
+      font-size: 1rem;
+    }
+
+    .bottom-cart button {
+      width: 100%;
+      margin: 0.5rem 0;
+    }
   }
 
-  /* Bottom Cart */
-  .bottom-cart {
-    font-family: 'Dela-Gothic-One';
-    padding: 1rem;
-    font-size: 1rem;
+  /* Original Styles */
+  .item-price-row {
+    background-color: azure;
   }
 
-  /* Cart Title */
   .cart-title {
     font-family: 'Dela-Gothic-One';
-    margin: 0;
+    margin: 0px;
   }
 
-  /* Buttons */
+  td a p {
+    font-family: 'Dela-Gothic-One';
+    max-width: 50%;
+  }
+
+  td a {
+    display: flex;
+    flex-direction: column;
+  }
+
+  a img {
+    max-width: 150px;
+  }
+
   .increase, .decrease {
     background-color: #f9f9f9;
     border: none;
     padding: 10px;
   }
-</style>
 
-<table class="cart-table">
-  <thead>
-    <tr>
-      <th>Product</th>
-      <th>Quantity</th>
-      <th>Price</th>
-      <th>Total</th>
-      <th>Remove</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for item in cart.items %}
-      <tr class="product-row">
-        <td class="product-details">
-          <a href="{{ item.url }}">
-            <p>{{ item.title }}</p>
-            <img src="{{ item.image | img_url: 'medium' }}" alt="{{ item.title }}" />
-          </a>
-        </td>
-        <td class="quantity-row">
-          <button class="decrease" onclick="changeValue({{ item.id }}, -1)" type="button">-</button>
-          <input class="number-input" id="number-{{ item.id }}" type="number" name="updates[{{ item.id }}]" value="{{ item.quantity }}" min="1" />
-          <button class="increase" onclick="changeValue({{ item.id }}, 1)" type="button">+</button>
-        </td>
-        <td class="item-price-row">{{ item.price | money }}</td>
-        <td class="total-price-row">{{ item.line_price | money }}</td>
-        <td>
-          <button type="submit" name="updates[{{ item.id }}]" value="0">Remove</button>
-        </td>
-      </tr>
-    {% endfor %}
-  </tbody>
-</table>
+  .cart-table img {
+    max-width: 150px;
+  }
+</style>
