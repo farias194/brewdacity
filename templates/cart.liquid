@@ -24,9 +24,14 @@
                 </a>
               </td>
               <td class="quantity-row">
-                <input type="number" name="updates[{{ item.id }}]" value="{{ item.quantity }}" min="1" />
+                <button class="increase" onclick=changeValue(1) type="button">-</button>
+                <input id = 'number' type="number" name="updates[{{ item.id }}]" value="{{ item.quantity }}" min="1" />
+                <button class="decrease" onclick= 'changeValue(-1)type="button">+ </button>
+
+
+
               </td>
-              <td class="'item-price-row'">{{ item.price | money }}</td>
+              <td class="item-price-row">{{ item.price | money }}</td>
               <td class="total-price-row">{{ item.line_price | money }}</td>
               <td>
                 <button type="submit" name="updates[{{ item.id }}]" value="0">Remove</button>
@@ -43,6 +48,18 @@
       </div>
     {% endif %}
   {% endform %}
+
+  <script>
+
+    function changeValue(amount) {
+  let input = document.getElementById(number);
+  let newValue = Number(input.value) + amount;
+  if (newValue >= 1) {
+    input.value = newValue;
+  }
+
+    }
+  </script>
 
   <style>
     .item-price-row{
@@ -79,4 +96,5 @@
   max-width: 50px;
 }
   </style>
+  
   
