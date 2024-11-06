@@ -1,83 +1,80 @@
 {% form 'cart', cart %}
-    <h1>Your Cart</h1>
-  
-    {% if cart.item_count == 0 %}
-      <p>Your cart is empty.</p>
-    {% else %}
-      <table class="cart-table">
-        <thead>
+  <h1>Your Cart</h1>
+
+  {% if cart.item_count == 0 %}
+    <p>Your cart is empty.</p>
+  {% else %}
+    <table class="cart-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Total</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in cart.items %}
           <tr>
-            <th>Product</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Total</th>
-            <th>Remove</th>
+            <td>
+              <a href="{{ item.url }}">
+                <img src="{{ item.image | img_url: 'small' }}" alt="{{ item.title }}" />
+                {{ item.title }}
+              </a>
+            </td>
+            <td class="quantity-row">
+              <button class="decrease" onclick="changeValue({{ item.id }}, -1)" type="button">-</button>
+              <input id="number-{{ item.id }}" type="number" name="updates[{{ item.id }}]" value="{{ item.quantity }}" min="1" />
+              <button class="increase" onclick="changeValue({{ item.id }}, 1)" type="button">+</button>
+            </td>
+            <td class="item-price-row">{{ item.price | money }}</td>
+            <td class="total-price-row">{{ item.line_price | money }}</td>
+            <td>
+              <button type="submit" name="updates[{{ item.id }}]" value="0">Remove</button>
+            </td>
           </tr>
-        </thead>
-        <tbody>
-          {% for item in cart.items %}
-            <tr>
-              <td>
-                <a href="{{ item.url }}">
-                  <img src="{{ item.image | img_url: 'small' }}" alt="{{ item.title }}" />
-                  {{ item.title }}
-                </a>
-              </td>
-              <td class="quantity-row">
-                <button class="increase" onclick=changeValue(1) type="button">-</button>
-                <input id = 'number' type="number" name="updates[{{ item.id }}]" value="{{ item.quantity }}" min="1" />
-                <button class="decrease" onclick= 'changeValue(-1)type="button">+ </button>
+        {% endfor %}
+      </tbody>
+    </table>
 
+    <div class="bottom-cart">
+      <p>Total: {{ cart.total_price | money }}</p>
+      <button type="submit" name="update">Update Cart</button>
+      <button type="submit" name="checkout">Checkout</button>
+    </div>
+  {% endif %}
+{% endform %}
 
-
-              </td>
-              <td class="item-price-row">{{ item.price | money }}</td>
-              <td class="total-price-row">{{ item.line_price | money }}</td>
-              <td>
-                <button type="submit" name="updates[{{ item.id }}]" value="0">Remove</button>
-              </td>
-            </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-  
-      <div class="bottom-cart">
-        <p>Total: {{ cart.total_price | money }}</p>
-        <button type="submit" name="update">Update Cart</button>
-        <button type="submit" name="checkout">Checkout</button>
-      </div>
-    {% endif %}
-  {% endform %}
-
-  <script>
-
-    function changeValue(amount) {
-  let input = document.getElementById(number);
+<script>
+function changeValue(itemId, amount) {
+  let input = document.getElementById('number-' + itemId);
   let newValue = Number(input.value) + amount;
   if (newValue >= 1) {
     input.value = newValue;
   }
+}
+</script>
 
-    }
-  </script>
+<style>
+.item-price-row {
+  background-color: azure;
+}
 
-  <style>
-    .item-price-row{
-      background-color: azure;
-    }
-    .bottom-car{
-      font-family: 'Dela-Gothic-One';
-      font-size: 1rem
-    }
-    .cart-table {
+.bottom-cart {
+  font-family: 'Dela-Gothic-One';
+  font-size: 1rem;
+}
+
+.cart-table {
   font-family: 'Dela-Gothic-One';
   font-size: 1rem;
   color: black;
-
   width: 100%;
   border-collapse: collapse;
 }
-.cart-table td a{
+
+.cart-table td a {
   color: black;
   text-decoration: none;
 }
@@ -95,6 +92,4 @@
 .cart-table img {
   max-width: 50px;
 }
-  </style>
-  
-  
+</style>
