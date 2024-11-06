@@ -1,139 +1,144 @@
-{% form 'cart', cart %}
-  <div class="cart-wrapper"></div>
-  <h1 class="cart-title"> Cart</h1>
-
-  {% if cart.item_count == 0 %}
-    <p>Your cart is empty.</p>
-  {% else %}
-    <table class="cart-table">
-      <thead>
-        <tr>
-          <th>Product</th>
-          <th>Quantity</th>
-          <th>Price</th>
-          <th>Total</th>
-          <th>Remove</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for item in cart.items %}
-          <tr>
-            <td>
-              <a href="{{ item.url }}">
-                <p> {{ item.title }}</p>
-                <img src="{{ item.image | img_url: 'medium' }}" alt="{{ item.title }}" />
-              </a>
-            </td>
-            <td class="quantity-row">
-              <button class="decrease" onclick="changeValue({{ item.id }}, -1)" type="button">-</button>
-              <input class = 'number-input' id="number-{{ item.id }}" type="number" name="updates[{{ item.id }}]" value="{{ item.quantity }}" min="1" />
-              <button class="increase" onclick="changeValue({{ item.id }}, 1)" type="button">+</button>
-            </td>
-            <td class="item-price-row">{{ item.price | money }}</td>
-            <td class="total-price-row">{{ item.line_price | money }}</td>
-            <td>
-              <button type="submit" name="updates[{{ item.id }}]" value="0">Remove</button>
-            </td>
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-
-    <div class="bottom-cart">
-      <p>Total: {{ cart.total_price | money }}</p>
-      <button type="submit" name="update">Update Cart</button>
-      <button type="submit" name="checkout">Checkout</button>
-    </div>
-    
-  {% endif %}
-{% endform %}
-
-<script>
-function changeValue(itemId, amount) {
-  let input = document.getElementById('number-' + itemId);
-  let newValue = Number(input.value) + amount;
-  if (newValue >= 1) {
-    input.value = newValue;
-  }
-}
-</script>
-
 <style>
-  form{
-    background-color: #E6EE87
+  /* General Styles */
+  form {
+    background-color: #E6EE87;
     margin: 0px;
   }
-   input[type="number"]::-webkit-outer-spin-button,
+
+  /* Remove number input arrows */
+  input[type="number"]::-webkit-outer-spin-button,
   input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
 
-  input[type='number']{
+  input[type="number"] {
+    -moz-appearance: textfield;
     text-align: center;
     padding: 1rem;
   }
-  input[type="number"] {
-    -moz-appearance: textfield;
+
+  /* Cart Table */
+  .cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Dela-Gothic-One';
+    color: black;
   }
-.item-price-row {
-  background-color: azure;
-}
 
-.bottom-cart {
-  font-family: 'Dela-Gothic-One';
-  padding: 2rem;
-  font-size: 1rem;
-}
-.bottom-cart p {
-  font-size: 1rem;
-  font-family: 'Dela-Gothic-One';
-}
-.cart-table {
-  font-family: 'Dela-Gothic-One';
-  font-size: 1rem;
-  color: black;
-  width: 100%;
-  border-collapse: collapse;
-}
+  .cart-table th, .cart-table td {
+    padding: 1rem;
+    text-align: left;
+  }
 
-.cart-table td a {
-  color: black;
-  text-decoration: none;
-}
+  .cart-table th {
+    background-color: #f2f2f2;
+  }
 
-.cart-table th, .cart-table td {
-  padding: 2rem;
-}
-.increase, .decrease {
-  background-color: #f9f9f9;
-  border: none;
-  padding: 10px;
-}
+  /* Product Row Styling */
+  .cart-table .product-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 1rem 0;
+  }
 
-.cart-table th {
-  background-color: #f2f2f2;
-  text-align: left;
-  font-size: 1rem;
-}
+  .cart-table .product-details {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
 
-.cart-table img {
-  max-width: 150px;
-}
-.cart-title{
-  font-family: 'Dela-Gothic-One';
-  margin: 0px;
+  .cart-table .quantity-row,
+  .cart-table .item-price-row,
+  .cart-table .total-price-row {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
 
-}
-td a p {
-  font-family: 'Dela-Gothic-One';
-  max-width: 50%;
-}
-td a{
-  display: flex;
-  flex-direction: column;
-}
-a img{
-  max-width: 150px;
-}
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    /* Hide table headers */
+    .cart-table thead {
+      display: none;
+    }
+
+    /* Stack product details vertically on smaller screens */
+    .cart-table .product-row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .cart-table .quantity-row,
+    .cart-table .item-price-row,
+    .cart-table .total-price-row {
+      justify-content: flex-start;
+      width: 100%;
+      padding: 0.5rem 0;
+    }
+
+    /* Adjust images */
+    .cart-table img {
+      max-width: 100px;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  /* Bottom Cart */
+  .bottom-cart {
+    font-family: 'Dela-Gothic-One';
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  /* Cart Title */
+  .cart-title {
+    font-family: 'Dela-Gothic-One';
+    margin: 0;
+  }
+
+  /* Buttons */
+  .increase, .decrease {
+    background-color: #f9f9f9;
+    border: none;
+    padding: 10px;
+  }
 </style>
+
+<table class="cart-table">
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Total</th>
+      <th>Remove</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in cart.items %}
+      <tr class="product-row">
+        <td class="product-details">
+          <a href="{{ item.url }}">
+            <p>{{ item.title }}</p>
+            <img src="{{ item.image | img_url: 'medium' }}" alt="{{ item.title }}" />
+          </a>
+        </td>
+        <td class="quantity-row">
+          <button class="decrease" onclick="changeValue({{ item.id }}, -1)" type="button">-</button>
+          <input class="number-input" id="number-{{ item.id }}" type="number" name="updates[{{ item.id }}]" value="{{ item.quantity }}" min="1" />
+          <button class="increase" onclick="changeValue({{ item.id }}, 1)" type="button">+</button>
+        </td>
+        <td class="item-price-row">{{ item.price | money }}</td>
+        <td class="total-price-row">{{ item.line_price | money }}</td>
+        <td>
+          <button type="submit" name="updates[{{ item.id }}]" value="0">Remove</button>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
