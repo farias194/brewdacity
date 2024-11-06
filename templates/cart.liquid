@@ -25,11 +25,15 @@
               </a>
             </td>
             <td class="quantity-row">
+              <p>Qty :</p>
               <button class="decrease" onclick="changeValue({{ item.id }}, -1, {{ item.price }})" type="button">-</button>
               <input class="number-input" id="number-{{ item.id }}" type="number" name="updates[{{ item.id }}]" value="{{ item.quantity }}" min="1" onchange="updateTotal({{ item.id }}, {{ item.price }})" />
               <button class="increase" onclick="changeValue({{ item.id }}, 1, {{ item.price }})" type="button">+</button>
             </td>
-            <td class="item-price-row">{{ item.price | money }}</td>
+            <td class="item-price-row">
+              <p>Price</p>
+              <p>{{ item.price | money }}</p>
+              </td>
             <td class="total-price-row" id="total-{{ item.id }}">{{ item.line_price | money }}</td>
             <td>
               <button type="submit" name="updates[{{ item.id }}]" value="0">Remove</button>
