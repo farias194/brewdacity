@@ -12,7 +12,7 @@
           <tr class="product-row">
             <td class="product-details">
               <a href="{{ item.url }}">
-                <p>{{ item.title }}</p>
+                <p class="item-title">{{ item.title }}</p>
                 <img src="{{ item.image | img_url: 'medium' }}" alt="{{ item.title }}" />
               </a>
             </td>
@@ -102,7 +102,6 @@
     flex-direction: row;
   }
   form {
-    background-color: #E6EE87;
     margin: 0px;
   }
 
@@ -180,7 +179,9 @@
     display: flex;
     flex-direction: column;
   }
-
+.item-title{
+  color: black;
+}
   /* Responsive Adjustments */
   @media (max-width: 768px) {
     /* Hide table headers */
