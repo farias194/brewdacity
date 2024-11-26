@@ -69,8 +69,7 @@
           "text_block_AGH6hw",
           "button_NTdPeG"
         ],
-        "settings": {
-        }
+        "settings": {}
       },
       "collection-featured": {
         "type": "collection-featured",
@@ -87,8 +86,7 @@
         "block_order": [
           "collection_U7aFQE"
         ],
-        "settings": {
-        }
+        "settings": {}
       },
       "about-section": {
         "type": "about-section",
@@ -219,8 +217,6 @@
         }
       }
     },
-    "content_for_index": [
-
-    ]
+    "content_for_index": []
   }
 }

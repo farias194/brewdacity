@@ -16,8 +16,8 @@
           "type": "text_block",
           "settings": {
             "color_title": "#e6ee87",
-            "hero_text": "Come have a Brewtastic time!",
-            "subline": "you know you wanna"
+            "hero_text": "Coffee & Cardshop in Harrison NJ",
+            "subline": "come take a look at our stuff"
           }
         },
         "button_YL33FB": {
@@ -177,8 +177,7 @@
         "event_MczHG6",
         "event_BWAFkN"
       ],
-      "settings": {
-      }
+      "settings": {}
     },
     "footer": {
       "type": "footer",
